@@ -1,0 +1,7 @@
+##gff-version  3
+# Sequence Data: seqnum=1;seqlen=2507;seqhdr="AAB-S01R1_k55_3559171_flag=0_multi=6.5922_len=2507"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="31|Natrialba_magadii_ATCC_43099|A|61.4|11|0";gc_cont=61.40;transl_table=11;uses_sd=0
+AAB-S01R1_k55_3559171_flag=0_multi=6.5922_len=2507	Prodigal_v2.6.3	CDS	212	1363	111.9	+	0	ID=1_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.628;conf=100.00;score=111.89;cscore=108.37;sscore=3.52;rscore=0.00;uscore=-1.36;tscore=4.88;
+AAB-S01R1_k55_3559171_flag=0_multi=6.5922_len=2507	Prodigal_v2.6.3	CDS	1468	1824	48.7	+	0	ID=1_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.605;conf=100.00;score=48.71;cscore=43.13;sscore=5.59;rscore=0.00;uscore=0.70;tscore=4.88;
+AAB-S01R1_k55_3559171_flag=0_multi=6.5922_len=2507	Prodigal_v2.6.3	CDS	1997	2416	3.7	-	0	ID=1_3;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.671;conf=69.93;score=3.67;cscore=8.67;sscore=-5.00;rscore=0.00;uscore=0.18;tscore=-5.18;
+AAB-S01R1_k55_3559171_flag=0_multi=6.5922_len=2507	Prodigal_v2.6.3	CDS	2392	2505	2.8	-	0	ID=1_4;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.596;conf=65.73;score=2.83;cscore=1.22;sscore=1.61;rscore=0.00;uscore=-0.55;tscore=2.17;

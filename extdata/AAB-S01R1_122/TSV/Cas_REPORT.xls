@@ -1,0 +1,90 @@
+############################################
+AAB-S01R1_k55_8003511_flag=0_multi=8 ( Unknown ) 
+--------------------------------------------
+############################################
+AAB-S01R1_k55_7023507_flag=0_multi=9 ( Unknown ) 
+--------------------------------------------
+############################################
+AAB-S01R1_k55_21145_flag=0_multi=9 ( Unknown ) 
+--------------------------------------------
+############################################
+AAB-S01R1_k55_36331_flag=0_multi=9 ( Unknown ) 
+--------------------------------------------
+### System: CAS (CAS_putative)
+#SequenceID	Cas-type/subtype	Gene status	System	Type	Begin	End	Strand	Other_information
+AAB-S01R1_k55_36331_flag=0_multi=9.3604_len=28042_3	cas3a_TypeI	forbidden	CAS	CDS	5672	6802	+	ID=1_3;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.591;conf=100.00;score=102.22;cscore=107.00;sscore=-4.77;rscore=-0.18;uscore=2.55;tscore=-7.14;
+AAB-S01R1_k55_36331_flag=0_multi=9.3604_len=28042_3	cas3a_TypeI	forbidden	CAS	CDS	5672	6802	+	ID=1_3;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.591;conf=100.00;score=102.22;cscore=107.00;sscore=-4.77;rscore=-0.18;uscore=2.55;tscore=-7.14;
+####Summary system CAS:begin=5672;end=6802:{sequenceID=AAB-S01R1_k55_36331_flag=0_multi=9} : [cas3a_TypeI (5672,6802,+); cas3a_TypeI (5672,6802,+)]
+
+
+############################################
+AAB-S01R1_k55_43920_flag=0_multi=10 ( Unknown ) 
+--------------------------------------------
+############################################
+AAB-S01R1_k55_3086998_flag=0_multi=9 ( Unknown ) 
+--------------------------------------------
+############################################
+AAB-S01R1_k55_4109796_flag=0_multi=10 ( Unknown ) 
+--------------------------------------------
+############################################
+AAB-S01R1_k55_147795_flag=0_multi=10 ( Unknown ) 
+--------------------------------------------
+############################################
+AAB-S01R1_k55_9186821_flag=0_multi=11 ( Unknown ) 
+--------------------------------------------
+############################################
+AAB-S01R1_k55_2235575_flag=0_multi=10 ( Unknown ) 
+--------------------------------------------
+### System: CAS (CAS_putative)
+#SequenceID	Cas-type/subtype	Gene status	System	Type	Begin	End	Strand	Other_information
+AAB-S01R1_k55_2235575_flag=0_multi=10.5634_len=63182_50	cas3a_TypeI	forbidden	CAS	CDS	53553	54590	+	ID=1_50;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.619;conf=100.00;score=91.72;cscore=89.37;sscore=2.35;rscore=-0.18;uscore=-1.45;tscore=3.98;
+AAB-S01R1_k55_2235575_flag=0_multi=10.5634_len=63182_50	cas3a_TypeI	forbidden	CAS	CDS	53553	54590	+	ID=1_50;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.619;conf=100.00;score=91.72;cscore=89.37;sscore=2.35;rscore=-0.18;uscore=-1.45;tscore=3.98;
+####Summary system CAS:begin=53553;end=54590:{sequenceID=AAB-S01R1_k55_2235575_flag=0_multi=10} : [cas3a_TypeI (53553,54590,+); cas3a_TypeI (53553,54590,+)]
+
+
+############################################
+AAB-S01R1_k55_2357225_flag=0_multi=10 ( Unknown ) 
+--------------------------------------------
+############################################
+AAB-S01R1_k55_7374205_flag=0_multi=9 ( Unknown ) 
+--------------------------------------------
+############################################
+AAB-S01R1_k55_9399631_flag=0_multi=9 ( Unknown ) 
+--------------------------------------------
+### System: CAS-TypeIE (CAS-TypeIE_putative)
+#SequenceID	Cas-type/subtype	Gene status	System	Type	Begin	End	Strand	Other_information
+AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518_27	cas1_TypeIE	mandatory	CAS-TypeIE	CDS	24075	24989	+	ID=1_27;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.604;conf=100.00;score=72.84;cscore=66.50;sscore=6.34;rscore=2.07;uscore=-0.25;tscore=3.34;
+AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518_28	cas2_TypeIE	mandatory	CAS-TypeIE	CDS	24970	25260	+	ID=1_28;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.625;conf=99.90;score=30.05;cscore=15.95;sscore=14.10;rscore=11.72;uscore=-0.96;tscore=3.34;
+AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518_22	cas5_TypeIE	mandatory	CAS-TypeIE	CDS	21742	22521	+	ID=1_22;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.592;conf=99.90;score=29.93;cscore=26.11;sscore=3.82;rscore=2.07;uscore=-1.59;tscore=3.34;
+AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518_23	cas6_TypeIE	mandatory	CAS-TypeIE	CDS	22518	23228	+	ID=1_23;partial=00;start_type=ATG;rbs_motif=GGxGG;rbs_spacer=5-10bp;gc_cont=0.592;conf=99.67;score=24.87;cscore=15.85;sscore=9.02;rscore=2.40;uscore=1.99;tscore=3.34;
+AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518_21	cas7_TypeIE	mandatory	CAS-TypeIE	CDS	20604	21785	+	ID=1_21;partial=00;start_type=ATG;rbs_motif=AGGAG/GGAGG;rbs_spacer=11-12bp;gc_cont=0.580;conf=100.00;score=94.36;cscore=88.01;sscore=6.35;rscore=3.43;uscore=-1.66;tscore=3.34;
+AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518_19	cse1_TypeIE	mandatory	CAS-TypeIE	CDS	18514	20019	+	ID=1_19;partial=00;start_type=TTG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.596;conf=100.00;score=84.08;cscore=75.83;sscore=8.25;rscore=11.72;uscore=-0.92;tscore=-4.77;
+####Summary system CAS-TypeIE:begin=18514;end=25260:{sequenceID=AAB-S01R1_k55_9399631_flag=0_multi=9} : [cas1_TypeIE (24075,24989,+); cas2_TypeIE (24970,25260,+); cas5_TypeIE (21742,22521,+); cas6_TypeIE (22518,23228,+); cas7_TypeIE (20604,21785,+); cse1_TypeIE (18514,20019,+)]
+
+### System: CAS (CAS_putative)
+#SequenceID	Cas-type/subtype	Gene status	System	Type	Begin	End	Strand	Other_information
+AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518_28	cas2_TypeIE	forbidden	CAS-TypeIE	CDS	24970	25260	+	ID=1_28;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.625;conf=99.90;score=30.05;cscore=15.95;sscore=14.10;rscore=11.72;uscore=-0.96;tscore=3.34;
+AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518_18	cas3_TypeI	forbidden	CAS	CDS	16028	18517	+	ID=1_18;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.604;conf=100.00;score=151.98;cscore=147.50;sscore=4.48;rscore=2.07;uscore=-0.93;tscore=3.34;
+AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518_18	cas3_TypeI	forbidden	CAS	CDS	16028	18517	+	ID=1_18;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.604;conf=100.00;score=151.98;cscore=147.50;sscore=4.48;rscore=2.07;uscore=-0.93;tscore=3.34;
+AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518_22	cas5_TypeIE	forbidden	CAS-TypeIE	CDS	21742	22521	+	ID=1_22;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.592;conf=99.90;score=29.93;cscore=26.11;sscore=3.82;rscore=2.07;uscore=-1.59;tscore=3.34;
+AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518_23	cas6_TypeIE	forbidden	CAS-TypeIE	CDS	22518	23228	+	ID=1_23;partial=00;start_type=ATG;rbs_motif=GGxGG;rbs_spacer=5-10bp;gc_cont=0.592;conf=99.67;score=24.87;cscore=15.85;sscore=9.02;rscore=2.40;uscore=1.99;tscore=3.34;
+AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518_21	cas7_TypeIE	forbidden	CAS-TypeIE	CDS	20604	21785	+	ID=1_21;partial=00;start_type=ATG;rbs_motif=AGGAG/GGAGG;rbs_spacer=11-12bp;gc_cont=0.580;conf=100.00;score=94.36;cscore=88.01;sscore=6.35;rscore=3.43;uscore=-1.66;tscore=3.34;
+AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518_19	cse1_TypeIE	forbidden	CAS-TypeIE	CDS	18514	20019	+	ID=1_19;partial=00;start_type=TTG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.596;conf=100.00;score=84.08;cscore=75.83;sscore=8.25;rscore=11.72;uscore=-0.92;tscore=-4.77;
+####Summary system CAS:begin=16028;end=25260:{sequenceID=AAB-S01R1_k55_9399631_flag=0_multi=9} : [cas2_TypeIE (24970,25260,+); cas3_TypeI (16028,18517,+); cas3_TypeI (16028,18517,+); cas5_TypeIE (21742,22521,+); cas6_TypeIE (22518,23228,+); cas7_TypeIE (20604,21785,+); cse1_TypeIE (18514,20019,+)]
+
+
+############################################
+AAB-S01R1_k55_2451649_flag=0_multi=9 ( Unknown ) 
+--------------------------------------------
+############################################
+AAB-S01R1_k55_3559171_flag=0_multi=6 ( Unknown ) 
+--------------------------------------------
+############################################
+AAB-S01R1_k55_2644025_flag=0_multi=10 ( Unknown ) 
+--------------------------------------------
+############################################
+AAB-S01R1_k55_7696808_flag=1_multi=8 ( Unknown ) 
+--------------------------------------------
+############################################
+AAB-S01R1_k55_2865144_flag=0_multi=11 ( Unknown ) 
+--------------------------------------------

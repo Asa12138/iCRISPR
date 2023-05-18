@@ -1,0 +1,11 @@
+#### Statistics on CRISPRs orientation by CRISPRCasFinder vs. CRISPRDirection
+
+Total number of CRISPRs arrays found = 21
+Number of perfect macthes between CRISPRCasFinder's potential orientation (based on AT%) and CRISPRDirection = 0
+Number of Forward by CRISPRCasFinder = 4
+Number of Forward by CRISPRDirection = 0
+Number of Reverse by CRISPRCasFinder = 6
+Number of Reverse by CRISPRDirection = 0
+
+Number of unoriented by CRISPRCasFinder = 11
+Number of unoriented by CRISPRDirection = 21

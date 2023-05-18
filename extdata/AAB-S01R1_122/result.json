@@ -1,0 +1,5545 @@
+{
+"Date":"15/4/2023_13:42:40",
+"Version":"4.2.30",
+"Command":"perl /usr/local/CRISPRCasFinder/CRISPRCasFinder.pl ",
+"Sequences":
+[{
+"Id":"AAB-S01R1_k55_2876_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_2876_flag=0_multi=10.6630_len=7599",
+"Description":"Unknown",
+"AT":40.4790103961048,
+"Length":7599,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4007842_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_4007842_flag=0_multi=11.0371_len=1832",
+"Description":"Unknown",
+"AT":39.3013100436681,
+"Length":1832,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8003511_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_8003511_flag=0_multi=8.3746_len=5826",
+"Description":"Unknown",
+"AT":39.9759697905939,
+"Length":5826,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_8003511_flag",
+"Start": 46,
+"End": 153,
+"DR_Consensus": "CGAACAACGGCGACTCCGTGCCGCCGCA",
+"Repeat_ID": "Unknown",
+"DR_Length": 28,
+"Spacers": 1,
+"Potential_Orientation": "ND",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": -54,
+"End": 45,
+"Sequence": "UNKNOWN",
+"Leader": 0,
+"AT": 0
+},
+ {
+"Type": "DR",
+"Start": 46,
+"End": 73,
+"Sequence": "CGAACAACGGCGACTCCGTGCCGCCGCA"
+},
+{
+"Type": "Spacer",
+"Start": 74,
+"End": 125,
+"Sequence": "TCAAGAGAAAATACCGTTAGCGCGGTCGCGACTGGCGAGCGACTCCCATGAA"
+},
+{
+"Type": "DR",
+"Start": 126,
+"End": 153,
+"Sequence": "CGAACAACGGCGACTCCGTGCCGCCGCA"
+},
+{
+"Type": "RightFLANK",
+"Start": 154,
+"End": 253,
+"Sequence": "CCATGAAAAAAAATAGTAAGTGCTAGCCCCGGCGAAGTCGGGGCGAGAACCCGAATCACGATCCCGCCGTCTCCTCCGCAAATCCGTCTCCCGTTTTTCT",
+"Leader": 0,
+"AT": 45
+}
+]
+}]
+,
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_12504_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_12504_flag=0_multi=9.7371_len=2961",
+"Description":"Unknown",
+"AT":40.2566700439041,
+"Length":2961,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1016832_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_1016832_flag=0_multi=9.7438_len=25453",
+"Description":"Unknown",
+"AT":38.270537854084,
+"Length":25453,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9012764_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_9012764_flag=0_multi=8.6358_len=6842",
+"Description":"Unknown",
+"AT":36.6121017246419,
+"Length":6842,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9012933_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_9012933_flag=0_multi=9.7980_len=3842",
+"Description":"Unknown",
+"AT":38.8339406559084,
+"Length":3842,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4019381_flag=1_multi=10",
+"Version":"AAB-S01R1_k55_4019381_flag=1_multi=10.4710_len=38235",
+"Description":"Unknown",
+"AT":38.485680659082,
+"Length":38235,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4020147_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_4020147_flag=0_multi=10.1996_len=3507",
+"Description":"Unknown",
+"AT":38.1522668947819,
+"Length":3507,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_18234_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_18234_flag=0_multi=9.6422_len=9287",
+"Description":"Unknown",
+"AT":38.1931732529342,
+"Length":9287,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3020859_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_3020859_flag=0_multi=11.2633_len=13666",
+"Description":"Unknown",
+"AT":39.7482804039221,
+"Length":13666,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5023602_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_5023602_flag=0_multi=10.6668_len=12236",
+"Description":"Unknown",
+"AT":40.6015037593985,
+"Length":12236,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1022449_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_1022449_flag=0_multi=10.3658_len=47147",
+"Description":"Unknown",
+"AT":38.3184508028082,
+"Length":47147,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7023507_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7023507_flag=0_multi=9.3178_len=4293",
+"Description":"Unknown",
+"AT":39.4828791055206,
+"Length":4293,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_7023507_flag",
+"Start": 865,
+"End": 973,
+"DR_Consensus": "CATCCCGGCTCCGAGAAGCTAGGTTCCCCCG",
+"Repeat_ID": "Unknown",
+"DR_Length": 31,
+"Spacers": 1,
+"Potential_Orientation": "ND",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 765,
+"End": 864,
+"Sequence": "TTAGCTCGTGACCCGGGCGGTGACCCCGGGTGCGGGGAGGGGTAGTGTCCTGGCCAACGCGGGAGACGCCCCCTCCTTCGCATCCCGGACCGGGCACGAG",
+"Leader": 0,
+"AT": 27
+},
+ {
+"Type": "DR",
+"Start": 865,
+"End": 895,
+"Sequence": "CATCCCGGCTCCGAGAAGCTAGGTTCCCCCG"
+},
+{
+"Type": "Spacer",
+"Start": 896,
+"End": 942,
+"Sequence": "CAAGCGGTGGAACCGCCCCCTCTTTCGCATCCCGGCCCGGGCACGGA"
+},
+{
+"Type": "DR",
+"Start": 943,
+"End": 973,
+"Sequence": "CATCCCGGCTCCGGGAAGCTAGGTTCCCCCG"
+},
+{
+"Type": "RightFLANK",
+"Start": 974,
+"End": 1073,
+"Sequence": "TGACCACGGGGGAACCACTCGCGCGAGCGGTTCCTCCGTAAACGGGTGCATCACTCTACAGCGTCCCTCGAACCGCCTGCTCCCGCTCGATCGCCTCGAA",
+"Leader": 0,
+"AT": 35
+}
+]
+}]
+,
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_21145_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_21145_flag=0_multi=9.6205_len=7306",
+"Description":"Unknown",
+"AT":35.8746235970435,
+"Length":7306,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_21145_flag",
+"Start": 6304,
+"End": 6393,
+"DR_Consensus": "CGACTCGCCGACTCGCAAACTCCCTCCCTCCCTC",
+"Repeat_ID": "Unknown",
+"DR_Length": 34,
+"Spacers": 1,
+"Potential_Orientation": "+",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 6204,
+"End": 6303,
+"Sequence": "AGCGCGCTGCCCATCGTCGCGGTGAACATGTACGACCCGACGGAACGCGCATCCTCGGCCGACAACTCGCTGGAGGTGGTGCGATGAAGGGCCTGTTAAA",
+"Leader": 1,
+"AT": 37
+},
+ {
+"Type": "DR",
+"Start": 6304,
+"End": 6337,
+"Sequence": "GAACTCGTCGACTCGCCGACTCGCAAACTCCCTC"
+},
+{
+"Type": "Spacer",
+"Start": 6338,
+"End": 6359,
+"Sequence": "CCTCCCTCGCTCCCATACTCGC"
+},
+{
+"Type": "DR",
+"Start": 6360,
+"End": 6393,
+"Sequence": "CAACTCGCCAACTCGCAAACTCCCTCCCTCCCAT"
+},
+{
+"Type": "RightFLANK",
+"Start": 6394,
+"End": 6493,
+"Sequence": "ACTCGCCGACTCGCCGACTCGCAAACTCCCTCACTCCCTCCCTCCCTCGCTCCCATACTCGCCAACTCGCCAACTCGCCGAAGGTGGTGCGATGAAGGGC",
+"Leader": 0,
+"AT": 35
+}
+]
+}]
+,
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9018874_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_9018874_flag=0_multi=9.6220_len=3394",
+"Description":"Unknown",
+"AT":45.0795521508545,
+"Length":3394,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1023789_flag=1_multi=10",
+"Version":"AAB-S01R1_k55_1023789_flag=1_multi=10.7065_len=17843",
+"Description":"Unknown",
+"AT":40.5649274225186,
+"Length":17843,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9021041_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_9021041_flag=0_multi=10.1389_len=25789",
+"Description":"Unknown",
+"AT":39.9433867152662,
+"Length":25789,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2026822_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_2026822_flag=0_multi=9.2670_len=3736",
+"Description":"Unknown",
+"AT":36.134903640257,
+"Length":3736,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_24975_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_24975_flag=0_multi=8.8528_len=2215",
+"Description":"Unknown",
+"AT":40.7674943566591,
+"Length":2215,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4027832_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_4027832_flag=0_multi=10.6387_len=16228",
+"Description":"Unknown",
+"AT":39.2469805274834,
+"Length":16228,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7027814_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_7027814_flag=0_multi=10.7392_len=5961",
+"Description":"Unknown",
+"AT":38.4834759268579,
+"Length":5961,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8020000_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_8020000_flag=0_multi=11.3544_len=6372",
+"Description":"Unknown",
+"AT":39.7206528562461,
+"Length":6372,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7028754_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_7028754_flag=0_multi=10.5975_len=5011",
+"Description":"Unknown",
+"AT":38.1959688684893,
+"Length":5011,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_27363_flag=0_multi=4",
+"Version":"AAB-S01R1_k55_27363_flag=0_multi=4.9042_len=2100",
+"Description":"Unknown",
+"AT":39.0476190476191,
+"Length":2100,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4032118_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_4032118_flag=0_multi=8.4436_len=2695",
+"Description":"Unknown",
+"AT":41.2615955473098,
+"Length":2695,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_32884_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_32884_flag=0_multi=10.2565_len=11383",
+"Description":"Unknown",
+"AT":39.3745058420452,
+"Length":11383,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5034860_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_5034860_flag=0_multi=9.1912_len=15305",
+"Description":"Unknown",
+"AT":38.9741914407057,
+"Length":15305,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1035289_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_1035289_flag=0_multi=9.1724_len=7124",
+"Description":"Unknown",
+"AT":37.4368332397529,
+"Length":7124,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5036004_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_5036004_flag=0_multi=8.1254_len=2536",
+"Description":"Unknown",
+"AT":37.2634069400631,
+"Length":2536,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7036441_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_7036441_flag=0_multi=11.3352_len=19743",
+"Description":"Unknown",
+"AT":39.7609279238211,
+"Length":19743,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5036082_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_5036082_flag=0_multi=10.8309_len=11533",
+"Description":"Unknown",
+"AT":37.4403884505332,
+"Length":11533,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5037314_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_5037314_flag=0_multi=11.0564_len=21710",
+"Description":"Unknown",
+"AT":40.322432058959,
+"Length":21710,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_36252_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_36252_flag=0_multi=7.6899_len=3864",
+"Description":"Unknown",
+"AT":40.036231884058,
+"Length":3864,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_36331_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_36331_flag=0_multi=9.3604_len=28042",
+"Description":"Unknown",
+"AT":39.6904643035447,
+"Length":28042,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_36331_flag",
+"Start": 6807,
+"End": 6902,
+"DR_Consensus": "TCGCGGCGAAGCCGCGCACCGGAAAACA",
+"Repeat_ID": "Unknown",
+"DR_Length": 28,
+"Spacers": 1,
+"Potential_Orientation": "+",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 6707,
+"End": 6806,
+"Sequence": "ATCGTCCGAGGCAGCGGAACCCAATTCGACCCAAAGGTGGTTGAGGCGTTTTTGGAGGTCGTCGGCGAATCAGAAGCGATGGCCGAAGCCGCGTAGTTTG",
+"Leader": 1,
+"AT": 42
+},
+ {
+"Type": "DR",
+"Start": 6807,
+"End": 6834,
+"Sequence": "TCGCGGCGAAGCCGCGCACCGGAAAACA"
+},
+{
+"Type": "Spacer",
+"Start": 6835,
+"End": 6874,
+"Sequence": "AGAGTGAATCGGCGAGTACGGCGCGCCGATCTAGCTCAAA"
+},
+{
+"Type": "DR",
+"Start": 6875,
+"End": 6902,
+"Sequence": "TCGCGGCGAAGCCGCGCACCAGGAAAAC"
+},
+{
+"Type": "RightFLANK",
+"Start": 6903,
+"End": 7002,
+"Sequence": "ATAAAAAAACCGAGGCGAGCGGAGCTCGCCGATCCGGTGCCACCAAACCAACAACTAACCGAGGCGCTGGGCCAATGAATCCGTCTCGTTGGGTCCGGCC",
+"Leader": 0,
+"AT": 40
+}
+]
+}]
+,
+"Cas":[{
+"Type": "CAS",
+"Start": 5672,
+"End": 6802,
+"Genes": [
+{
+"Sub_type": "cas3a_TypeI",
+"Start": 5672,
+"End": 6802,
+"Orientation": "+"
+},
+{
+"Sub_type": "cas3a_TypeI",
+"Start": 5672,
+"End": 6802,
+"Orientation": "+"
+}]}]
+
+},
+{
+"Id":"AAB-S01R1_k55_1039248_flag=0_multi=12",
+"Version":"AAB-S01R1_k55_1039248_flag=0_multi=12.1298_len=6517",
+"Description":"Unknown",
+"AT":38.6374098511585,
+"Length":6517,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1040068_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_1040068_flag=0_multi=10.2092_len=19762",
+"Description":"Unknown",
+"AT":38.9535472118207,
+"Length":19762,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6044518_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_6044518_flag=0_multi=9.4527_len=5610",
+"Description":"Unknown",
+"AT":37.5222816399287,
+"Length":5610,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7042102_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_7042102_flag=0_multi=11.7878_len=5551",
+"Description":"Unknown",
+"AT":39.1821293460638,
+"Length":5551,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7042120_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_7042120_flag=0_multi=10.6788_len=8744",
+"Description":"Unknown",
+"AT":38.6207685269899,
+"Length":8744,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1042250_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_1042250_flag=0_multi=9.0181_len=6364",
+"Description":"Unknown",
+"AT":37.5864236329353,
+"Length":6364,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8034298_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8034298_flag=0_multi=10.7241_len=31639",
+"Description":"Unknown",
+"AT":39.5461297765416,
+"Length":31639,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2044954_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_2044954_flag=0_multi=10.6424_len=2966",
+"Description":"Unknown",
+"AT":40.2899527983817,
+"Length":2966,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9038218_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_9038218_flag=0_multi=8.1379_len=1962",
+"Description":"Unknown",
+"AT":38.1753312945973,
+"Length":1962,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_43920_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_43920_flag=0_multi=10.3039_len=26957",
+"Description":"Unknown",
+"AT":39.5815558111066,
+"Length":26957,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_43920_flag",
+"Start": 2073,
+"End": 2184,
+"DR_Consensus": "GATGTTCCGGAATGCCGTGGACCAGGCTTCAATTTC",
+"Repeat_ID": "Unknown",
+"DR_Length": 36,
+"Spacers": 1,
+"Potential_Orientation": "-",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 1973,
+"End": 2072,
+"Sequence": "CAATTCGCCGCAGCCGTGGGTGCGTTGGACAAAGCTCATGAACCCGGAAGCTTACCGGGGGATAGGTTTGTAGGTTTCAAGGAGGTCGCGCGTCCCGCGC",
+"Leader": 0,
+"AT": 39
+},
+ {
+"Type": "DR",
+"Start": 2073,
+"End": 2108,
+"Sequence": "GATGTTCCGGAATGCCGTGGACCAGGCTTCAATTTC"
+},
+{
+"Type": "Spacer",
+"Start": 2109,
+"End": 2148,
+"Sequence": "AACTCATGTACGAAGTCCAAGGAGATCGCGCGTCCCGCGA"
+},
+{
+"Type": "DR",
+"Start": 2149,
+"End": 2184,
+"Sequence": "GATGTTCCAGAATGCCGTGGACCAGGCTTCAATTTC"
+},
+{
+"Type": "RightFLANK",
+"Start": 2185,
+"End": 2284,
+"Sequence": "CACTCATGAACGAAGTTCATGGAACCAGGAAGAAAAAAAATGCCTGAGGCGAGTAGTGCGAGCCGATTCACGTAAGCTGCCCAAATTGAGCCGATTTTTT",
+"Leader": 1,
+"AT": 54
+}
+]
+}]
+,
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8037319_flag=1_multi=10",
+"Version":"AAB-S01R1_k55_8037319_flag=1_multi=10.4200_len=47739",
+"Description":"Unknown",
+"AT":39.4876306583716,
+"Length":47739,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4047938_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_4047938_flag=0_multi=9.0940_len=7364",
+"Description":"Unknown",
+"AT":39.3264530146659,
+"Length":7364,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1048361_flag=0_multi=13",
+"Version":"AAB-S01R1_k55_1048361_flag=0_multi=13.3070_len=2804",
+"Description":"Unknown",
+"AT":40.1925820256776,
+"Length":2804,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1048652_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_1048652_flag=0_multi=8.6349_len=2602",
+"Description":"Unknown",
+"AT":36.7409684857802,
+"Length":2602,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7050692_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_7050692_flag=0_multi=11.8176_len=26935",
+"Description":"Unknown",
+"AT":39.1386671616855,
+"Length":26935,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3052536_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_3052536_flag=0_multi=9.2543_len=9767",
+"Description":"Unknown",
+"AT":37.9031432374322,
+"Length":9767,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4053206_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_4053206_flag=0_multi=9.3820_len=9744",
+"Description":"Unknown",
+"AT":37.181855500821,
+"Length":9744,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4054454_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_4054454_flag=0_multi=8.8744_len=12021",
+"Description":"Unknown",
+"AT":39.2313451459945,
+"Length":12021,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4054566_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_4054566_flag=0_multi=11.0310_len=26351",
+"Description":"Unknown",
+"AT":38.7689271754393,
+"Length":26351,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6058161_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_6058161_flag=0_multi=10.6015_len=6017",
+"Description":"Unknown",
+"AT":40.7678244972578,
+"Length":6017,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3055801_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_3055801_flag=0_multi=9.7634_len=28000",
+"Description":"Unknown",
+"AT":38.6464285714286,
+"Length":28000,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4056123_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_4056123_flag=0_multi=9.9333_len=36512",
+"Description":"Unknown",
+"AT":38.5297984224365,
+"Length":36512,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2058382_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_2058382_flag=0_multi=9.7347_len=12284",
+"Description":"Unknown",
+"AT":38.4158254640182,
+"Length":12284,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_59802_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_59802_flag=0_multi=10.9579_len=13888",
+"Description":"Unknown",
+"AT":39.4225230414747,
+"Length":13888,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4062532_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_4062532_flag=0_multi=7.4858_len=3390",
+"Description":"Unknown",
+"AT":39.2330383480826,
+"Length":3390,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4063659_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_4063659_flag=0_multi=10.4344_len=6899",
+"Description":"Unknown",
+"AT":40.6725612407595,
+"Length":6899,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5059974_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_5059974_flag=0_multi=10.3058_len=20704",
+"Description":"Unknown",
+"AT":39.4271638330757,
+"Length":20704,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7064200_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7064200_flag=0_multi=9.9327_len=2981",
+"Description":"Unknown",
+"AT":40.4562227440456,
+"Length":2981,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1064233_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_1064233_flag=0_multi=11.0307_len=15804",
+"Description":"Unknown",
+"AT":39.7873955960516,
+"Length":15804,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7065731_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7065731_flag=0_multi=9.8778_len=9039",
+"Description":"Unknown",
+"AT":38.798539661467,
+"Length":9039,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9059354_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_9059354_flag=0_multi=8.5406_len=2086",
+"Description":"Unknown",
+"AT":39.0220517737296,
+"Length":2086,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6073640_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_6073640_flag=0_multi=7.8389_len=2885",
+"Description":"Unknown",
+"AT":37.2270363951473,
+"Length":2885,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2071780_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_2071780_flag=0_multi=8.2957_len=5026",
+"Description":"Unknown",
+"AT":38.1814564265818,
+"Length":5026,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2074740_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_2074740_flag=0_multi=10.5070_len=54841",
+"Description":"Unknown",
+"AT":40.3821958024106,
+"Length":54841,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_72834_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_72834_flag=0_multi=8.3653_len=1681",
+"Description":"Unknown",
+"AT":41.4634146341463,
+"Length":1681,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_73049_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_73049_flag=0_multi=9.0590_len=3259",
+"Description":"Unknown",
+"AT":40.0122737035901,
+"Length":3259,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4076108_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_4076108_flag=0_multi=10.9967_len=61570",
+"Description":"Unknown",
+"AT":40.0925775540036,
+"Length":61570,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9068537_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_9068537_flag=0_multi=10.5653_len=7504",
+"Description":"Unknown",
+"AT":40.1785714285714,
+"Length":7504,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9068573_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_9068573_flag=0_multi=8.7385_len=7184",
+"Description":"Unknown",
+"AT":38.1403118040089,
+"Length":7184,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2079426_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_2079426_flag=0_multi=8.5342_len=2002",
+"Description":"Unknown",
+"AT":39.4605394605395,
+"Length":2002,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6083681_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_6083681_flag=0_multi=10.9889_len=13619",
+"Description":"Unknown",
+"AT":40.9501431823188,
+"Length":13619,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6083691_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_6083691_flag=0_multi=8.3974_len=3185",
+"Description":"Unknown",
+"AT":40.2511773940345,
+"Length":3185,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5074391_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_5074391_flag=0_multi=9.9621_len=2668",
+"Description":"Unknown",
+"AT":39.4677661169415,
+"Length":2668,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2082019_flag=0_multi=6",
+"Version":"AAB-S01R1_k55_2082019_flag=0_multi=6.6148_len=3625",
+"Description":"Unknown",
+"AT":35.8344827586207,
+"Length":3625,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9074656_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_9074656_flag=0_multi=11.1173_len=4513",
+"Description":"Unknown",
+"AT":38.8433414580102,
+"Length":4513,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8070760_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8070760_flag=0_multi=10.0002_len=12495",
+"Description":"Unknown",
+"AT":38.9355742296919,
+"Length":12495,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1083042_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_1083042_flag=0_multi=8.7045_len=3212",
+"Description":"Unknown",
+"AT":40.7534246575342,
+"Length":3212,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5078057_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_5078057_flag=0_multi=7.4635_len=3861",
+"Description":"Unknown",
+"AT":40.1968401968402,
+"Length":3861,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8072688_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_8072688_flag=0_multi=8.9875_len=5554",
+"Description":"Unknown",
+"AT":38.8548793662225,
+"Length":5554,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3086998_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_3086998_flag=0_multi=9.9674_len=4072",
+"Description":"Unknown",
+"AT":39.1453831041257,
+"Length":4072,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_3086998_flag",
+"Start": 3980,
+"End": 4069,
+"DR_Consensus": "TTCCTCGAAGCGTAAATGGTCGCG",
+"Repeat_ID": "Unknown",
+"DR_Length": 24,
+"Spacers": 1,
+"Potential_Orientation": "ND",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 3880,
+"End": 3979,
+"Sequence": "TAGAAGCCGGCGAGCTCCACTCGCCTCGGTTCCTTTTTCTTTCCCGGCTCATGAACTGCGTTCATGAATGATGTGTGGAATCGCAGCATCGGCAGCTAGG",
+"Leader": 0,
+"AT": 45
+},
+ {
+"Type": "DR",
+"Start": 3980,
+"End": 4003,
+"Sequence": "TTCCTCGAAGCGTAAATGGTCGCG"
+},
+{
+"Type": "Spacer",
+"Start": 4004,
+"End": 4045,
+"Sequence": "TCCGGACGTAGCCGACCCCCTGTGCGTCGTTCCGGAACTAGA"
+},
+{
+"Type": "DR",
+"Start": 4046,
+"End": 4069,
+"Sequence": "TTCCTCGAAACGTAAATGGTCGCG"
+},
+{
+"Type": "RightFLANK",
+"Start": 4070,
+"End": 4169,
+"Sequence": "UNKNOWN",
+"Leader": 0,
+"AT": 0
+}
+]
+}]
+,
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2089466_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_2089466_flag=0_multi=9.7290_len=1782",
+"Description":"Unknown",
+"AT":39.5622895622896,
+"Length":1782,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6093982_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_6093982_flag=0_multi=8.1364_len=1939",
+"Description":"Unknown",
+"AT":41.1552346570397,
+"Length":1939,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1092396_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_1092396_flag=0_multi=10.9387_len=20792",
+"Description":"Unknown",
+"AT":38.659099653713,
+"Length":20792,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8079288_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8079288_flag=0_multi=10.6573_len=35760",
+"Description":"Unknown",
+"AT":40.0755033557047,
+"Length":35760,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9084966_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_9084966_flag=0_multi=9.2812_len=1684",
+"Description":"Unknown",
+"AT":37.2327790973872,
+"Length":1684,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4095926_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_4095926_flag=0_multi=9.7362_len=18584",
+"Description":"Unknown",
+"AT":39.5716745587602,
+"Length":18584,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4096052_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_4096052_flag=0_multi=10.1755_len=28420",
+"Description":"Unknown",
+"AT":40.1337086558761,
+"Length":28420,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8082825_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8082825_flag=0_multi=10.7798_len=46831",
+"Description":"Unknown",
+"AT":39.32864982597,
+"Length":46831,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7103304_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7103304_flag=0_multi=9.4293_len=9807",
+"Description":"Unknown",
+"AT":39.1557051085959,
+"Length":9807,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1102280_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_1102280_flag=0_multi=10.7909_len=24158",
+"Description":"Unknown",
+"AT":38.9518999917212,
+"Length":24158,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9096221_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_9096221_flag=0_multi=11.2964_len=12827",
+"Description":"Unknown",
+"AT":39.6039603960396,
+"Length":12827,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8090749_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_8090749_flag=0_multi=11.0290_len=57142",
+"Description":"Unknown",
+"AT":42.4118861782927,
+"Length":57142,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9097415_flag=1_multi=3",
+"Version":"AAB-S01R1_k55_9097415_flag=1_multi=3.7295_len=1552",
+"Description":"Unknown",
+"AT":37.048969072165,
+"Length":1552,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8091918_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8091918_flag=0_multi=10.1316_len=28903",
+"Description":"Unknown",
+"AT":38.1517489533958,
+"Length":28903,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1107781_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_1107781_flag=0_multi=9.7693_len=19189",
+"Description":"Unknown",
+"AT":38.2667153056439,
+"Length":19189,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4109796_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_4109796_flag=0_multi=10.5679_len=19469",
+"Description":"Unknown",
+"AT":38.9696440495146,
+"Length":19469,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_4109796_flag",
+"Start": 6588,
+"End": 6700,
+"DR_Consensus": "TCAAATCAGGCGTAGCCGACGCCCTGTCCGTCGTCCGGAC",
+"Repeat_ID": "Unknown",
+"DR_Length": 40,
+"Spacers": 1,
+"Potential_Orientation": "+",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 6488,
+"End": 6587,
+"Sequence": "GAAATGTTCGCGAGCAACGCGGCGGTAAGGAGCACGAGCAACTTCACGCCGCAAGATTAGCACGGCGGGTGGCGTGCCTAACGCGCTCGACCAAAATCAC",
+"Leader": 1,
+"AT": 40
+},
+ {
+"Type": "DR",
+"Start": 6588,
+"End": 6627,
+"Sequence": "TCAAATCAGGCGTAGCCGACGCCCTGTCCGTCGTCCGGAC"
+},
+{
+"Type": "Spacer",
+"Start": 6628,
+"End": 6660,
+"Sequence": "AGCTTAGAAATAGTCGCATGGCACGATAAACCT"
+},
+{
+"Type": "DR",
+"Start": 6661,
+"End": 6700,
+"Sequence": "TCAAACCAGGCGTAGCCGACGCCCTGTCCGTCGTCCGGAC"
+},
+{
+"Type": "RightFLANK",
+"Start": 6701,
+"End": 6800,
+"Sequence": "CGCGGCAAAGCGGCATCCATTTCGAAACGCGGAACCTGAGGGCCGGGCGTTTGCGTGCGGCCACGTACCCAGACGACGCACAGAGCGTCGGCCACGTTCC",
+"Leader": 0,
+"AT": 33
+}
+]
+}]
+,
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1108882_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_1108882_flag=0_multi=10.3493_len=14276",
+"Description":"Unknown",
+"AT":38.799383580835,
+"Length":14276,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_108153_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_108153_flag=0_multi=9.1596_len=25638",
+"Description":"Unknown",
+"AT":39.3712458070052,
+"Length":25638,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_108625_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_108625_flag=0_multi=10.6191_len=59220",
+"Description":"Unknown",
+"AT":39.0729483282675,
+"Length":59220,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2111462_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_2111462_flag=0_multi=8.1584_len=1753",
+"Description":"Unknown",
+"AT":38.7335995436395,
+"Length":1753,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3111314_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_3111314_flag=0_multi=11.3937_len=10302",
+"Description":"Unknown",
+"AT":38.2644146767618,
+"Length":10302,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5102005_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_5102005_flag=0_multi=10.0134_len=4379",
+"Description":"Unknown",
+"AT":39.8949531856588,
+"Length":4379,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5103325_flag=0_multi=12",
+"Version":"AAB-S01R1_k55_5103325_flag=0_multi=12.7505_len=2460",
+"Description":"Unknown",
+"AT":35.7723577235772,
+"Length":2460,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1113895_flag=1_multi=12",
+"Version":"AAB-S01R1_k55_1113895_flag=1_multi=12.5001_len=15373",
+"Description":"Unknown",
+"AT":39.6799583685683,
+"Length":15373,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2116176_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_2116176_flag=0_multi=7.6616_len=2109",
+"Description":"Unknown",
+"AT":38.9758179231863,
+"Length":2109,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2117857_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_2117857_flag=0_multi=10.0410_len=4273",
+"Description":"Unknown",
+"AT":39.2464310788673,
+"Length":4273,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2124625_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_2124625_flag=0_multi=10.8495_len=6881",
+"Description":"Unknown",
+"AT":39.2966138642639,
+"Length":6881,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8105017_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8105017_flag=0_multi=10.1165_len=10877",
+"Description":"Unknown",
+"AT":38.5492323250896,
+"Length":10877,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2125036_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_2125036_flag=0_multi=9.5891_len=7583",
+"Description":"Unknown",
+"AT":38.1379401292364,
+"Length":7583,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3124403_flag=1_multi=10",
+"Version":"AAB-S01R1_k55_3124403_flag=1_multi=10.6057_len=4673",
+"Description":"Unknown",
+"AT":36.8927883586561,
+"Length":4673,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_122822_flag=1_multi=11",
+"Version":"AAB-S01R1_k55_122822_flag=1_multi=11.0410_len=10672",
+"Description":"Unknown",
+"AT":38.455772113943,
+"Length":10672,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8106794_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_8106794_flag=0_multi=7.8083_len=2251",
+"Description":"Unknown",
+"AT":40.0710795202132,
+"Length":2251,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9118360_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_9118360_flag=0_multi=8.8256_len=4620",
+"Description":"Unknown",
+"AT":41.3203463203463,
+"Length":4620,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9119407_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_9119407_flag=0_multi=9.4726_len=7861",
+"Description":"Unknown",
+"AT":38.2012466607302,
+"Length":7861,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8111367_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8111367_flag=0_multi=10.4286_len=4759",
+"Description":"Unknown",
+"AT":39.5461231351124,
+"Length":4759,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8112712_flag=1_multi=5",
+"Version":"AAB-S01R1_k55_8112712_flag=1_multi=5.7870_len=1886",
+"Description":"Unknown",
+"AT":38.7592788971368,
+"Length":1886,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2136083_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_2136083_flag=0_multi=9.8253_len=5196",
+"Description":"Unknown",
+"AT":38.8953040800616,
+"Length":5196,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4134516_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_4134516_flag=0_multi=8.9868_len=1798",
+"Description":"Unknown",
+"AT":39.8776418242492,
+"Length":1798,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1134547_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_1134547_flag=0_multi=9.6400_len=15173",
+"Description":"Unknown",
+"AT":38.8782706122718,
+"Length":15173,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3138724_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_3138724_flag=0_multi=7.6384_len=3797",
+"Description":"Unknown",
+"AT":36.5288385567553,
+"Length":3797,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3139026_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_3139026_flag=0_multi=11.1703_len=23000",
+"Description":"Unknown",
+"AT":40.2304347826087,
+"Length":23000,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7139567_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7139567_flag=0_multi=9.8531_len=6405",
+"Description":"Unknown",
+"AT":39.672131147541,
+"Length":6405,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8117765_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_8117765_flag=0_multi=11.1579_len=15352",
+"Description":"Unknown",
+"AT":39.8840541948932,
+"Length":15352,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1138169_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_1138169_flag=0_multi=10.2656_len=29877",
+"Description":"Unknown",
+"AT":39.1538641764568,
+"Length":29877,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_138522_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_138522_flag=0_multi=11.3252_len=7929",
+"Description":"Unknown",
+"AT":38.4411653424139,
+"Length":7929,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3141395_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_3141395_flag=0_multi=10.6048_len=18174",
+"Description":"Unknown",
+"AT":39.0007703312424,
+"Length":18174,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_139903_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_139903_flag=0_multi=8.7494_len=4082",
+"Description":"Unknown",
+"AT":38.3880450759432,
+"Length":4082,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_141079_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_141079_flag=0_multi=10.6143_len=7026",
+"Description":"Unknown",
+"AT":38.4856248220894,
+"Length":7026,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8123631_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_8123631_flag=0_multi=9.6258_len=11508",
+"Description":"Unknown",
+"AT":39.0076468543622,
+"Length":11508,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5135227_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_5135227_flag=0_multi=9.5954_len=16740",
+"Description":"Unknown",
+"AT":38.9665471923536,
+"Length":16740,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_147795_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_147795_flag=0_multi=10.2810_len=40687",
+"Description":"Unknown",
+"AT":38.6732863076658,
+"Length":40687,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_147795_flag",
+"Start": 28296,
+"End": 28411,
+"DR_Consensus": "ACTCCGTGTAGGAGCACCCTGAAGAATGAAA",
+"Repeat_ID": "Unknown",
+"DR_Length": 31,
+"Spacers": 1,
+"Potential_Orientation": "-",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 28196,
+"End": 28295,
+"Sequence": "CGTTCGGCGATGGGCGTAACGTGCCCGGAAAAGGGATGAATCGCGACGTGTCGCGAAGGGAGGTGCCGCCTCATCGAATCGCCTGGCTTGAAAAACGGCG",
+"Leader": 0,
+"AT": 38
+},
+ {
+"Type": "DR",
+"Start": 28296,
+"End": 28326,
+"Sequence": "ACTCCGTGTAGGAGCACCCTGAAGAATGAAA"
+},
+{
+"Type": "Spacer",
+"Start": 28327,
+"End": 28380,
+"Sequence": "CCACCAAGTCGACAAGCTGATGTCTCGGTAGGCCTCAAGATCAAATAAACCGCA"
+},
+{
+"Type": "DR",
+"Start": 28381,
+"End": 28411,
+"Sequence": "ACTCCGTGTAGGAGCACCCTCAAGAATGAAA"
+},
+{
+"Type": "RightFLANK",
+"Start": 28412,
+"End": 28511,
+"Sequence": "ACACCAAGTCGACAAGCCTGTGTCTCGGTGGGCCGCAAGCCCAAAAAACGGCGACTCCGTGTCGCCGCAAACAAGCAAAATAAAAGAACCACCCTGGGCC",
+"Leader": 1,
+"AT": 43
+}
+]
+}]
+,
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9143136_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_9143136_flag=0_multi=11.9396_len=9899",
+"Description":"Unknown",
+"AT":39.4383271037479,
+"Length":9899,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_152292_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_152292_flag=0_multi=9.3199_len=1649",
+"Description":"Unknown",
+"AT":37.7804730139478,
+"Length":1649,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5139835_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_5139835_flag=0_multi=8.5677_len=10842",
+"Description":"Unknown",
+"AT":40.2600996126176,
+"Length":10842,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6157696_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_6157696_flag=0_multi=8.4992_len=6187",
+"Description":"Unknown",
+"AT":38.5647325036367,
+"Length":6187,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_154253_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_154253_flag=0_multi=9.4965_len=12276",
+"Description":"Unknown",
+"AT":38.6770935158032,
+"Length":12276,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1155143_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_1155143_flag=0_multi=10.7551_len=11037",
+"Description":"Unknown",
+"AT":39.7481199601341,
+"Length":11037,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6158155_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_6158155_flag=0_multi=9.1895_len=3300",
+"Description":"Unknown",
+"AT":37.6060606060606,
+"Length":3300,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1155502_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_1155502_flag=0_multi=9.8084_len=4303",
+"Description":"Unknown",
+"AT":36.3932140367186,
+"Length":4303,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1156584_flag=0_multi=4",
+"Version":"AAB-S01R1_k55_1156584_flag=0_multi=4.3968_len=2923",
+"Description":"Unknown",
+"AT":41.5326719124187,
+"Length":2923,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7160574_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_7160574_flag=0_multi=10.4307_len=2416",
+"Description":"Unknown",
+"AT":39.1970198675497,
+"Length":2416,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5145896_flag=1_multi=6",
+"Version":"AAB-S01R1_k55_5145896_flag=1_multi=6.2912_len=1645",
+"Description":"Unknown",
+"AT":40.7294832826748,
+"Length":1645,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7165439_flag=1_multi=10",
+"Version":"AAB-S01R1_k55_7165439_flag=1_multi=10.1131_len=5961",
+"Description":"Unknown",
+"AT":38.8357658111055,
+"Length":5961,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4164742_flag=0_multi=13",
+"Version":"AAB-S01R1_k55_4164742_flag=0_multi=13.1759_len=3609",
+"Description":"Unknown",
+"AT":40.2050429481851,
+"Length":3609,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7166619_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_7166619_flag=0_multi=8.8367_len=2547",
+"Description":"Unknown",
+"AT":40.3219473890852,
+"Length":2547,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1165176_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_1165176_flag=0_multi=9.3960_len=3861",
+"Description":"Unknown",
+"AT":38.2025382025382,
+"Length":3861,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4169287_flag=0_multi=6",
+"Version":"AAB-S01R1_k55_4169287_flag=0_multi=6.4527_len=4555",
+"Description":"Unknown",
+"AT":40.2414928649835,
+"Length":4555,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9158256_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_9158256_flag=0_multi=8.6623_len=3259",
+"Description":"Unknown",
+"AT":42.2215403498005,
+"Length":3259,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7173751_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_7173751_flag=0_multi=10.9372_len=4644",
+"Description":"Unknown",
+"AT":40.4392764857881,
+"Length":4644,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_170485_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_170485_flag=0_multi=9.5703_len=4067",
+"Description":"Unknown",
+"AT":40.4966805999508,
+"Length":4067,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6174306_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_6174306_flag=0_multi=11.0402_len=9710",
+"Description":"Unknown",
+"AT":39.9588053553038,
+"Length":9710,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2178925_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_2178925_flag=0_multi=11.7760_len=3243",
+"Description":"Unknown",
+"AT":43.5707678075856,
+"Length":3243,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8149971_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_8149971_flag=0_multi=8.8821_len=3406",
+"Description":"Unknown",
+"AT":41.6030534351145,
+"Length":3406,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9164766_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_9164766_flag=0_multi=10.2735_len=15111",
+"Description":"Unknown",
+"AT":39.8385282244722,
+"Length":15111,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3179936_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_3179936_flag=0_multi=9.6467_len=19383",
+"Description":"Unknown",
+"AT":38.3119228189651,
+"Length":19383,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5163241_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_5163241_flag=0_multi=8.1195_len=2658",
+"Description":"Unknown",
+"AT":38.8638073739654,
+"Length":2658,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4181178_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_4181178_flag=0_multi=10.6693_len=19123",
+"Description":"Unknown",
+"AT":40.3127124405167,
+"Length":19123,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3183745_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_3183745_flag=0_multi=10.4147_len=23667",
+"Description":"Unknown",
+"AT":42.6627793974733,
+"Length":23667,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_179610_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_179610_flag=0_multi=9.2114_len=1663",
+"Description":"Unknown",
+"AT":38.123872519543,
+"Length":1663,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7184180_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7184180_flag=0_multi=9.8245_len=6760",
+"Description":"Unknown",
+"AT":39.3195266272189,
+"Length":6760,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6184574_flag=1_multi=6",
+"Version":"AAB-S01R1_k55_6184574_flag=1_multi=6.9395_len=2900",
+"Description":"Unknown",
+"AT":37.6551724137931,
+"Length":2900,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1183629_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_1183629_flag=0_multi=10.1057_len=2345",
+"Description":"Unknown",
+"AT":39.4029850746269,
+"Length":2345,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7187278_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_7187278_flag=0_multi=10.0888_len=10282",
+"Description":"Unknown",
+"AT":38.6500680801401,
+"Length":10282,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_190455_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_190455_flag=0_multi=11.6609_len=8713",
+"Description":"Unknown",
+"AT":40.3190634683806,
+"Length":8713,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1191284_flag=0_multi=6",
+"Version":"AAB-S01R1_k55_1191284_flag=0_multi=6.0906_len=2030",
+"Description":"Unknown",
+"AT":39.5566502463054,
+"Length":2030,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8166066_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_8166066_flag=0_multi=9.7760_len=17898",
+"Description":"Unknown",
+"AT":38.0824673147838,
+"Length":17898,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2199613_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_2199613_flag=0_multi=9.6362_len=1806",
+"Description":"Unknown",
+"AT":36.5448504983389,
+"Length":1806,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7197993_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_7197993_flag=0_multi=11.1092_len=7801",
+"Description":"Unknown",
+"AT":37.9310344827586,
+"Length":7801,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1195827_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_1195827_flag=0_multi=8.4039_len=10321",
+"Description":"Unknown",
+"AT":37.0022284662339,
+"Length":10321,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4198498_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_4198498_flag=0_multi=10.3351_len=5743",
+"Description":"Unknown",
+"AT":38.5686923210865,
+"Length":5743,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1196066_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_1196066_flag=0_multi=10.4983_len=34478",
+"Description":"Unknown",
+"AT":39.1931086489936,
+"Length":34478,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5179021_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_5179021_flag=0_multi=10.5052_len=9752",
+"Description":"Unknown",
+"AT":40.278917145201,
+"Length":9752,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1196774_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_1196774_flag=0_multi=8.4364_len=6196",
+"Description":"Unknown",
+"AT":38.2989025177534,
+"Length":6196,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4200637_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_4200637_flag=0_multi=10.9212_len=14710",
+"Description":"Unknown",
+"AT":39.4697484704283,
+"Length":14710,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9186821_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_9186821_flag=0_multi=11.3690_len=5179",
+"Description":"Unknown",
+"AT":38.2699362811354,
+"Length":5179,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_9186821_flag",
+"Start": 4868,
+"End": 4997,
+"DR_Consensus": "GTCAATTAGCCCACGGTTGCCTCCGGGCTACCGTG",
+"Repeat_ID": "Unknown",
+"DR_Length": 35,
+"Spacers": 1,
+"Potential_Orientation": "+",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 4768,
+"End": 4867,
+"Sequence": "CGCCAGACGCGAGTTATCTGTTTTCAAATATCCCAGAGGGCAATGACTCTTCTACCCCGACGGGCGCGGGATGTGCCCTCAAGTATCCCGGAGGGATTTG",
+"Leader": 1,
+"AT": 44
+},
+ {
+"Type": "DR",
+"Start": 4868,
+"End": 4902,
+"Sequence": "GTCAATTAGCCCACGGTTGCCTCCGGGCTACCGTG"
+},
+{
+"Type": "Spacer",
+"Start": 4903,
+"End": 4962,
+"Sequence": "ATTACCGTGCGCTCCCGCCGCAAATTCGACGTGGGCGCTCGAGCATCCCGGAGGGATTCA"
+},
+{
+"Type": "DR",
+"Start": 4963,
+"End": 4997,
+"Sequence": "GTCAATTAGCCCACGGTTGCCTCCGGGCCACCGTG"
+},
+{
+"Type": "RightFLANK",
+"Start": 4998,
+"End": 5097,
+"Sequence": "GGTTGGCCGGCCATATCCGCGTCAACCTCGGAGAGGTTGCGTCGGCGCTATTCCGCCCAATCCGTTTGATCAACCCGCTCCCCTCCCCGCCACTCCCCCT",
+"Leader": 0,
+"AT": 34
+}
+]
+}]
+,
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6204131_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_6204131_flag=0_multi=8.1721_len=6464",
+"Description":"Unknown",
+"AT":39.6658415841584,
+"Length":6464,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7206434_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_7206434_flag=0_multi=10.5008_len=77386",
+"Description":"Unknown",
+"AT":40.1183676634016,
+"Length":77386,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2210638_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_2210638_flag=0_multi=10.3232_len=4281",
+"Description":"Unknown",
+"AT":37.2576500817566,
+"Length":4281,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_206986_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_206986_flag=0_multi=8.5575_len=3142",
+"Description":"Unknown",
+"AT":38.924252068746,
+"Length":3142,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2214103_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_2214103_flag=0_multi=10.8959_len=7434",
+"Description":"Unknown",
+"AT":40.2071563088512,
+"Length":7434,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7213473_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_7213473_flag=0_multi=10.5649_len=2765",
+"Description":"Unknown",
+"AT":39.4213381555154,
+"Length":2765,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8181491_flag=0_multi=12",
+"Version":"AAB-S01R1_k55_8181491_flag=0_multi=12.7917_len=8069",
+"Description":"Unknown",
+"AT":39.174618911885,
+"Length":8069,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1213749_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_1213749_flag=0_multi=10.2010_len=1702",
+"Description":"Unknown",
+"AT":38.6016451233843,
+"Length":1702,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3220804_flag=1_multi=5",
+"Version":"AAB-S01R1_k55_3220804_flag=1_multi=5.5297_len=1503",
+"Description":"Unknown",
+"AT":40.6520292747838,
+"Length":1503,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3225919_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_3225919_flag=0_multi=9.2160_len=4014",
+"Description":"Unknown",
+"AT":39.1131041355257,
+"Length":4014,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7225155_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7225155_flag=0_multi=9.8298_len=6666",
+"Description":"Unknown",
+"AT":38.8388838883888,
+"Length":6666,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7225158_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_7225158_flag=0_multi=7.3234_len=1598",
+"Description":"Unknown",
+"AT":37.0463078848561,
+"Length":1598,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6227260_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_6227260_flag=0_multi=10.5792_len=4734",
+"Description":"Unknown",
+"AT":37.7482044782425,
+"Length":4734,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9213708_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_9213708_flag=0_multi=8.8265_len=8880",
+"Description":"Unknown",
+"AT":35.0225225225225,
+"Length":8880,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7230829_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_7230829_flag=0_multi=8.8943_len=2505",
+"Description":"Unknown",
+"AT":36.6067864271457,
+"Length":2505,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4229016_flag=0_multi=14",
+"Version":"AAB-S01R1_k55_4229016_flag=0_multi=14.1858_len=4479",
+"Description":"Unknown",
+"AT":38.2674704175039,
+"Length":4479,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7232448_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7232448_flag=0_multi=9.7298_len=3260",
+"Description":"Unknown",
+"AT":40.7975460122699,
+"Length":3260,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5207703_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_5207703_flag=0_multi=8.9468_len=3436",
+"Description":"Unknown",
+"AT":36.4086146682189,
+"Length":3436,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3234659_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_3234659_flag=0_multi=9.4627_len=2737",
+"Description":"Unknown",
+"AT":38.5093167701863,
+"Length":2737,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2235575_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_2235575_flag=0_multi=10.5634_len=63182",
+"Description":"Unknown",
+"AT":38.6328384666519,
+"Length":63182,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_2235575_flag",
+"Start": 20850,
+"End": 20962,
+"DR_Consensus": "GCATCCTGAATAGAAAACGTGAAACGGC",
+"Repeat_ID": "Unknown",
+"DR_Length": 28,
+"Spacers": 1,
+"Potential_Orientation": "-",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 20750,
+"End": 20849,
+"Sequence": "CAGTGCTGGGCCTCTTCTTCTTCGCCCAGCGATACTTCATCGAAGGGGTTACGCTGAGCGGCCTTGGAGGACGGTAAAAAAACGGCGGCTCCGTGCCACT",
+"Leader": 0,
+"AT": 41
+},
+ {
+"Type": "DR",
+"Start": 20850,
+"End": 20877,
+"Sequence": "GCATCCTGAATAGAAAACGTGAAACGGC"
+},
+{
+"Type": "Spacer",
+"Start": 20878,
+"End": 20934,
+"Sequence": "AACCCCGTGTCGCCGCAAACCTGAATTAGAAACGTGAAACGGCGACTCCGTGCCGTC"
+},
+{
+"Type": "DR",
+"Start": 20935,
+"End": 20962,
+"Sequence": "GCATCGTGAATAGAAAACGTGAAACGGC"
+},
+{
+"Type": "RightFLANK",
+"Start": 20963,
+"End": 21062,
+"Sequence": "GACTCCGTGCCGCCGCATCCTGAAAAATATGAAACGGCAACCCCGTGTCGCCGCATCCTGAAAATGGCTCATAAAAACGGCGACTCCGTGTCGCCGCATC",
+"Leader": 1,
+"AT": 43
+}
+]
+}]
+,
+"Cas":[{
+"Type": "CAS",
+"Start": 53553,
+"End": 54590,
+"Genes": [
+{
+"Sub_type": "cas3a_TypeI",
+"Start": 53553,
+"End": 54590,
+"Orientation": "+"
+},
+{
+"Sub_type": "cas3a_TypeI",
+"Start": 53553,
+"End": 54590,
+"Orientation": "+"
+}]}]
+
+},
+{
+"Id":"AAB-S01R1_k55_9218306_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_9218306_flag=0_multi=8.5425_len=3375",
+"Description":"Unknown",
+"AT":38.162962962963,
+"Length":3375,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_230828_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_230828_flag=0_multi=10.0964_len=3207",
+"Description":"Unknown",
+"AT":39.413782351107,
+"Length":3207,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4234258_flag=0_multi=5",
+"Version":"AAB-S01R1_k55_4234258_flag=0_multi=5.7773_len=1658",
+"Description":"Unknown",
+"AT":40.2291917973462,
+"Length":1658,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2240620_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_2240620_flag=0_multi=9.5520_len=3653",
+"Description":"Unknown",
+"AT":42.0750068436901,
+"Length":3653,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5213181_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_5213181_flag=0_multi=9.3609_len=6918",
+"Description":"Unknown",
+"AT":39.7658282740677,
+"Length":6918,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9224999_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_9224999_flag=0_multi=10.9275_len=7879",
+"Description":"Unknown",
+"AT":39.4212463510598,
+"Length":7879,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7243948_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_7243948_flag=0_multi=10.0957_len=14262",
+"Description":"Unknown",
+"AT":38.1152713504417,
+"Length":14262,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3245248_flag=1_multi=10",
+"Version":"AAB-S01R1_k55_3245248_flag=1_multi=10.9136_len=13448",
+"Description":"Unknown",
+"AT":39.4036287923855,
+"Length":13448,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5218000_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_5218000_flag=0_multi=9.4558_len=26771",
+"Description":"Unknown",
+"AT":39.2887826379291,
+"Length":26771,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9229490_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_9229490_flag=0_multi=8.9450_len=4435",
+"Description":"Unknown",
+"AT":38.6245772266065,
+"Length":4435,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4245435_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_4245435_flag=0_multi=7.5343_len=2924",
+"Description":"Unknown",
+"AT":38.3036935704514,
+"Length":2924,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9231588_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_9231588_flag=0_multi=11.1667_len=26763",
+"Description":"Unknown",
+"AT":38.964241676942,
+"Length":26763,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_242994_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_242994_flag=0_multi=9.0125_len=5881",
+"Description":"Unknown",
+"AT":39.7041319503486,
+"Length":5881,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7248640_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7248640_flag=0_multi=9.6670_len=3190",
+"Description":"Unknown",
+"AT":35.0783699059561,
+"Length":3190,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_243490_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_243490_flag=0_multi=9.8953_len=5250",
+"Description":"Unknown",
+"AT":36.0190476190476,
+"Length":5250,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9233228_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_9233228_flag=0_multi=8.1861_len=5121",
+"Description":"Unknown",
+"AT":39.3477836360086,
+"Length":5121,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8212699_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8212699_flag=0_multi=10.4997_len=5248",
+"Description":"Unknown",
+"AT":38.5670731707317,
+"Length":5248,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3252511_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_3252511_flag=0_multi=7.9472_len=2025",
+"Description":"Unknown",
+"AT":40.9876543209877,
+"Length":2025,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5225447_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_5225447_flag=0_multi=9.5152_len=3599",
+"Description":"Unknown",
+"AT":36.6768546818561,
+"Length":3599,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5225776_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_5225776_flag=0_multi=9.5551_len=7587",
+"Description":"Unknown",
+"AT":38.9613813101358,
+"Length":7587,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9243140_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_9243140_flag=0_multi=11.0258_len=16857",
+"Description":"Unknown",
+"AT":39.0579581182891,
+"Length":16857,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2262311_flag=0_multi=6",
+"Version":"AAB-S01R1_k55_2262311_flag=0_multi=6.1243_len=3667",
+"Description":"Unknown",
+"AT":37.9329151895282,
+"Length":3667,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3260910_flag=0_multi=6",
+"Version":"AAB-S01R1_k55_3260910_flag=0_multi=6.6709_len=2495",
+"Description":"Unknown",
+"AT":39.6793587174349,
+"Length":2495,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6261161_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_6261161_flag=0_multi=10.3923_len=1722",
+"Description":"Unknown",
+"AT":37.746806039489,
+"Length":1722,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2263637_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_2263637_flag=0_multi=11.6615_len=3630",
+"Description":"Unknown",
+"AT":37.4931129476584,
+"Length":3630,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1257150_flag=0_multi=4",
+"Version":"AAB-S01R1_k55_1257150_flag=0_multi=4.2343_len=1579",
+"Description":"Unknown",
+"AT":37.8087397086764,
+"Length":1579,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_256967_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_256967_flag=0_multi=10.3666_len=10502",
+"Description":"Unknown",
+"AT":39.763854503904,
+"Length":10502,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2266312_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_2266312_flag=0_multi=9.7145_len=8563",
+"Description":"Unknown",
+"AT":36.3424033633073,
+"Length":8563,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2266855_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_2266855_flag=0_multi=9.7061_len=28962",
+"Description":"Unknown",
+"AT":39.361922519163,
+"Length":28962,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_260347_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_260347_flag=0_multi=9.9985_len=14190",
+"Description":"Unknown",
+"AT":39.5771670190275,
+"Length":14190,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5236545_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_5236545_flag=0_multi=10.9015_len=7123",
+"Description":"Unknown",
+"AT":38.9302260283588,
+"Length":7123,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_262316_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_262316_flag=0_multi=10.2752_len=13801",
+"Description":"Unknown",
+"AT":38.2943264980798,
+"Length":13801,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4265106_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_4265106_flag=0_multi=9.9247_len=5034",
+"Description":"Unknown",
+"AT":39.5113230035757,
+"Length":5034,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1266351_flag=1_multi=11",
+"Version":"AAB-S01R1_k55_1266351_flag=1_multi=11.0625_len=7830",
+"Description":"Unknown",
+"AT":39.0421455938697,
+"Length":7830,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4267949_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_4267949_flag=0_multi=10.4869_len=14153",
+"Description":"Unknown",
+"AT":38.7903624673214,
+"Length":14153,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5241649_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_5241649_flag=0_multi=11.9849_len=1511",
+"Description":"Unknown",
+"AT":38.1204500330907,
+"Length":1511,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4269883_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_4269883_flag=0_multi=10.1233_len=38451",
+"Description":"Unknown",
+"AT":38.4281293074302,
+"Length":38451,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6273005_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_6273005_flag=0_multi=10.8814_len=23883",
+"Description":"Unknown",
+"AT":39.6558221328979,
+"Length":23883,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8235851_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8235851_flag=0_multi=10.7152_len=5518",
+"Description":"Unknown",
+"AT":39.1083725987677,
+"Length":5518,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1272720_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_1272720_flag=0_multi=9.2307_len=21376",
+"Description":"Unknown",
+"AT":39.6425898203593,
+"Length":21376,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8237112_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_8237112_flag=0_multi=7.6532_len=2523",
+"Description":"Unknown",
+"AT":37.6535869996036,
+"Length":2523,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3279541_flag=0_multi=12",
+"Version":"AAB-S01R1_k55_3279541_flag=0_multi=12.5056_len=2569",
+"Description":"Unknown",
+"AT":39.7041650447645,
+"Length":2569,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3282827_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_3282827_flag=0_multi=9.8117_len=9246",
+"Description":"Unknown",
+"AT":37.9191001514168,
+"Length":9246,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1281571_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_1281571_flag=0_multi=9.0004_len=2882",
+"Description":"Unknown",
+"AT":36.5371269951423,
+"Length":2882,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6286990_flag=1_multi=8",
+"Version":"AAB-S01R1_k55_6286990_flag=1_multi=8.0550_len=11199",
+"Description":"Unknown",
+"AT":38.0837574783463,
+"Length":11199,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5258072_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_5258072_flag=0_multi=8.8569_len=4206",
+"Description":"Unknown",
+"AT":39.0632429862102,
+"Length":4206,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2293481_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_2293481_flag=0_multi=10.3542_len=1554",
+"Description":"Unknown",
+"AT":45.045045045045,
+"Length":1554,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5259208_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_5259208_flag=0_multi=10.1635_len=12578",
+"Description":"Unknown",
+"AT":39.6008904436317,
+"Length":12578,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1288121_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_1288121_flag=0_multi=8.3476_len=4204",
+"Description":"Unknown",
+"AT":39.5337773549001,
+"Length":4204,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2295658_flag=1_multi=7",
+"Version":"AAB-S01R1_k55_2295658_flag=1_multi=7.1278_len=9777",
+"Description":"Unknown",
+"AT":36.9131635471003,
+"Length":9777,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5261121_flag=0_multi=5",
+"Version":"AAB-S01R1_k55_5261121_flag=0_multi=5.0385_len=1977",
+"Description":"Unknown",
+"AT":39.9595346484573,
+"Length":1977,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9282209_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_9282209_flag=0_multi=11.5876_len=7191",
+"Description":"Unknown",
+"AT":41.0235015992212,
+"Length":7191,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5269067_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_5269067_flag=0_multi=11.3623_len=1899",
+"Description":"Unknown",
+"AT":37.230121116377,
+"Length":1899,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9285096_flag=1_multi=10",
+"Version":"AAB-S01R1_k55_9285096_flag=1_multi=10.3948_len=51133",
+"Description":"Unknown",
+"AT":38.2355817182641,
+"Length":51133,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9289033_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_9289033_flag=0_multi=11.3660_len=22967",
+"Description":"Unknown",
+"AT":38.0720163713154,
+"Length":22967,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4304958_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_4304958_flag=0_multi=7.9653_len=3370",
+"Description":"Unknown",
+"AT":42.5519287833828,
+"Length":3370,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7315697_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_7315697_flag=0_multi=7.9164_len=2937",
+"Description":"Unknown",
+"AT":38.6108273748723,
+"Length":2937,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_314164_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_314164_flag=0_multi=10.4193_len=7518",
+"Description":"Unknown",
+"AT":41.0880553338654,
+"Length":7518,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9303975_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_9303975_flag=0_multi=11.4121_len=12514",
+"Description":"Unknown",
+"AT":39.9073038197219,
+"Length":12514,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3327037_flag=0_multi=6",
+"Version":"AAB-S01R1_k55_3327037_flag=0_multi=6.9148_len=1781",
+"Description":"Unknown",
+"AT":39.7529477821449,
+"Length":1781,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1324451_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_1324451_flag=0_multi=9.4719_len=2329",
+"Description":"Unknown",
+"AT":40.2318591670245,
+"Length":2329,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3331084_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_3331084_flag=0_multi=9.6788_len=26432",
+"Description":"Unknown",
+"AT":38.7560532687651,
+"Length":26432,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7330453_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_7330453_flag=0_multi=7.8086_len=3854",
+"Description":"Unknown",
+"AT":37.1562013492475,
+"Length":3854,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9315541_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_9315541_flag=0_multi=7.8682_len=4235",
+"Description":"Unknown",
+"AT":39.0554899645809,
+"Length":4235,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3337410_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_3337410_flag=0_multi=9.0919_len=20440",
+"Description":"Unknown",
+"AT":38.4784735812133,
+"Length":20440,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7338695_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7338695_flag=0_multi=9.6516_len=7360",
+"Description":"Unknown",
+"AT":38.3967391304348,
+"Length":7360,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8293669_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_8293669_flag=0_multi=11.5754_len=20588",
+"Description":"Unknown",
+"AT":40.7956090926753,
+"Length":20588,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2346487_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_2346487_flag=0_multi=7.3393_len=4655",
+"Description":"Unknown",
+"AT":39.0118152524168,
+"Length":4655,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4340017_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_4340017_flag=0_multi=9.6682_len=3765",
+"Description":"Unknown",
+"AT":36.6799468791501,
+"Length":3765,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7343473_flag=0_multi=6",
+"Version":"AAB-S01R1_k55_7343473_flag=0_multi=6.6287_len=2323",
+"Description":"Unknown",
+"AT":41.1106328024107,
+"Length":2323,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6346551_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_6346551_flag=0_multi=10.3147_len=14191",
+"Description":"Unknown",
+"AT":39.3277429356635,
+"Length":14191,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6349325_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_6349325_flag=0_multi=10.3503_len=4662",
+"Description":"Unknown",
+"AT":39.2964392964393,
+"Length":4662,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2350797_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_2350797_flag=0_multi=10.4348_len=15441",
+"Description":"Unknown",
+"AT":39.0259698206075,
+"Length":15441,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2357225_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_2357225_flag=0_multi=10.5927_len=14182",
+"Description":"Unknown",
+"AT":38.1892539839233,
+"Length":14182,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_2357225_flag",
+"Start": 13152,
+"End": 13230,
+"DR_Consensus": "GGAGGGCGGGTGCCCCCACCCGCCACC",
+"Repeat_ID": "Unknown",
+"DR_Length": 27,
+"Spacers": 1,
+"Potential_Orientation": "ND",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 13052,
+"End": 13151,
+"Sequence": "AAGGGGCGTGCGCGGCTGTTGCCGCGTTAGAAGAGCAACTCGGTTTACCGGTTGTAGATCCGGTTCGCGACGGCTCCGGCCGCGTGATTGCGGCACTATA",
+"Leader": 0,
+"AT": 38
+},
+ {
+"Type": "DR",
+"Start": 13152,
+"End": 13178,
+"Sequence": "ACGGAGGGGGGTGCCCCACCCGCCACC"
+},
+{
+"Type": "Spacer",
+"Start": 13179,
+"End": 13202,
+"Sequence": "GCTGGCCCACCGCCCGAGAAGAAC"
+},
+{
+"Type": "DR",
+"Start": 13203,
+"End": 13229,
+"Sequence": "AGAGGGCGGGTGCCCCCCCGCCACCTC"
+},
+{
+"Type": "RightFLANK",
+"Start": 13231,
+"End": 13330,
+"Sequence": "GAATGGCGCGATCGCGAAGTTTGCCGCGCGCGTTTGAGCACTTCACGGTTGCGGAACGTTCCAACCACGGCGTGGGCTTTGGAGGGCGGGTGCCCCCACC",
+"Leader": 0,
+"AT": 34
+}
+]
+},
+{
+"Name": "AAB-S01R1_k55_2357225_flag",
+"Start": 13311,
+"End": 13393,
+"DR_Consensus": "GGAGGGCGGGTGCCCCCACCCGCCACC",
+"Repeat_ID": "Unknown",
+"DR_Length": 27,
+"Spacers": 1,
+"Potential_Orientation": "-",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 13211,
+"End": 13310,
+"Sequence": "GGTGCCCCCCCGCCACCTCGGAATGGCGCGATCGCGAAGTTTGCCGCGCGCGTTTGAGCACTTCACGGTTGCGGAACGTTCCAACCACGGCGTGGGCTTT",
+"Leader": 0,
+"AT": 34
+},
+ {
+"Type": "DR",
+"Start": 13311,
+"End": 13337,
+"Sequence": "GGAGGGCGGGTGCCCCCACCCGCCACC"
+},
+{
+"Type": "Spacer",
+"Start": 13338,
+"End": 13366,
+"Sequence": "GGGGCCGTCCCCTTGCTCGAAATGGCACC"
+},
+{
+"Type": "DR",
+"Start": 13367,
+"End": 13393,
+"Sequence": "GGAGGGCGGGTGCCCTCACCCGCCACC"
+},
+{
+"Type": "RightFLANK",
+"Start": 13394,
+"End": 13493,
+"Sequence": "CCAGGTCTAAATCTTGTGCAACTCGCTCAGTGACTCCCCGACGATCATGCGCTTGATCGCTTCGCCGAGCAGCGGCGCGATCGGCAGCACCGTGAACTTC",
+"Leader": 1,
+"AT": 40
+}
+]
+}]
+,
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2359680_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_2359680_flag=0_multi=8.8419_len=4671",
+"Description":"Unknown",
+"AT":37.8505673303361,
+"Length":4671,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8311200_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8311200_flag=0_multi=10.8741_len=26826",
+"Description":"Unknown",
+"AT":38.9286513084321,
+"Length":26826,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2367959_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_2367959_flag=0_multi=9.3399_len=2088",
+"Description":"Unknown",
+"AT":38.6973180076628,
+"Length":2088,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8315594_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8315594_flag=0_multi=10.3506_len=7199",
+"Description":"Unknown",
+"AT":38.8109459647173,
+"Length":7199,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8315804_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_8315804_flag=0_multi=9.3448_len=5246",
+"Description":"Unknown",
+"AT":37.6858558902021,
+"Length":5246,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_359413_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_359413_flag=0_multi=10.6783_len=19268",
+"Description":"Unknown",
+"AT":39.9885821050446,
+"Length":19268,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8319318_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8319318_flag=0_multi=10.1136_len=3964",
+"Description":"Unknown",
+"AT":40.3632694248234,
+"Length":3964,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6374549_flag=1_multi=10",
+"Version":"AAB-S01R1_k55_6374549_flag=1_multi=10.3951_len=5902",
+"Description":"Unknown",
+"AT":39.2917655032193,
+"Length":5902,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7374205_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7374205_flag=0_multi=9.1523_len=5545",
+"Description":"Unknown",
+"AT":37.3669972948602,
+"Length":5545,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_7374205_flag",
+"Start": 5395,
+"End": 5545,
+"DR_Consensus": "CGGTTCATCCCCACTTGCGTGGGGCGGTT",
+"Repeat_ID": "Unknown",
+"DR_Length": 29,
+"Spacers": 2,
+"Potential_Orientation": "ND",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 5295,
+"End": 5394,
+"Sequence": "CCAGCGTGCTGATGGTGTACCCCGGGCTTGCGGCCCGAACGGCCCCCCCCCCCGCGTGTGCTGCGGTTCGCTGCATGCATTCCGGCGATGACAGCGTGAG",
+"Leader": 0,
+"AT": 29
+},
+ {
+"Type": "DR",
+"Start": 5395,
+"End": 5423,
+"Sequence": "CGGTTCATCCCCACTTGCGTGGGGCGGTT"
+},
+{
+"Type": "Spacer",
+"Start": 5424,
+"End": 5455,
+"Sequence": "AAGCGAAAGCTCGTCAGTTTTGTCGGGTTACC"
+},
+{
+"Type": "DR",
+"Start": 5456,
+"End": 5484,
+"Sequence": "CGGTTCATCCCCACTTGCGTGGGGCGGTT"
+},
+{
+"Type": "Spacer",
+"Start": 5485,
+"End": 5516,
+"Sequence": "CGTTATACGCCTCGGCCCAACCCGGATACCAC"
+},
+{
+"Type": "DR",
+"Start": 5517,
+"End": 5545,
+"Sequence": "CGGTTCATCCCCACTTGCGTGGGGCGGTT"
+},
+{
+"Type": "RightFLANK",
+"Start": 5546,
+"End": 5645,
+"Sequence": "UNKNOWN",
+"Leader": 0,
+"AT": 0
+}
+]
+}]
+,
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4372549_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_4372549_flag=0_multi=8.6680_len=7034",
+"Description":"Unknown",
+"AT":38.4987205004265,
+"Length":7034,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_368566_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_368566_flag=0_multi=9.3757_len=4969",
+"Description":"Unknown",
+"AT":39.6659287583015,
+"Length":4969,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9358446_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_9358446_flag=0_multi=7.7399_len=4595",
+"Description":"Unknown",
+"AT":35.8868335146899,
+"Length":4595,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5342134_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_5342134_flag=0_multi=10.8234_len=8125",
+"Description":"Unknown",
+"AT":40.0123076923077,
+"Length":8125,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9361430_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_9361430_flag=0_multi=8.6637_len=5838",
+"Description":"Unknown",
+"AT":37.8896882494005,
+"Length":5838,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9362463_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_9362463_flag=0_multi=9.4597_len=10737",
+"Description":"Unknown",
+"AT":38.5396293191767,
+"Length":10737,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5353148_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_5353148_flag=0_multi=10.8783_len=3662",
+"Description":"Unknown",
+"AT":44.2381212452212,
+"Length":3662,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4387159_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_4387159_flag=0_multi=10.9026_len=14504",
+"Description":"Unknown",
+"AT":38.0033094318809,
+"Length":14504,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9371865_flag=0_multi=12",
+"Version":"AAB-S01R1_k55_9371865_flag=0_multi=12.2599_len=7408",
+"Description":"Unknown",
+"AT":40.9017278617711,
+"Length":7408,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5355119_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_5355119_flag=0_multi=10.2795_len=11985",
+"Description":"Unknown",
+"AT":38.8068418856904,
+"Length":11985,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7398270_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7398270_flag=0_multi=9.8539_len=4573",
+"Description":"Unknown",
+"AT":41.3951454187623,
+"Length":4573,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5361868_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_5361868_flag=0_multi=11.3627_len=7149",
+"Description":"Unknown",
+"AT":38.0472793397678,
+"Length":7149,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6401698_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_6401698_flag=0_multi=8.0993_len=2039",
+"Description":"Unknown",
+"AT":38.3521333987249,
+"Length":2039,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6403343_flag=1_multi=10",
+"Version":"AAB-S01R1_k55_6403343_flag=1_multi=10.5993_len=3781",
+"Description":"Unknown",
+"AT":44.3533456757472,
+"Length":3781,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2406884_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_2406884_flag=0_multi=7.6162_len=2147",
+"Description":"Unknown",
+"AT":38.1928272007452,
+"Length":2147,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2408746_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_2408746_flag=0_multi=11.4177_len=7611",
+"Description":"Unknown",
+"AT":38.4706346078045,
+"Length":7611,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3400564_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_3400564_flag=0_multi=10.7087_len=11146",
+"Description":"Unknown",
+"AT":37.5919612417011,
+"Length":11146,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7406141_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_7406141_flag=0_multi=7.8236_len=1841",
+"Description":"Unknown",
+"AT":38.0228136882129,
+"Length":1841,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1401039_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_1401039_flag=0_multi=10.7774_len=5027",
+"Description":"Unknown",
+"AT":41.2572110602745,
+"Length":5027,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3406832_flag=0_multi=12",
+"Version":"AAB-S01R1_k55_3406832_flag=0_multi=12.2192_len=4011",
+"Description":"Unknown",
+"AT":40.0149588631264,
+"Length":4011,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9393069_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_9393069_flag=0_multi=9.8334_len=3884",
+"Description":"Unknown",
+"AT":37.1009268795057,
+"Length":3884,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3410178_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_3410178_flag=0_multi=9.5772_len=15136",
+"Description":"Unknown",
+"AT":37.8369450317125,
+"Length":15136,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3411919_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_3411919_flag=0_multi=8.4619_len=13187",
+"Description":"Unknown",
+"AT":40.4413437476302,
+"Length":13187,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9399631_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518",
+"Description":"Unknown",
+"AT":39.6032883324534,
+"Length":26518,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_9399631_flag",
+"Start": 25305,
+"End": 26493,
+"DR_Consensus": "AACCGCCCCACGCAAGTGGGGATGAACCG",
+"Repeat_ID": "Unknown",
+"DR_Length": 29,
+"Spacers": 19,
+"Potential_Orientation": "ND",
+"CRISPRDirection": "ND",
+"Evidence_Level": 2,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 25205,
+"End": 25304,
+"Sequence": "TGAACTTCGACGGCATCACCTTAATGCGATTCTCCGGCCACCACCAGCCGGAATAGCTCCTTGACAGCAGGATATATGTAAGATTACGCGGAATCGTAGT",
+"Leader": 0,
+"AT": 50
+},
+ {
+"Type": "DR",
+"Start": 25305,
+"End": 25333,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 25334,
+"End": 25365,
+"Sequence": "ATCAAAGACCTCGCGGAGCACTTCGGCGTTCC"
+},
+{
+"Type": "DR",
+"Start": 25366,
+"End": 25394,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 25395,
+"End": 25426,
+"Sequence": "ATTGTAATTGACAGAGCGAAATGGGTCAACGC"
+},
+{
+"Type": "DR",
+"Start": 25427,
+"End": 25455,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 25456,
+"End": 25487,
+"Sequence": "ACAACGATCCGAAAGAAGTTGAACACGTTGAG"
+},
+{
+"Type": "DR",
+"Start": 25488,
+"End": 25516,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 25517,
+"End": 25548,
+"Sequence": "ACAAAACCCGGCTTTGCCGGTGCGATCCAGAA"
+},
+{
+"Type": "DR",
+"Start": 25549,
+"End": 25577,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 25578,
+"End": 25609,
+"Sequence": "CACGAGGACCAAGCTCACGGTGGTTCAGAACC"
+},
+{
+"Type": "DR",
+"Start": 25610,
+"End": 25638,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 25639,
+"End": 25670,
+"Sequence": "CGCCCCACCAGTTCGGTCAATATCGCGCCGCC"
+},
+{
+"Type": "DR",
+"Start": 25671,
+"End": 25699,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 25700,
+"End": 25731,
+"Sequence": "CTGGGGTGCTGCCGTGCTACTGTGCGGGTGCG"
+},
+{
+"Type": "DR",
+"Start": 25732,
+"End": 25760,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 25761,
+"End": 25792,
+"Sequence": "ATGCAAGACGCTCGCTGCCAGGTCCTTGGTGA"
+},
+{
+"Type": "DR",
+"Start": 25793,
+"End": 25821,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 25822,
+"End": 25854,
+"Sequence": "AACACCGACCAGCGCGGAGGGCGCAAGCTGGAC"
+},
+{
+"Type": "DR",
+"Start": 25855,
+"End": 25883,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 25884,
+"End": 25915,
+"Sequence": "CGTCGCCGGGATGGAGACCTTCATGCGGGAAT"
+},
+{
+"Type": "DR",
+"Start": 25916,
+"End": 25944,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 25945,
+"End": 25976,
+"Sequence": "ACCCAAAAACTGCGGTCGAATGGGGCTAAAGG"
+},
+{
+"Type": "DR",
+"Start": 25977,
+"End": 26005,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 26006,
+"End": 26037,
+"Sequence": "TCCATCGGGCTCGCCACCTCACCAGCCTACAT"
+},
+{
+"Type": "DR",
+"Start": 26038,
+"End": 26066,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 26067,
+"End": 26098,
+"Sequence": "CCTACGACTGGACGGACGACCAGTTGAACCTA"
+},
+{
+"Type": "DR",
+"Start": 26099,
+"End": 26127,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 26128,
+"End": 26159,
+"Sequence": "CTATGGGAAACGTCGGCGTACTGGATTCAGCG"
+},
+{
+"Type": "DR",
+"Start": 26160,
+"End": 26188,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 26189,
+"End": 26220,
+"Sequence": "TGGTGGGGATAGTGGGAGAACCTCAATCCTCA"
+},
+{
+"Type": "DR",
+"Start": 26221,
+"End": 26249,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 26250,
+"End": 26281,
+"Sequence": "TCAGGTTCCTTATGACTAAGTGAGCACAGAAA"
+},
+{
+"Type": "DR",
+"Start": 26282,
+"End": 26310,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 26311,
+"End": 26342,
+"Sequence": "ACCAGCGCGTGTATCGGGCTAATCGCCCTGTT"
+},
+{
+"Type": "DR",
+"Start": 26343,
+"End": 26371,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 26372,
+"End": 26403,
+"Sequence": "AACCCGAAGATTCACGTCTTGGATCCCTCGGA"
+},
+{
+"Type": "DR",
+"Start": 26404,
+"End": 26432,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "Spacer",
+"Start": 26433,
+"End": 26464,
+"Sequence": "AACGACCTGCGCAAACAGATCACGACCGAGCG"
+},
+{
+"Type": "DR",
+"Start": 26465,
+"End": 26493,
+"Sequence": "AACCGCCCCACGCAAGTGGGGATGAACCG"
+},
+{
+"Type": "RightFLANK",
+"Start": 26494,
+"End": 26593,
+"Sequence": "UNKNOWN",
+"Leader": 0,
+"AT": 0
+}
+]
+}]
+,
+"Cas":[{
+"Type": "CAS-TypeIE",
+"Start": 18514,
+"End": 25260,
+"Genes": [
+{
+"Sub_type": "cas1_TypeIE",
+"Start": 24075,
+"End": 24989,
+"Orientation": "+"
+},
+{
+"Sub_type": "cas2_TypeIE",
+"Start": 24970,
+"End": 25260,
+"Orientation": "+"
+},
+{
+"Sub_type": "cas5_TypeIE",
+"Start": 21742,
+"End": 22521,
+"Orientation": "+"
+},
+{
+"Sub_type": "cas6_TypeIE",
+"Start": 22518,
+"End": 23228,
+"Orientation": "+"
+},
+{
+"Sub_type": "cas7_TypeIE",
+"Start": 20604,
+"End": 21785,
+"Orientation": "+"
+},
+{
+"Sub_type": "cse1_TypeIE",
+"Start": 18514,
+"End": 20019,
+"Orientation": "+"
+}]},
+{
+"Type": "CAS",
+"Start": 16028,
+"End": 25260,
+"Genes": [
+{
+"Sub_type": "cas2_TypeIE",
+"Start": 24970,
+"End": 25260,
+"Orientation": "+"
+},
+{
+"Sub_type": "cas3_TypeI",
+"Start": 16028,
+"End": 18517,
+"Orientation": "+"
+},
+{
+"Sub_type": "cas3_TypeI",
+"Start": 16028,
+"End": 18517,
+"Orientation": "+"
+},
+{
+"Sub_type": "cas5_TypeIE",
+"Start": 21742,
+"End": 22521,
+"Orientation": "+"
+},
+{
+"Sub_type": "cas6_TypeIE",
+"Start": 22518,
+"End": 23228,
+"Orientation": "+"
+},
+{
+"Sub_type": "cas7_TypeIE",
+"Start": 20604,
+"End": 21785,
+"Orientation": "+"
+},
+{
+"Sub_type": "cse1_TypeIE",
+"Start": 18514,
+"End": 20019,
+"Orientation": "+"
+}]}]
+
+},
+{
+"Id":"AAB-S01R1_k55_4418903_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_4418903_flag=0_multi=9.1162_len=6131",
+"Description":"Unknown",
+"AT":39.4715380851411,
+"Length":6131,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4421946_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_4421946_flag=0_multi=7.7462_len=4941",
+"Description":"Unknown",
+"AT":37.4822910342036,
+"Length":4941,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8376262_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8376262_flag=0_multi=10.9609_len=14031",
+"Description":"Unknown",
+"AT":39.1062646995938,
+"Length":14031,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8378039_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8378039_flag=0_multi=10.2585_len=8251",
+"Description":"Unknown",
+"AT":38.0075142406981,
+"Length":8251,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5396995_flag=0_multi=6",
+"Version":"AAB-S01R1_k55_5396995_flag=0_multi=6.9339_len=4319",
+"Description":"Unknown",
+"AT":36.9066913637416,
+"Length":4319,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3436934_flag=1_multi=5",
+"Version":"AAB-S01R1_k55_3436934_flag=1_multi=5.7683_len=1777",
+"Description":"Unknown",
+"AT":38.885762521103,
+"Length":1777,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9424309_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_9424309_flag=0_multi=9.9756_len=3125",
+"Description":"Unknown",
+"AT":36.032,
+"Length":3125,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2451649_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_2451649_flag=0_multi=9.4300_len=3341",
+"Description":"Unknown",
+"AT":40.0778210116732,
+"Length":3341,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_2451649_flag",
+"Start": 3151,
+"End": 3210,
+"DR_Consensus": "CGTGATGCGTGATGACCGTGATG",
+"Repeat_ID": "Unknown",
+"DR_Length": 23,
+"Spacers": 1,
+"Potential_Orientation": "-",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 3051,
+"End": 3150,
+"Sequence": "GCGGCGGCGATTCGTTTAGCGAGATTATCGACGTGAACGCCAATGACGCCGGGACTGAGGGCGGAGTACATGGGGTGGGGTTTACCCGGTTGGCGTGATG",
+"Leader": 0,
+"AT": 39
+},
+ {
+"Type": "DR",
+"Start": 3151,
+"End": 3173,
+"Sequence": "CGTGATGCGTGATGACCGTGATG"
+},
+{
+"Type": "Spacer",
+"Start": 3174,
+"End": 3187,
+"Sequence": "TGTCGTGTGATGCG"
+},
+{
+"Type": "DR",
+"Start": 3188,
+"End": 3210,
+"Sequence": "GGATGATCGTGATGATCGTGATG"
+},
+{
+"Type": "RightFLANK",
+"Start": 3211,
+"End": 3310,
+"Sequence": "CGTGATGAACGTGATGCGTGATGGTCGTGCTGCCGTGATCCGAAATGCTAGCTCACGGCTCGTGGATCAGAAATCGGCGACTCCGTGTCGCCGCGAGCAA",
+"Leader": 1,
+"AT": 41
+}
+]
+}]
+,
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8392796_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_8392796_flag=0_multi=7.6476_len=4723",
+"Description":"Unknown",
+"AT":39.0853271225916,
+"Length":4723,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_441022_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_441022_flag=0_multi=10.7007_len=5684",
+"Description":"Unknown",
+"AT":40.2357494722027,
+"Length":5684,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6453966_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_6453966_flag=0_multi=10.3940_len=11596",
+"Description":"Unknown",
+"AT":39.004829251466,
+"Length":11596,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6454039_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_6454039_flag=0_multi=9.9871_len=5324",
+"Description":"Unknown",
+"AT":38.6551465063862,
+"Length":5324,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2463363_flag=0_multi=12",
+"Version":"AAB-S01R1_k55_2463363_flag=0_multi=12.2134_len=3804",
+"Description":"Unknown",
+"AT":40.6940063091483,
+"Length":3804,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7456818_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7456818_flag=0_multi=9.5894_len=21980",
+"Description":"Unknown",
+"AT":38.6624203821656,
+"Length":21980,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_447830_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_447830_flag=0_multi=8.6932_len=5143",
+"Description":"Unknown",
+"AT":36.3406572039666,
+"Length":5143,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7461133_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_7461133_flag=0_multi=8.8511_len=3580",
+"Description":"Unknown",
+"AT":40.7821229050279,
+"Length":3580,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2469421_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_2469421_flag=0_multi=11.0316_len=3475",
+"Description":"Unknown",
+"AT":39.4820143884892,
+"Length":3475,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4464755_flag=0_multi=6",
+"Version":"AAB-S01R1_k55_4464755_flag=0_multi=6.1908_len=1659",
+"Description":"Unknown",
+"AT":40.7474382157926,
+"Length":1659,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_456345_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_456345_flag=0_multi=8.3833_len=6290",
+"Description":"Unknown",
+"AT":35.818759936407,
+"Length":6290,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4466183_flag=1_multi=9",
+"Version":"AAB-S01R1_k55_4466183_flag=1_multi=9.9551_len=2504",
+"Description":"Unknown",
+"AT":42.8514376996805,
+"Length":2504,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2482796_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_2482796_flag=0_multi=7.7342_len=3351",
+"Description":"Unknown",
+"AT":37.9886601014623,
+"Length":3351,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4476032_flag=1_multi=10",
+"Version":"AAB-S01R1_k55_4476032_flag=1_multi=10.3594_len=3934",
+"Description":"Unknown",
+"AT":39.1204880528724,
+"Length":3934,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8424274_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_8424274_flag=0_multi=7.8856_len=2563",
+"Description":"Unknown",
+"AT":39.8361295357004,
+"Length":2563,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3484231_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_3484231_flag=0_multi=11.7437_len=3523",
+"Description":"Unknown",
+"AT":40.9310246948623,
+"Length":3523,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1490703_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_1490703_flag=0_multi=10.6733_len=4298",
+"Description":"Unknown",
+"AT":40.6235458352722,
+"Length":4298,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5460713_flag=0_multi=12",
+"Version":"AAB-S01R1_k55_5460713_flag=0_multi=12.0000_len=2691",
+"Description":"Unknown",
+"AT":39.4648829431438,
+"Length":2691,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3501253_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_3501253_flag=0_multi=8.1470_len=6586",
+"Description":"Unknown",
+"AT":38.8703310051625,
+"Length":6586,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1503228_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_1503228_flag=0_multi=9.4620_len=3518",
+"Description":"Unknown",
+"AT":38.7151790790222,
+"Length":3518,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6514778_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_6514778_flag=0_multi=9.9882_len=74811",
+"Description":"Unknown",
+"AT":37.8513854914384,
+"Length":74811,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5475696_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_5475696_flag=0_multi=9.9943_len=11336",
+"Description":"Unknown",
+"AT":38.1616090331687,
+"Length":11336,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7519726_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_7519726_flag=0_multi=10.9942_len=2640",
+"Description":"Unknown",
+"AT":35.4166666666667,
+"Length":2640,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3516847_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_3516847_flag=0_multi=8.9925_len=14616",
+"Description":"Unknown",
+"AT":37.8352490421456,
+"Length":14616,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_516627_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_516627_flag=0_multi=8.5533_len=10778",
+"Description":"Unknown",
+"AT":36.834292076452,
+"Length":10778,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1527108_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_1527108_flag=0_multi=10.4332_len=60827",
+"Description":"Unknown",
+"AT":38.1524651881566,
+"Length":60827,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_522150_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_522150_flag=0_multi=8.7505_len=3674",
+"Description":"Unknown",
+"AT":35.1115949918345,
+"Length":3674,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3533676_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_3533676_flag=0_multi=10.9060_len=5192",
+"Description":"Unknown",
+"AT":40.0231124807396,
+"Length":5192,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6536468_flag=0_multi=12",
+"Version":"AAB-S01R1_k55_6536468_flag=0_multi=12.0382_len=4403",
+"Description":"Unknown",
+"AT":41.9032477856007,
+"Length":4403,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9516818_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_9516818_flag=0_multi=8.7051_len=5714",
+"Description":"Unknown",
+"AT":38.9744487224361,
+"Length":5714,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5499802_flag=1_multi=9",
+"Version":"AAB-S01R1_k55_5499802_flag=1_multi=9.8502_len=7218",
+"Description":"Unknown",
+"AT":37.2956497644777,
+"Length":7218,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7543725_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7543725_flag=0_multi=9.8605_len=3360",
+"Description":"Unknown",
+"AT":38.6011904761905,
+"Length":3360,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7543843_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_7543843_flag=0_multi=10.8741_len=6544",
+"Description":"Unknown",
+"AT":39.2573349633252,
+"Length":6544,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4550157_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_4550157_flag=0_multi=10.7745_len=8787",
+"Description":"Unknown",
+"AT":42.6880619096392,
+"Length":8787,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2567564_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_2567564_flag=0_multi=10.2018_len=6319",
+"Description":"Unknown",
+"AT":43.8360500079126,
+"Length":6319,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7555846_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7555846_flag=0_multi=9.0351_len=5350",
+"Description":"Unknown",
+"AT":38.8224299065421,
+"Length":5350,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9536223_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_9536223_flag=0_multi=9.8328_len=17306",
+"Description":"Unknown",
+"AT":38.3566393158442,
+"Length":17306,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3559171_flag=0_multi=6",
+"Version":"AAB-S01R1_k55_3559171_flag=0_multi=6.5922_len=2507",
+"Description":"Unknown",
+"AT":36.7371360191464,
+"Length":2507,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_3559171_flag",
+"Start": 67,
+"End": 169,
+"DR_Consensus": "GCGACGATGCGGAGGAGGGGGCGT",
+"Repeat_ID": "Unknown",
+"DR_Length": 24,
+"Spacers": 1,
+"Potential_Orientation": "ND",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": -33,
+"End": 66,
+"Sequence": "UNKNOWN",
+"Leader": 0,
+"AT": 0
+},
+ {
+"Type": "DR",
+"Start": 67,
+"End": 90,
+"Sequence": "GCGACGATGCGGAGGAGGGGGCGT"
+},
+{
+"Type": "Spacer",
+"Start": 91,
+"End": 145,
+"Sequence": "GCACAGGCGGCAGGAGCGGTTCCCCCGCATGCGGGGGAACCTAGCTAAGGAGCCT"
+},
+{
+"Type": "DR",
+"Start": 146,
+"End": 169,
+"Sequence": "GCGACGATGCGAAGGAGGGGGCGT"
+},
+{
+"Type": "RightFLANK",
+"Start": 170,
+"End": 269,
+"Sequence": "CTCCCGCGTTGGCCTCACACTCGCCCCCGCTATACTCCGCGCATGCGGACGAAGTACTGCCTAATCTGGGTGGCGGGTGTTGCGGCGCTCGGTTGCCACC",
+"Leader": 0,
+"AT": 33
+}
+]
+}]
+,
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6561842_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_6561842_flag=0_multi=10.3162_len=6286",
+"Description":"Unknown",
+"AT":38.3073496659243,
+"Length":6286,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7562051_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_7562051_flag=0_multi=10.3660_len=39227",
+"Description":"Unknown",
+"AT":39.8348076579907,
+"Length":39227,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5524537_flag=1_multi=8",
+"Version":"AAB-S01R1_k55_5524537_flag=1_multi=8.4678_len=7591",
+"Description":"Unknown",
+"AT":41.1671716506389,
+"Length":7591,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_556206_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_556206_flag=0_multi=9.9212_len=9430",
+"Description":"Unknown",
+"AT":38.8971367974549,
+"Length":9430,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4567336_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_4567336_flag=0_multi=8.4977_len=4477",
+"Description":"Unknown",
+"AT":40.3618494527585,
+"Length":4477,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9555798_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_9555798_flag=0_multi=8.9134_len=7842",
+"Description":"Unknown",
+"AT":39.3011986738077,
+"Length":7842,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1568555_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_1568555_flag=0_multi=8.3447_len=2924",
+"Description":"Unknown",
+"AT":39.500683994528,
+"Length":2924,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9562659_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_9562659_flag=0_multi=8.6154_len=3706",
+"Description":"Unknown",
+"AT":41.8510523475445,
+"Length":3706,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7588229_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_7588229_flag=0_multi=10.9755_len=7929",
+"Description":"Unknown",
+"AT":37.8231807289696,
+"Length":7929,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6593811_flag=1_multi=10",
+"Version":"AAB-S01R1_k55_6593811_flag=1_multi=10.5753_len=3853",
+"Description":"Unknown",
+"AT":39.1902413703608,
+"Length":3853,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9574588_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_9574588_flag=0_multi=7.6329_len=6742",
+"Description":"Unknown",
+"AT":39.394838326906,
+"Length":6742,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3592568_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_3592568_flag=0_multi=9.7392_len=1865",
+"Description":"Unknown",
+"AT":39.1957104557641,
+"Length":1865,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9586600_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_9586600_flag=0_multi=8.0782_len=7476",
+"Description":"Unknown",
+"AT":36.115569823435,
+"Length":7476,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7609616_flag=0_multi=12",
+"Version":"AAB-S01R1_k55_7609616_flag=0_multi=12.1293_len=2305",
+"Description":"Unknown",
+"AT":43.2537960954447,
+"Length":2305,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1601361_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_1601361_flag=0_multi=8.5138_len=2225",
+"Description":"Unknown",
+"AT":38.7415730337079,
+"Length":2225,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6615092_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_6615092_flag=0_multi=10.3454_len=5834",
+"Description":"Unknown",
+"AT":37.8471031882071,
+"Length":5834,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2634331_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_2634331_flag=0_multi=9.3454_len=5958",
+"Description":"Unknown",
+"AT":37.7979187646861,
+"Length":5958,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2636470_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_2636470_flag=0_multi=7.9501_len=1637",
+"Description":"Unknown",
+"AT":37.2632864996946,
+"Length":1637,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5581140_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_5581140_flag=0_multi=8.2489_len=2377",
+"Description":"Unknown",
+"AT":40.0084139671855,
+"Length":2377,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3619818_flag=0_multi=6",
+"Version":"AAB-S01R1_k55_3619818_flag=0_multi=6.9830_len=9056",
+"Description":"Unknown",
+"AT":38.7588339222615,
+"Length":9056,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1618963_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_1618963_flag=0_multi=9.4382_len=11238",
+"Description":"Unknown",
+"AT":37.7380316782346,
+"Length":11238,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2644025_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_2644025_flag=0_multi=10.7065_len=17008",
+"Description":"Unknown",
+"AT":38.7817497648166,
+"Length":17008,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_2644025_flag",
+"Start": 1,
+"End": 143,
+"DR_Consensus": "CTCTGCCCCTCCCAGGGGAAGTCCGTGAGTCCCCGAACGGGTAGGGGTTCCGGC",
+"Repeat_ID": "Unknown",
+"DR_Length": 54,
+"Spacers": 1,
+"Potential_Orientation": "ND",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": -99,
+"End": 0,
+"Sequence": "UNKNOWN",
+"Leader": 0,
+"AT": 0
+},
+ {
+"Type": "DR",
+"Start": 1,
+"End": 54,
+"Sequence": "CTCTGCCCCTCCCAGGGGAAGTCCGTGAGTCCCCGAACGGGTAGGGGTTCCGGC"
+},
+{
+"Type": "Spacer",
+"Start": 55,
+"End": 89,
+"Sequence": "CCAAATTGAGGCCCCGCCCAACCCCTGCCAAGCAG"
+},
+{
+"Type": "DR",
+"Start": 90,
+"End": 143,
+"Sequence": "GCTCTGCCCCTCCCAGGGAAGTCCGTGAGTCCCCGAACGGGTAGGGGTTCCGGC"
+},
+{
+"Type": "RightFLANK",
+"Start": 144,
+"End": 243,
+"Sequence": "TCACCACCCCACCCTCACGCCATCACCGCCTCGGCATCCCAAAGCCGCCGCGAATACCAAATCCTAAACGTAGCGAGGCTGCGATGCGGCTCAAACGGCT",
+"Leader": 0,
+"AT": 38
+}
+]
+},
+{
+"Name": "AAB-S01R1_k55_2644025_flag",
+"Start": 1661,
+"End": 1759,
+"DR_Consensus": "ACTGGGAGGGCGGGTGCCCTCACCCGCCACCG",
+"Repeat_ID": "Unknown",
+"DR_Length": 32,
+"Spacers": 1,
+"Potential_Orientation": "-",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 1561,
+"End": 1660,
+"Sequence": "ACGTGCGATCCAACATCCGGGCGCGGGTAAGCGGCACAACAAGAGTGTGCCCCACCACCTCCACCCCCATGTTCCGGTTTTCTACATTGGCTGTTCCCAA",
+"Leader": 0,
+"AT": 41
+},
+ {
+"Type": "DR",
+"Start": 1661,
+"End": 1692,
+"Sequence": "ACTGGGAGGGCGGGTGCCCTCACCCGCCACCG"
+},
+{
+"Type": "Spacer",
+"Start": 1693,
+"End": 1727,
+"Sequence": "AGAACCACCCCCAACCCGAAACGAACCCCGCAACC"
+},
+{
+"Type": "DR",
+"Start": 1728,
+"End": 1759,
+"Sequence": "ACTGGGAGGGCGGGTGCCCTCACCCGCCACCG"
+},
+{
+"Type": "RightFLANK",
+"Start": 1760,
+"End": 1859,
+"Sequence": "TGGACCACCCCTCGATTTCAATAACATCCAAGGAACGCCCATGACGATCCCACCAAGCCTTCAGCATCTGGTGACCAGCGACCCGGAGGTCGTCGGAGGA",
+"Leader": 1,
+"AT": 42
+}
+]
+},
+{
+"Name": "AAB-S01R1_k55_2644025_flag",
+"Start": 16821,
+"End": 16909,
+"DR_Consensus": "GCGCCAAAGGATTGAGCGAGGGACGG",
+"Repeat_ID": "Unknown",
+"DR_Length": 26,
+"Spacers": 1,
+"Potential_Orientation": "ND",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 16721,
+"End": 16820,
+"Sequence": "CTTTACCGTGGCGATGGCCGCCATCACATACGGTTGCGCTGTGGGATGGGCCGCCTTGCACCATCAGCCCGCCCCGTTGCCGCCTCAGGACGTCTACTCG",
+"Leader": 0,
+"AT": 34
+},
+ {
+"Type": "DR",
+"Start": 16821,
+"End": 16846,
+"Sequence": "GCGCCAAAGGATTGAGCGAGGGACGG"
+},
+{
+"Type": "Spacer",
+"Start": 16847,
+"End": 16883,
+"Sequence": "TCAGCCCGCCCCGCTGCCGCCTCAGGACGTCTACTCT"
+},
+{
+"Type": "DR",
+"Start": 16884,
+"End": 16909,
+"Sequence": "GCGCCAAAGGATTGAGCGAGGGACGG"
+},
+{
+"Type": "RightFLANK",
+"Start": 16910,
+"End": 17009,
+"Sequence": "UNKNOWN",
+"Leader": 0,
+"AT": 0
+}
+]
+}]
+,
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8578561_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_8578561_flag=0_multi=11.6919_len=28093",
+"Description":"Unknown",
+"AT":38.5362901790482,
+"Length":28093,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8585191_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8585191_flag=0_multi=10.0456_len=1985",
+"Description":"Unknown",
+"AT":41.1083123425693,
+"Length":1985,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3642737_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_3642737_flag=0_multi=11.0678_len=9210",
+"Description":"Unknown",
+"AT":41.8675352877307,
+"Length":9210,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8593789_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8593789_flag=0_multi=10.5862_len=10777",
+"Description":"Unknown",
+"AT":40.3637375893106,
+"Length":10777,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8594036_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_8594036_flag=0_multi=9.7427_len=1629",
+"Description":"Unknown",
+"AT":38.3670963781461,
+"Length":1629,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4657496_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_4657496_flag=0_multi=11.2192_len=7007",
+"Description":"Unknown",
+"AT":37.6480662194948,
+"Length":7007,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1657729_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_1657729_flag=0_multi=9.2396_len=7973",
+"Description":"Unknown",
+"AT":42.9323968393327,
+"Length":7973,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3680627_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_3680627_flag=0_multi=9.8817_len=2286",
+"Description":"Unknown",
+"AT":38.4951881014873,
+"Length":2286,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7696808_flag=1_multi=8",
+"Version":"AAB-S01R1_k55_7696808_flag=1_multi=8.9871_len=5411",
+"Description":"Unknown",
+"AT":38.5510996119017,
+"Length":5411,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_7696808_flag",
+"Start": 5279,
+"End": 5386,
+"DR_Consensus": "CGATCAACGGCGACTCCGTGCCGCCGCA",
+"Repeat_ID": "Unknown",
+"DR_Length": 28,
+"Spacers": 1,
+"Potential_Orientation": "ND",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 5179,
+"End": 5278,
+"Sequence": "GTCACGATGACCTTGATCAAACCAGGCGGCGGCTTCACCCCTTCTCGACGCATCGCACACTATAGCGTGATCGTGATCCGTGTCCCGTGATTCGCGAATG",
+"Leader": 0,
+"AT": 43
+},
+ {
+"Type": "DR",
+"Start": 5279,
+"End": 5306,
+"Sequence": "CGATCAACGGCGACTCCGTGCCGCCGCA"
+},
+{
+"Type": "Spacer",
+"Start": 5307,
+"End": 5358,
+"Sequence": "TCAAGAGAAAATACCGTTAGCGAGGTCGCGACTGGTGAGTGACTCCCGTGAA"
+},
+{
+"Type": "DR",
+"Start": 5359,
+"End": 5386,
+"Sequence": "CGATCAATGGCGACTCCGTGCCGCCGCA"
+},
+{
+"Type": "RightFLANK",
+"Start": 5387,
+"End": 5486,
+"Sequence": "UNKNOWN",
+"Leader": 0,
+"AT": 0
+}
+]
+}]
+,
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2720324_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_2720324_flag=0_multi=8.8954_len=2253",
+"Description":"Unknown",
+"AT":36.7953839325344,
+"Length":2253,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2733724_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_2733724_flag=0_multi=8.0828_len=1976",
+"Description":"Unknown",
+"AT":39.8279352226721,
+"Length":1976,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8656065_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_8656065_flag=0_multi=11.6825_len=2414",
+"Description":"Unknown",
+"AT":40.9279204639602,
+"Length":2414,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4719231_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_4719231_flag=0_multi=9.2613_len=6182",
+"Description":"Unknown",
+"AT":38.9194435457781,
+"Length":6182,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6739642_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_6739642_flag=0_multi=7.9719_len=6429",
+"Description":"Unknown",
+"AT":36.8019909783792,
+"Length":6429,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4731442_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_4731442_flag=0_multi=9.4361_len=2364",
+"Description":"Unknown",
+"AT":38.7478849407783,
+"Length":2364,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7743939_flag=0_multi=9",
+"Version":"AAB-S01R1_k55_7743939_flag=0_multi=9.0000_len=2993",
+"Description":"Unknown",
+"AT":39.8262612763114,
+"Length":2993,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7759735_flag=1_multi=9",
+"Version":"AAB-S01R1_k55_7759735_flag=1_multi=9.1273_len=10382",
+"Description":"Unknown",
+"AT":39.7322288576382,
+"Length":10382,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8691483_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8691483_flag=0_multi=10.9347_len=2504",
+"Description":"Unknown",
+"AT":42.332268370607,
+"Length":2504,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7762372_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_7762372_flag=0_multi=10.3531_len=9317",
+"Description":"Unknown",
+"AT":37.2652141247183,
+"Length":9317,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4767228_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_4767228_flag=0_multi=10.4392_len=9006",
+"Description":"Unknown",
+"AT":37.9635798356651,
+"Length":9006,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_7779222_flag=1_multi=10",
+"Version":"AAB-S01R1_k55_7779222_flag=1_multi=10.6427_len=18181",
+"Description":"Unknown",
+"AT":39.816291733128,
+"Length":18181,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6792709_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_6792709_flag=0_multi=10.6734_len=12002",
+"Description":"Unknown",
+"AT":40.5682386268955,
+"Length":12002,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8719853_flag=1_multi=9",
+"Version":"AAB-S01R1_k55_8719853_flag=1_multi=9.0344_len=3778",
+"Description":"Unknown",
+"AT":37.427210164108,
+"Length":3778,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_3781703_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_3781703_flag=0_multi=11.9364_len=26774",
+"Description":"Unknown",
+"AT":41.5701800253978,
+"Length":26774,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5744575_flag=0_multi=12",
+"Version":"AAB-S01R1_k55_5744575_flag=0_multi=12.5564_len=6922",
+"Description":"Unknown",
+"AT":39.8873158046807,
+"Length":6922,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_6812816_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_6812816_flag=0_multi=7.9732_len=10528",
+"Description":"Unknown",
+"AT":39.3332066869301,
+"Length":10528,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5764924_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_5764924_flag=0_multi=10.6928_len=2171",
+"Description":"Unknown",
+"AT":39.7973284200829,
+"Length":2171,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_4825222_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_4825222_flag=0_multi=8.8374_len=6611",
+"Description":"Unknown",
+"AT":36.5602783240054,
+"Length":6611,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_824196_flag=0_multi=12",
+"Version":"AAB-S01R1_k55_824196_flag=0_multi=12.6763_len=1952",
+"Description":"Unknown",
+"AT":40.8811475409836,
+"Length":1952,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_2865144_flag=0_multi=11",
+"Version":"AAB-S01R1_k55_2865144_flag=0_multi=11.3230_len=4489",
+"Description":"Unknown",
+"AT":40.008910670528,
+"Length":4489,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[
+{
+"Name": "AAB-S01R1_k55_2865144_flag",
+"Start": 4377,
+"End": 4489,
+"DR_Consensus": "GCGGGGGGTTCGGTATCGCGGGCGCAAGCGTC",
+"Repeat_ID": "Unknown",
+"DR_Length": 32,
+"Spacers": 1,
+"Potential_Orientation": "ND",
+"CRISPRDirection": "ND",
+"Evidence_Level": 1,
+"Conservation_DRs": ,
+"Conservation_Spacers": ,
+"Regions": [
+{
+"Type": "LeftFLANK",
+"Start": 4277,
+"End": 4376,
+"Sequence": "TGCGGAGTAGCCCGGGCGGTTCATGGGAGTGGGGAATGTGCTACCTGCGTCGCCCCCTCCTTCGCGTCGTCGCATGCTCCTCGGCTAGGTTCCCCCGCAG",
+"Leader": 0,
+"AT": 32
+},
+ {
+"Type": "DR",
+"Start": 4377,
+"End": 4408,
+"Sequence": "GCGGGGGGTTCGGTATCGCGGGCGCAAGCGTC"
+},
+{
+"Type": "Spacer",
+"Start": 4409,
+"End": 4457,
+"Sequence": "GCCCCCTCCTTCGCGTCGTCGCAGGCTCCTCGGCTAGGTTCCCCCGCAT"
+},
+{
+"Type": "DR",
+"Start": 4458,
+"End": 4489,
+"Sequence": "GCGGGGGGTTCGGTATCGCGGGCGCAAGCGTC"
+},
+{
+"Type": "RightFLANK",
+"Start": 4490,
+"End": 4589,
+"Sequence": "UNKNOWN",
+"Leader": 0,
+"AT": 0
+}
+]
+}]
+,
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8776864_flag=0_multi=7",
+"Version":"AAB-S01R1_k55_8776864_flag=0_multi=7.3146_len=2534",
+"Description":"Unknown",
+"AT":41.1996842936069,
+"Length":2534,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1847412_flag=0_multi=4",
+"Version":"AAB-S01R1_k55_1847412_flag=0_multi=4.3008_len=2003",
+"Description":"Unknown",
+"AT":40.0898652021967,
+"Length":2003,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_1870984_flag=0_multi=8",
+"Version":"AAB-S01R1_k55_1870984_flag=0_multi=8.4342_len=9331",
+"Description":"Unknown",
+"AT":40.7780516557711,
+"Length":9331,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9893996_flag=0_multi=6",
+"Version":"AAB-S01R1_k55_9893996_flag=0_multi=6.5783_len=1874",
+"Description":"Unknown",
+"AT":39.0608324439701,
+"Length":1874,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_8853522_flag=0_multi=10",
+"Version":"AAB-S01R1_k55_8853522_flag=0_multi=10.4415_len=7153",
+"Description":"Unknown",
+"AT":38.0679435202013,
+"Length":7153,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_9908971_flag=0_multi=6",
+"Version":"AAB-S01R1_k55_9908971_flag=0_multi=6.2475_len=2128",
+"Description":"Unknown",
+"AT":43.0921052631579,
+"Length":2128,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+},
+{
+"Id":"AAB-S01R1_k55_5904256_flag=1_multi=7",
+"Version":"AAB-S01R1_k55_5904256_flag=1_multi=7.0885_len=1739",
+"Description":"Unknown",
+"AT":37.4353076480736,
+"Length":1739,
+"Summary_CRISPR-Cas":"",
+"Crisprs":[],
+"Cas":[]
+}
+]
+}

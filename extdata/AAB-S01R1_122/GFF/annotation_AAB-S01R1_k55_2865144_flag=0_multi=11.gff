@@ -1,0 +1,10 @@
+##gff-version  3
+# Sequence Data: seqnum=1;seqlen=4489;seqhdr="AAB-S01R1_k55_2865144_flag=0_multi=11.3230_len=4489"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="30|Mycobacterium_leprae_TN|B|57.8|11|1";gc_cont=57.80;transl_table=11;uses_sd=1
+AAB-S01R1_k55_2865144_flag=0_multi=11.3230_len=4489	Prodigal_v2.6.3	CDS	32	823	33.6	+	0	ID=1_1;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.569;conf=99.96;score=33.58;cscore=19.23;sscore=14.34;rscore=10.73;uscore=-0.03;tscore=3.65;
+AAB-S01R1_k55_2865144_flag=0_multi=11.3230_len=4489	Prodigal_v2.6.3	CDS	811	1338	28.0	+	0	ID=1_2;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.574;conf=99.88;score=29.24;cscore=21.35;sscore=7.89;rscore=2.24;uscore=0.81;tscore=3.65;
+AAB-S01R1_k55_2865144_flag=0_multi=11.3230_len=4489	Prodigal_v2.6.3	CDS	1466	1567	1.8	+	0	ID=1_3;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.500;conf=60.28;score=1.81;cscore=-0.33;sscore=2.15;rscore=0.89;uscore=0.31;tscore=1.44;
+AAB-S01R1_k55_2865144_flag=0_multi=11.3230_len=4489	Prodigal_v2.6.3	CDS	1574	2608	54.6	+	0	ID=1_4;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.582;conf=100.00;score=55.84;cscore=40.38;sscore=15.46;rscore=10.73;uscore=-0.12;tscore=3.65;
+AAB-S01R1_k55_2865144_flag=0_multi=11.3230_len=4489	Prodigal_v2.6.3	CDS	2608	3372	30.2	+	0	ID=1_5;partial=00;start_type=GTG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.596;conf=99.95;score=32.68;cscore=29.67;sscore=3.01;rscore=2.24;uscore=-1.21;tscore=-0.51;
+AAB-S01R1_k55_2865144_flag=0_multi=11.3230_len=4489	Prodigal_v2.6.3	CDS	3502	3885	28.8	+	0	ID=1_6;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.701;conf=99.87;score=28.80;cscore=22.01;sscore=6.79;rscore=2.24;uscore=0.91;tscore=3.65;
+AAB-S01R1_k55_2865144_flag=0_multi=11.3230_len=4489	Prodigal_v2.6.3	CDS	3990	4286	25.0	+	0	ID=1_7;partial=00;start_type=ATG;rbs_motif=3Base/5BMM;rbs_spacer=13-15bp;gc_cont=0.626;conf=99.68;score=24.95;cscore=23.83;sscore=1.13;rscore=-0.62;uscore=-1.90;tscore=3.65;
