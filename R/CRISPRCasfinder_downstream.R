@@ -29,6 +29,9 @@ pre_CCF_res=function(input_folder,output_folder="./",genome_name=NULL){
       res=rbind(res,tmp)
     }
     write_fasta(res,out_file1)
+
+    crispr_res=get_crispr(rawCas_file,genome_name = genome_name)
+    write.csv(crispr_res,file = paste0(output_folder,"/",genome_name,"_CRISPR_info.csv"),row.names = F)
   } else {
     pcutils::dabiao("No array found!")
   }
@@ -85,10 +88,46 @@ get_cas=function(rawCas_file,genome_name){
   arrary_with_cas=pcutils::strsplit2(arrary_with_cas_id,"\\|")
   arrary_cas=pcutils::strsplit2(arrary_with_cas$V4,"[ ,]")
   res=cbind(arrary_with_cas[,c(2,3)],arrary_cas)
-  colnames(res)=c("seqid","type","subtype","start","end")
+  colnames(res)=c("seqid","subtype","protein","start","end")
   res$seqid=gsub("_\\d+$","",res$seqid)
   res=dplyr::distinct(res)
-  cas_res=cbind(genome=genome_name,res)
+  res$subtype=gsub("CAS-","",res$subtype)
+  res$type=ifelse(grepl("Type",res$subtype),substr(res$subtype,1,nchar(res$subtype)-1),res$subtype)
+  cas_res=cbind(genome=genome_name,res[,c("seqid","type","subtype","protein","start","end")])
+  cas_res=mutate_at(cas_res,6:7,as.numeric)
   cas_res
+}
+
+get_crispr=function(Crisprs_REPORT,genome_name = genome_name){
+  Crisprs_REPORT="extdata/AAB-S01R1_122/TSV/Crisprs_REPORT.tsv"
+  crisprs=read.table(Crisprs_REPORT,sep="\t",header = T,check.names = F)
+  crisprs=crisprs[,c("Sequence","CRISPR_Id","CRISPR_Start","CRISPR_End","Consensus_Repeat")]
+
+  crisprs$CRISPR_Id=paste0(crisprs$Sequence,"@CRISPR:",sub(".*_(\\d+)$","\\1",crisprs$CRISPR_Id))
+  colnames(crisprs)=c("seqid","CRISPR_id","start","end","consensus_repeat")
+  data.frame(genome_name=genome_name,crisprs)
+}
+
+
+if(F){
+  cas_info=read.csv("extdata/AAB-S01R1_122_Cas_info.csv")
+  a=cas_info[,c("type","subtype")]%>%group_by_all()%>%count()%>%as.data.frame()
+
+  my_sankey(a,mode = "gg")
+  gghuan2(a[,c(1,2,3)])
+
+  ggplot()+
+    geom_point(data = cas_res,aes(x=start,y=end),col="red")+
+    geom_point(data = filter(crisprs,seqid%in%cas_res$seqid),aes(x=start,y=end),col="blue")+
+    scale_x_continuous(breaks = scales::pretty_breaks(n = 10))+
+    facet_wrap(.~seqid,scales = "free",ncol = 1)
+
+  #尝试画一下，类似基因图
+  library(gggenes)
+  ?gggenes::geom_gene_arrow
+  ggplot(example_genes, aes(xmin = start, xmax = end,
+                            y = molecule, fill = gene)) +
+    geom_gene_arrow() +
+    facet_wrap(~ molecule, scales = "free")
 }
 
