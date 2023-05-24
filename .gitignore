@@ -5,3 +5,6 @@
 *.Rproj
 software/*
 Rtaxonkit.tmp
+/doc/
+/Meta/
+pre_CCF_res_out

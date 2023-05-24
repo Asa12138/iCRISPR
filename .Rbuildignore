@@ -1,5 +1,10 @@
 ^.*\.Rproj$
+.gitignore
 ^\.Rproj\.user$
 ^\..*
 software/*
 Rtaxonkit.tmp
+^.*\.DS_Store
+^doc$
+^Meta$
+pre_CCF_res_out

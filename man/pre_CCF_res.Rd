@@ -4,7 +4,11 @@
 \alias{pre_CCF_res}
 \title{Prepare the result files from CRISPRCasFinder}
 \usage{
-pre_CCF_res(input_folder, output_folder = "./", genome_name = NULL)
+pre_CCF_res(
+  input_folder,
+  output_folder = "./pre_CCF_res_out",
+  genome_name = NULL
+)
 }
 \arguments{
 \item{input_folder}{the folder of CRISPRCasFinder result, contains GFF/,TSV/,result.json,...}
@@ -17,5 +21,5 @@ pre_CCF_res(input_folder, output_folder = "./", genome_name = NULL)
 Prepare the result files from CRISPRCasFinder
 }
 \examples{
-pre_CCF_res("extdata/AAB-S01R1_122","extdata")
+crispr=pre_CCF_res(system.file("extdata/AAB-S01R1_122",package = "iCRISPR"))
 }
