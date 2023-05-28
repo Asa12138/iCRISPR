@@ -9,6 +9,7 @@
 #' @examples
 #' crispr=pre_CCF_res(system.file("extdata/AAB-S01R1_122",package = "iCRISPR"))
 pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=NULL){
+  library(dplyr)
   if(!dir.exists(input_folder))stop("Can not find ",input_folder)
   if(!dir.exists(output_folder))dir.create(output_folder,recursive =T)
 
@@ -41,6 +42,7 @@ pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=
     #导出CRISPR信息
     write.csv(crispr_res,file = paste0(output_folder,"/",genome_name,"_CRISPR_info.csv"),row.names = F)
   } else {
+    arrary_res=spacer_res=crispr_res=NULL
     pcutils::dabiao("No array found!")
   }
 
@@ -69,7 +71,7 @@ get_spacer_fa=function(crispr_gff,genome_name){
   #用@分割，header要包括这些信息：spacer来源于哪条genome，哪条序列，是在该序列第几个crispr array 上，crispr array的起始和终止位点，再加一个spacer的起始位点，spacer的长度，以及是第几个spacer
   res=data.frame(spacer_id=c(),spacer_seq=c())
   gff1=read.table(crispr_gff,col.names = c("seqid", "source", "feature", "start", "end", "score", "strand", "phase", "attributes"))
-  gff2=filter(gff1,feature%in%c("CRISPR","CRISPRspacer"))%>%select(1,3,4,5,9)
+  gff2=filter(gff1,feature%in%c("CRISPR","CRISPRspacer"))%>%dplyr::select(1,3,4,5,9)
   cid=0
   for (r in 1:nrow(gff2)) {
     row=gff2[r,]
@@ -96,7 +98,7 @@ get_spacer_fa=function(crispr_gff,genome_name){
 }
 
 get_array=function(crispr_gff,genome_name){
-  gff=read.file(crispr_gff)
+  gff=pcutils::read.file(crispr_gff)
   left=which(gff$feature=="LeftFLANK")
   right=which(gff$feature=="RightFLANK")
   if(length(left)!=length(right))stop("Something wrong with this gff file: ",crispr_gff)
