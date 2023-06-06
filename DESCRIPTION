@@ -32,5 +32,4 @@ Suggests:
     doSNOW
 Remotes:
     Asa12138/pcutils
-LazyData: true
 VignetteBuilder: knitr

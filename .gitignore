@@ -8,6 +8,7 @@ Rtaxonkit.tmp
 /doc/
 /Meta/
 pre_CCF_res_out
+iCRISPR_out
 .Rdata
 .httr-oauth
 .DS_Store

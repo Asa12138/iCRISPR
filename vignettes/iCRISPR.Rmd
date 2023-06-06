@@ -17,7 +17,7 @@ vignette: >
 
 ```{r style, echo=FALSE, results="asis", message=FALSE}
 knitr::opts_chunk$set(tidy = FALSE,
-		   message = FALSE)
+		   message = FALSE,eval = F)
 ```
 
 # Install
@@ -30,6 +30,112 @@ remotes::install_github("Asa12138/iCRISPR")
 
 # Usage
 ```{r}
+library(iCRISPR)
+library(pcutils)
+library(dplyr)
+args <- as.numeric(commandArgs(trailingOnly = TRUE))
+all_dirs=read.table("all_dirs")[,1]
+all_dirs=all_dirs[args[1]:args[2]]
+
+for (i in all_dirs) {
+  dir=i
+  print(dir)
+  dir_out=paste0("iCRISPR_out/",dir,"_out/")
+  res=multi_pre_CCF_res(input_folder = paste0("output/",dir),output_folder = dir_out,threads=1)
+  save(res,file = paste0("iCRISPR_out/",dir,".rda"))
+}
+
+```
+
+
+```{bash}
+#!/bin/bash
+#SBATCH --job-name=pre_CCF
+#SBATCH --partition=cpu
+#SBATCH --time=14-00:00:00
+#SBATCH --tasks-per-node=1
+#SBATCH --cpus-per-task=2
+#SBATCH --mem-per-cpu=5G
+#SBATCH --array=1-2
+
+echo start: `date +'%Y-%m-%d %T'`
+start=`date +%s`
+echo "SLURM_ARRAY_TASK_ID: " $SLURM_ARRAY_TASK_ID
+START=$SLURM_ARRAY_TASK_ID
+NUMLINES=50
+STOP=$((SLURM_ARRAY_TASK_ID*NUMLINES))
+START="$(($STOP - $(($NUMLINES - 1))))"
+
+if [ $START -lt 3 ]
+then
+  START=3
+fi
+
+if [ $STOP -gt 999 ]
+then
+  STOP=999
+fi
+
+echo "START=$START"
+echo "STOP=$STOP"
+
+Rscript ./pre_CCF.R $START $STOP
+
+echo end: `date +'%Y-%m-%d %T'`
+end=`date +%s`
+echo TIME:`expr $end - $start`s
+```
+
+古菌部分
+/data/home/jianglab/share/arc_ccfinder
+```{r}
+library(iCRISPR)
+library(pcutils)
+library(dplyr)
+all_dirs=paste0("dir_",1:100)
+for (i in all_dirs) {
+  dir=i
+  print(dir)
+  dir_out=paste0("iCRISPR_out/",dir,"_out/")
+  res=multi_pre_CCF_res(input_folder = paste0("output/",dir),output_folder = dir_out,threads=1)
+  save(res,file = paste0("iCRISPR_out/",dir,".rda"))
+}
+```
+
+```{r}
+all_res=list()
+rdals=list.files("/iCRISPR_out",pattern = "*.rda",full.names = T)
+for (i in rdals) {
+  load(i)
+  class(res)="multi_crispr"
+  all_res[[i]]=summary_levels(res)
+}
+bbb=do.call(rbind,all_res)
+rownames(bbb)=NULL
+save(bbb,file = "iCRISPR_out/arc_levels_summary.rda")
+
+```
+
+
+```{r}
+bbb=summary_levels(res)
+ccc=dplyr::group_by(bbb,evidence_Level,Cas)%>%dplyr::summarise(crispr_num=sum(crispr_num),spacer_num=sum(spacer_num))%>%as.data.frame()
+
+ggplot(data = ccc,aes(x=evidence_Level,y=Cas))+
+  geom_point(aes(size=spacer_num))+
+  geom_text(aes(label=spacer_num),nudge_y = 0.2)
+
+ggplot(data = ccc,aes(x=evidence_Level,y=spacer_num,fill=Cas))+
+  geom_col(position = position_dodge(width = 0.7))+
+  geom_text(aes(label=spacer_num),position = position_dodge(width = 0.7),vjust=0)
+
+ggplot(data = ccc,aes(x=evidence_Level,y=crispr_num,fill=Cas))+
+  geom_col(position = position_dodge(width = 0.7))+
+  geom_text(aes(label=crispr_num),position = position_dodge(width = 0.7),vjust=0)
+
+ggplot(data = ccc,aes(x=evidence_Level,y=spacer_num,fill=Cas))+
+  geom_bar(stat="identity",position = position_fill())+
+  geom_text(aes(label=spacer_num),position = position_fill())+labs(y="Percentage")
 
 ```
 

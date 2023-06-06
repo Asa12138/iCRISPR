@@ -16,6 +16,17 @@ print.crispr=function(crispr,...){
   cat("With",info$n_spacer,"spacers\n")
 }
 
+
+#' Print multi_crispr object
+#'
+#' @param multi_crispr multi_crispr object
+#' @method print multi_crispr
+#' @exportS3Method
+#'
+print.multi_crispr=function(multi_crispr,...){
+  pcutils::dabiao("a list with total ",length(multi_crispr)," genomes")
+}
+
 #' Prepare the result files from CRISPRCasFinder
 #'
 #' @param input_folder the folder of CRISPRCasFinder result, contains GFF/,TSV/,result.json,...
@@ -35,8 +46,7 @@ pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=
 
   if(is.null(genome_name))genome_name=basename(input_folder)
   output_folder=paste0(output_folder,"/",genome_name)
-    if(!dir.exists(output_folder))dir.create(output_folder,recursive =T)
-
+  if(!dir.exists(output_folder))dir.create(output_folder,recursive =T)
 
   out_file1=paste0(output_folder,"/",genome_name,"_spacer.fa")
 
@@ -114,10 +124,12 @@ pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=
 #' @export
 #'
 #' @examples
-#' multi_res=multi_pre_CCF_res("inst/extdata",threads=2)
-multi_pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",threads=4){
+#' multi_res=multi_pre_CCF_res("inst/extdata",threads=1)
+multi_pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",threads=1){
   all_genome=list.dirs(input_folder,recursive = F)
+  if(length(all_genome)==0)return(NULL)
   all_genome=all_genome[sapply(all_genome, \(i)all(c("TSV","GFF","result.json")%in%list.files(i)))]
+  if(length(all_genome)==0)return(NULL)
   pcutils::dabiao("Total ",length(all_genome)," genomes")
   pcutils::dabiao("Using ",threads," threads")
   pcutils::dabiao("Start: ",date())
@@ -139,14 +151,16 @@ multi_pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",thread
                               }
       snow::stopCluster(cl)
       gc()
+      pcutils::del_ps("doSNOW")
+      pcutils::del_ps("foreach")
     }
     else {
       res <-lapply(seq_along(all_genome), loop)
     }}
-  pcutils::del_ps("doSNOW","foreach")
   #simplify method
   names(res)=all_genome
   pcutils::dabiao("End: ",date())
+  class(res)="multi_crispr"
   res
 }
 
@@ -154,7 +168,7 @@ multi_pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",thread
 get_spacer_fa=function(crispr_gff,genome_name){
   #用@分割，header要包括这些信息：spacer来源于哪条genome，哪条序列，是在该序列第几个crispr array 上，crispr array的起始和终止位点，再加一个spacer的起始位点，spacer的长度，以及是第几个spacer
   res=data.frame(spacer_id=c(),spacer_seq=c())
-  gff1=utils::read.table(crispr_gff,col.names = c("seqid", "source", "feature", "start", "end", "score", "strand", "phase", "attributes"),comment.char = "#", header = FALSE, stringsAsFactors = FALSE)
+  gff1=utils::read.table(crispr_gff,col.names = c("seqid", "source", "feature", "start", "end", "score", "strand", "phase", "attributes"),comment.char = "#", header = FALSE, stringsAsFactors = FALSE,quote = "")
   gff2=dplyr::filter(gff1,feature%in%c("CRISPR","CRISPRspacer"))%>%dplyr::select(1,3,4,5,9)
   cid=0
   for (r in 1:nrow(gff2)) {
@@ -242,7 +256,7 @@ get_cas=function(rawCas_file, Cas_report_file,genome_name){
     #System结束部分
     else if(grepl("####Summary system",i)){
       flag=F
-      a=utils::read.table(text = cas_sys,check.names = F,comment.char = "#",
+      a=utils::read.table(text = cas_sys,check.names = F,comment.char = "#",quote = "",
                  col.names = c("Sequence_ID", "Cas-type/subtype", "Gene status", "System", "Type", "Begin", "End", "Strand", "Other_information")
       )
       a=a%>%dplyr::select("Sequence_ID","Type", "System","Cas-type/subtype", "Begin", "End", "Strand")%>%
@@ -284,12 +298,12 @@ get_cas=function(rawCas_file, Cas_report_file,genome_name){
 get_crispr=function(Crisprs_REPORT,genome_name = genome_name){
   #Crisprs_REPORT="inst/extdata/MAG_test/TSV/Crisprs_REPORT.tsv"
   #Crisprs_REPORT="pre_CCF_res_out/GCA_001078825.1_10541_2_25_genomic.fna/TSV/Crisprs_REPORT.tsv"
-  crisprs=utils::read.table(Crisprs_REPORT,sep="\t",header = T,check.names = F,comment.char = "", stringsAsFactors = FALSE)
+  crisprs=utils::read.table(Crisprs_REPORT,sep="\t",header = T,check.names = F,comment.char = "", stringsAsFactors = FALSE,quote = "")
   crisprs=crisprs[,c("Sequence","CRISPR_Id","Strain","CRISPR_Start","CRISPR_End",
-                     "Potential_Orientation (AT%)","Consensus_Repeat","Evidence_Level")]
+                     "Potential_Orientation (AT%)","Consensus_Repeat","Spacers_Nb","Evidence_Level")]
   crisprs$Strain="CRISPR"
   crisprs$CRISPR_Id=paste0(crisprs$Sequence,"@CRISPR:",sub(".*_(\\d+)$","\\1",crisprs$CRISPR_Id))
-  colnames(crisprs)=c("seqid","CRISPR_id","feature","start","end","strand","consensus_repeat","evidence_Level")
+  colnames(crisprs)=c("seqid","CRISPR_id","feature","start","end","strand","consensus_repeat","spacer_number","evidence_Level")
   data.frame(genome=genome_name,crisprs)
 }
 
@@ -374,11 +388,45 @@ plot_crispr=function(crispr,genome=NULL,contig){
 #' data(crispr)
 #' plot_cas_type(crispr)
 plot_cas_type=function(crispr){
+
   cas_info=crispr$Cas
   cas_type=cas_info[,c("Cas_id","type","subtype")]%>%dplyr::distinct()%>%dplyr::group_by_all()%>%
     dplyr::count()%>%dplyr::arrange(type)%>%as.data.frame()
 
   pcutils::gghuan2(cas_type[,c(2,3,4)])
+}
+
+
+#' Summary crispr and spacer number of differnent evidence levels
+#'
+#' @param crispr crispr object
+#'
+#' @export
+#'
+#' @examples
+#' summary_levels(crispr)
+summary_levels=function(crispr){
+  if(class(crispr)=="multi_crispr"){
+    aaa=lapply(crispr, summary_levels)
+    bbb=do.call(rbind,aaa)
+    rownames(bbb)=NULL
+    return(bbb)
+  }
+  if(class(crispr)!="crispr")return(NULL)
+  if(is.null(crispr$Spacer))return(NULL)
+  if("spacer_number"%in%colnames(crispr$CRISPR)){
+    n_spacer2=dplyr::select(crispr$CRISPR,genome,evidence_Level,spacer_number)%>%
+      dplyr::group_by(genome,evidence_Level)%>%dplyr::summarise(crispr_num=dplyr::n(),spacer_num=sum(spacer_number))%>%
+      as.data.frame()
+  }
+  else{
+    n_spacer=dplyr::count(crispr$Spacer,genome,CRISPR_id)
+    n_spacer2=dplyr::select(crispr$CRISPR,genome,CRISPR_id,evidence_Level)%>%
+      dplyr::left_join(.,n_spacer,by = dplyr::join_by(genome,CRISPR_id))%>%
+      dplyr::group_by(genome,evidence_Level)%>%dplyr::summarise(crispr_num=dplyr::n(),spacer_num=sum(n))%>%as.data.frame()
+  }
+  n_spacer2$Cas=ifelse(is.null(crispr$Cas),"Non-Cas","With-Cas")
+  return(n_spacer2)
 }
 
 

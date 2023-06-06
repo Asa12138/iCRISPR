@@ -7,7 +7,7 @@
 multi_pre_CCF_res(
   input_folder,
   output_folder = "./pre_CCF_res_out",
-  threads = 4
+  threads = 1
 )
 }
 \arguments{
@@ -21,5 +21,5 @@ multi_pre_CCF_res(
 Prepare many genome result files from CRISPRCasFinder
 }
 \examples{
-multi_res=multi_pre_CCF_res("inst/extdata",threads=2)
+multi_res=multi_pre_CCF_res("inst/extdata",threads=1)
 }
