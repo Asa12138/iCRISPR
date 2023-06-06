@@ -29,7 +29,8 @@ Suggests:
     ggnewscale,
     gggenes,
     foreach,
-    doSNOW
+    doSNOW,
+    snow
 Remotes:
     Asa12138/pcutils
 VignetteBuilder: knitr

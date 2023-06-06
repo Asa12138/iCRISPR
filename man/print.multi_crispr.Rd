@@ -8,6 +8,8 @@
 }
 \arguments{
 \item{multi_crispr}{multi_crispr object}
+
+\item{...}{add}
 }
 \description{
 Print multi_crispr object

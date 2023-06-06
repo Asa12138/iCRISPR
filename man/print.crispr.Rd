@@ -8,6 +8,8 @@
 }
 \arguments{
 \item{crispr}{crispr object}
+
+\item{...}{add}
 }
 \description{
 Print crispr object

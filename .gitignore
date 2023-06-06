@@ -13,3 +13,4 @@ iCRISPR_out
 .httr-oauth
 .DS_Store
 inst/doc
+analysis*

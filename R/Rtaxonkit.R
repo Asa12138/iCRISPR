@@ -279,7 +279,8 @@ taxonkit_lineage <- function(file_path, delimiter = ";", no_lineage = FALSE, sho
 #' @examples
 #' \dontrun{
 #' #Use taxid
-#' reformatted_lineages <- taxonkit_reformat("extdata/taxids2.txt", add_prefix = TRUE,taxid_field=1,fill_miss_rank=T)
+#' reformatted_lineages <- taxonkit_reformat("extdata/taxids2.txt",
+#'    add_prefix = TRUE,taxid_field=1,fill_miss_rank=T)
 #' reformatted_lineages
 #' taxonomy=strsplit2(reformatted_lineages,"\t")
 #' taxonomy=strsplit2(taxonomy$V2,";")

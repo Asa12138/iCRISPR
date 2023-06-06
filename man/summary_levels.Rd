@@ -2,7 +2,7 @@
 % Please edit documentation in R/CRISPRCasfinder_downstream.R
 \name{summary_levels}
 \alias{summary_levels}
-\title{Summary crispr and spacer number of differnent evidence levels}
+\title{Summary crispr and spacer number of different evidence levels}
 \usage{
 summary_levels(crispr)
 }
@@ -10,7 +10,7 @@ summary_levels(crispr)
 \item{crispr}{crispr object}
 }
 \description{
-Summary crispr and spacer number of differnent evidence levels
+Summary crispr and spacer number of different evidence levels
 }
 \examples{
 summary_levels(crispr)
