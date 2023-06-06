@@ -14,5 +14,5 @@ Print crispr object
 }
 \examples{
 data(crispr)
-print.crispr(crispr)
+print(crispr)
 }

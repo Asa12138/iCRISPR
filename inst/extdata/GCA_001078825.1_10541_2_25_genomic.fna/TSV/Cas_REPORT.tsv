@@ -1,0 +1,16 @@
+############################################
+CEYE01000005 ( Salmonella enterica subsp. enterica serovar Typhi genome assembly 10541_2#25, scaffold ERS326384SCcontig000005, whole genome shotgun sequence ) 
+--------------------------------------------
+### System: CAS-TypeIE (UserReplicon_CAS-TypeIE_1)
+#SequenceID	Cas-type/subtype	Gene status	System	Type	Begin	End	Strand	Other_information
+CEYE01000005.1_161	cas2_TypeIE	mandatory	CAS-TypeIE	CDS	157980	158273	-	ID=1_161;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.473;conf=99.72;score=25.60;cscore=10.82;sscore=14.78;rscore=11.27;uscore=-1.24;tscore=3.51;
+CEYE01000005.1_162	cas1_TypeIE	mandatory	CAS-TypeIE	CDS	158276	159193	-	ID=1_162;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.528;conf=100.00;score=108.49;cscore=90.99;sscore=17.50;rscore=11.97;uscore=0.74;tscore=3.51;
+CEYE01000005.1_163	cas6_TypeIE	mandatory	CAS-TypeIE	CDS	159193	159897	-	ID=1_163;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.489;conf=100.00;score=78.16;cscore=57.65;sscore=20.50;rscore=15.71;uscore=-1.39;tscore=3.51;
+CEYE01000005.1_164	cas5_TypeIE	mandatory	CAS-TypeIE	CDS	159897	160622	-	ID=1_164;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.541;conf=100.00;score=71.87;cscore=54.38;sscore=17.49;rscore=11.97;uscore=0.85;tscore=3.51;
+CEYE01000005.1_165	cas7_TypeIE	mandatory	CAS-TypeIE	CDS	160632	161690	-	ID=1_165;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.488;conf=100.00;score=155.39;cscore=134.25;sscore=21.13;rscore=11.97;uscore=4.63;tscore=3.51;
+CEYE01000005.1_166	cse2_TypeIE	mandatory	CAS-TypeIE	CDS	161713	162315	-	ID=1_166;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.502;conf=100.00;score=64.76;cscore=48.24;sscore=16.52;rscore=11.97;uscore=-0.05;tscore=3.51;
+CEYE01000005.1_167	cse1_TypeIE	mandatory	CAS-TypeIE	CDS	162332	163867	-	ID=1_167;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.513;conf=99.99;score=183.53;cscore=161.92;sscore=21.61;rscore=15.71;uscore=2.39;tscore=3.51;
+CEYE01000005.1_169	cas3_TypeI	accessory	CAS	CDS	164225	166432	+	ID=1_169;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.490;conf=100.00;score=121.15;cscore=125.31;sscore=-4.16;rscore=-8.56;uscore=0.89;tscore=3.51;
+####Summary system CAS-TypeIE:begin=157980;end=166432:{sequenceID=CEYE01000005} : [cas2_TypeIE (157980,158273,-); cas1_TypeIE (158276,159193,-); cas6_TypeIE (159193,159897,-); cas5_TypeIE (159897,160622,-); cas7_TypeIE (160632,161690,-); cse2_TypeIE (161713,162315,-); cse1_TypeIE (162332,163867,-); cas3_TypeI (164225,166432,+)]
+
+

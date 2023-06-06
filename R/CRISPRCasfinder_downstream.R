@@ -7,15 +7,14 @@
 #'
 #' @examples
 #' data(crispr)
-#' print.crispr(crispr)
+#' print(crispr)
 print.crispr=function(crispr,...){
   info=attributes(crispr)$basic_info
-  dabiao("Genome name: ",info$genome_name)
+  pcutils::dabiao("Genome name: ",info$genome_name)
   cat("With",info$n_crispr,"CRISPR systems\n")
   cat("With",info$n_cas,"CAS systems\n")
   cat("With",info$n_spacer,"spacers\n")
 }
-
 
 #' Prepare the result files from CRISPRCasFinder
 #'
@@ -24,6 +23,7 @@ print.crispr=function(crispr,...){
 #' @param genome_name the genome_name
 #' @param verbose verbose, default: T
 #'
+#' @import dplyr
 #' @export
 #'
 #' @examples
@@ -31,12 +31,14 @@ print.crispr=function(crispr,...){
 #' @references https://crisprcas.i2bc.paris-saclay.fr/CrisprCasFinder/Index
 pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=NULL,verbose=T){
   if(!dir.exists(input_folder))stop("Can not find ",input_folder)
-  if(!dir.exists(output_folder))dir.create(output_folder,recursive =T)
+  if(!all(c("TSV","GFF","result.json")%in%list.files(input_folder)))stop("Maybe not a CRISPRCasFinder result.")
 
   if(is.null(genome_name))genome_name=basename(input_folder)
+  output_folder=paste0(output_folder,"/",genome_name)
+    if(!dir.exists(output_folder))dir.create(output_folder,recursive =T)
+
 
   out_file1=paste0(output_folder,"/",genome_name,"_spacer.fa")
-  out_file2=paste0(output_folder,"/",genome_name,"_spacer_with_cas.fa")
 
   #有annotation前缀的gff文件是有crispr array的contigs
   crispr_gff_ls=list.files(paste0(input_folder,"/GFF"),pattern = "annotation*")%>%
@@ -47,31 +49,32 @@ pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=
     #导出CRISPR信息
     utils::write.csv(crispr_res,file = paste0(output_folder,"/",genome_name,"_CRISPR_info.csv"),row.names = F)
 
-    arrary_res=res=data.frame()
+    array_res=res=data.frame()
     for (i in crispr_gff_ls) {
       crispr_gff=paste0(input_folder,"/GFF/",i)
       # tmp=get_spacer_fa(crispr_gff,genome_name=genome_name)
       # res=rbind(res,tmp)
       tmp=get_array(crispr_gff,genome_name=genome_name)
-      arrary_res=rbind(arrary_res,tmp)
+      array_res=rbind(array_res,tmp)
     }
     #pcutils::write_fasta(res,out_file1)
 
+    #导出Array信息
+    utils::write.csv(array_res,file = paste0(output_folder,"/",genome_name,"_Array_info.csv"),row.names = F)
     #导出Spacer信息
-    utils::write.csv(arrary_res,file = paste0(output_folder,"/",genome_name,"_Array_info.csv"),row.names = F)
-    spacer_res=dplyr::filter(arrary_res,feature=="CRISPRspacer")
+    spacer_res=dplyr::filter(array_res,feature=="CRISPRspacer")
     tmp=crispr_res%>%dplyr::mutate(long_id=paste0(genome,"@",CRISPR_id,"@",start,"-",end))%>%
       dplyr::select(CRISPR_id,long_id)
     tmp1=dplyr::left_join(spacer_res,tmp,by = dplyr::join_by(CRISPR_id))%>%dplyr::group_by(CRISPR_id)%>%
-      mutate(sid = 1:n())%>%dplyr::ungroup()
+      dplyr::mutate(sid = 1:n())%>%dplyr::ungroup()
     spacer_res=dplyr::mutate(tmp1,Spacer_id=paste0(long_id,"@spacer_",start,"_",abs(start-end)+1,"_",sid))
-    spacer_res=select(spacer_res,-long_id,-sid)
-    pcutils::write_fasta(select(spacer_res,Spacer_id,sequence)%>%as.data.frame(),file_path = out_file1)
+    spacer_res=dplyr::select(spacer_res,-long_id,-sid)%>%as.data.frame()
+    pcutils::write_fasta(dplyr::select(spacer_res,Spacer_id,sequence)%>%as.data.frame(),file_path = out_file1)
     utils::write.csv(spacer_res,file = paste0(output_folder,"/",genome_name,"_Spacer_info.csv"),row.names = F)
 
   } else {
-    arrary_res=spacer_res=crispr_res=NULL
-    pcutils::dabiao("No array found!")
+    array_res=spacer_res=crispr_res=NULL
+    if(verbose)pcutils::dabiao("No array found!")
   }
 
   #导出Cas信息
@@ -82,7 +85,7 @@ pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=
     utils::write.csv(cas_res,file = paste0(output_folder,"/",genome_name,"_Cas_info.csv"),row.names = F)
   }else {
     cas_res=NULL
-    pcutils::dabiao("No Cas found!")
+    if(verbose)pcutils::dabiao("No Cas found!")
   }
 
   #导出包含cas的spacer
@@ -90,7 +93,7 @@ pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=
   # spacer_with_cas=df[grepl(paste0(cas_res$seqid,collapse = "|"),df$Sequence_ID),]
   # write_fasta(spacer_with_cas,out_file2)
 
-  crispr=structure(list(CRISPR=crispr_res,Cas=cas_res,Arrary=arrary_res,Spacer=spacer_res),class="crispr")
+  crispr=structure(list(CRISPR=crispr_res,Cas=cas_res,Array=array_res,Spacer=spacer_res),class="crispr")
   attributes(crispr)$basic_info=list(
     genome_name=genome_name,
     n_crispr=length(unique(crispr$CRISPR$CRISPR_id)),
@@ -102,6 +105,50 @@ pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=
   return(crispr)
 }
 
+#' Prepare many genome result files from CRISPRCasFinder
+#'
+#' @param input_folder the folder of CRISPRCasFinder result, contains GFF/,TSV/,result.json,...
+#' @param output_folder output, default: ./
+#' @param threads threads, default:4
+#'
+#' @export
+#'
+#' @examples
+#' multi_res=multi_pre_CCF_res("inst/extdata",threads=2)
+multi_pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",threads=4){
+  all_genome=list.dirs(input_folder,recursive = F)
+  all_genome=all_genome[sapply(all_genome, \(i)all(c("TSV","GFF","result.json")%in%list.files(i)))]
+  pcutils::dabiao("Total ",length(all_genome)," genomes")
+  pcutils::dabiao("Using ",threads," threads")
+  pcutils::dabiao("Start: ",date())
+  #parallel
+  #main function
+  loop=function(i){
+    if(i%%100==0)  pcutils::dabiao("Doing ",i," genome")
+    pre_CCF_res(input_folder = all_genome[i],output_folder =output_folder,verbose = F)
+  }
+  {
+    if(threads>1){
+      pcutils::lib_ps("foreach","doSNOW")
+
+      cl <- snow::makeCluster(threads)
+      doSNOW::registerDoSNOW(cl)
+      res <- foreach::foreach(i = seq_along(all_genome),
+                              .packages = c()) %dopar% {
+                                loop(i)
+                              }
+      snow::stopCluster(cl)
+      gc()
+    }
+    else {
+      res <-lapply(seq_along(all_genome), loop)
+    }}
+  pcutils::del_ps("doSNOW","foreach")
+  #simplify method
+  names(res)=all_genome
+  pcutils::dabiao("End: ",date())
+  res
+}
 
 #deprecated，可以直接从array中生成所有spacer信息，不用从这里提取
 get_spacer_fa=function(crispr_gff,genome_name){
@@ -238,11 +285,11 @@ get_crispr=function(Crisprs_REPORT,genome_name = genome_name){
   #Crisprs_REPORT="inst/extdata/MAG_test/TSV/Crisprs_REPORT.tsv"
   #Crisprs_REPORT="pre_CCF_res_out/GCA_001078825.1_10541_2_25_genomic.fna/TSV/Crisprs_REPORT.tsv"
   crisprs=utils::read.table(Crisprs_REPORT,sep="\t",header = T,check.names = F,comment.char = "", stringsAsFactors = FALSE)
-  crisprs=crisprs[,c("Sequence","CRISPR_Id","Strain","CRISPR_Start","CRISPR_End","Potential_Orientation (AT%)","Consensus_Repeat")]
-
+  crisprs=crisprs[,c("Sequence","CRISPR_Id","Strain","CRISPR_Start","CRISPR_End",
+                     "Potential_Orientation (AT%)","Consensus_Repeat","Evidence_Level")]
   crisprs$Strain="CRISPR"
   crisprs$CRISPR_Id=paste0(crisprs$Sequence,"@CRISPR:",sub(".*_(\\d+)$","\\1",crisprs$CRISPR_Id))
-  colnames(crisprs)=c("seqid","CRISPR_id","feature","start","end","strand","consensus_repeat")
+  colnames(crisprs)=c("seqid","CRISPR_id","feature","start","end","strand","consensus_repeat","evidence_Level")
   data.frame(genome=genome_name,crisprs)
 }
 
@@ -265,9 +312,10 @@ plot_crispr=function(crispr,genome=NULL,contig){
 
   cas_res=crispr$Cas%>%dplyr::filter(seqid==contig)
   cas_res=dplyr::mutate(cas_res,protein=gsub("_.*","",protein))
-  crispr_res=crispr$CRISPR%>%dplyr::filter(seqid==contig)
-  array_res=crispr$Arrary%>%dplyr::filter(seqid==contig)
+# crispr_res=crispr$CRISPR%>%dplyr::filter(seqid==contig)
+  array_res=crispr$Array%>%dplyr::filter(seqid==contig)
   array_res$feature=factor(array_res$feature,levels = c("LeftFLANK","CRISPRdr","CRISPRspacer","RightFLANK"))%>%droplevels()
+  sub_title=""
 
   # ggplot()+
   #   geom_point(data = cas_res,aes(x=start,y=end),col="red")+
@@ -276,26 +324,38 @@ plot_crispr=function(crispr,genome=NULL,contig){
   #   facet_wrap(.~seqid,scales = "free",ncol = 1)
 
   p=ggplot2::ggplot()
+
   if(nrow(cas_res)>0){
+    cas_n=dplyr::distinct(cas_res,Cas_id,subtype)
+    sub_title=paste0(sub_title,"Cas-system number: ",nrow(cas_n),"; Subtype: ",paste0(cas_n$subtype,collapse = "/"))
+
+    if(is.null(genome))genome=cas_res$genome[1]
     p=p+
       #cas基因
-      gggenes::geom_gene_arrow(data = cas_res, aes(xmin = start, xmax = end,y = seqid, fill = protein),
+      gggenes::geom_gene_arrow(data = cas_res, aes(xmin = start, xmax = end,y = seqid, fill = protein,forward=(strand!="Reverse")),
                       arrowhead_width=grid::unit(5,"mm"),arrowhead_height = grid::unit(5,"mm"),arrow_body_height= grid::unit(4,"mm")) +
       gggenes::geom_gene_label(data = cas_res, aes(xmin = start, xmax = end,y = seqid, fill = protein,label=protein),min.size=0)+
       ggnewscale::new_scale_fill()
   }
   if(nrow(array_res)>0){
+    spacer_n=array_res%>%dplyr::filter(feature=="CRISPRspacer")%>%nrow()
+    sub_title=paste0(sub_title,"; Spacer number: ",spacer_n)
+
+    if(is.null(genome))genome=array_res$genome[1]
     p=p+
       #crispr系统
-      gggenes::geom_gene_arrow(data = array_res, aes(xmin = start, xmax = end,y = seqid,fill=feature),color=NA,
-                      arrowhead_width=grid::unit(0,"mm"),arrowhead_height = grid::unit(0,"mm"))+
+      gggenes::geom_gene_arrow(data = array_res, aes(xmin = start, xmax = end,y = seqid,fill=feature,forward=(strand!="Reverse")),
+                               color=NA,arrowhead_width=grid::unit(0,"mm"),arrowhead_height = grid::unit(0,"mm"))+
       scale_fill_manual(values = setNames(c("#5950FA","#190861","#8dd3c7","#fb8072"),
                                           c("LeftFLANK","CRISPRdr","CRISPRspacer","RightFLANK")))
   }
-  p=p+
-    coord_fixed(diff(range(c(cas_res$start,array_res$start,cas_res$end,array_res$end)))/8)+
-    gggenes::theme_genes()+
-    labs(y=NULL,title = paste0("Genome: ",genome," Contig: ",contig))+
+  if(!((nrow(cas_res)>0)|(nrow(array_res)>0))){
+    message("No cas or crispr in this contig: ",contig)
+  } else {
+    p=p+coord_fixed(diff(range(c(cas_res$start,array_res$start,cas_res$end,array_res$end)))/8)
+  }
+  p=p+gggenes::theme_genes()+
+    labs(y=NULL,title = paste0("Genome: ",genome,"; Contig: ",contig),subtitle = sub_title)+
     theme(legend.position = "top",
           axis.line.y = element_blank(),
           axis.text.y = element_blank(),
@@ -320,3 +380,5 @@ plot_cas_type=function(crispr){
 
   pcutils::gghuan2(cas_type[,c(2,3,4)])
 }
+
+

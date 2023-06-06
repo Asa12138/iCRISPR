@@ -4,7 +4,7 @@
 \alias{plot_crispr}
 \title{Plot a crispr-cas system}
 \usage{
-plot_crispr(crispr, genome = NULL, contig = NULL)
+plot_crispr(crispr, genome = NULL, contig)
 }
 \arguments{
 \item{crispr}{crispr result from \code{pre_CCF_res()}}
