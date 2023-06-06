@@ -13,5 +13,5 @@
 #' @return The result of calling `rhs(lhs)`.
 NULL
 
-library(pcutils)
-library(dplyr)
+#' @import dplyr
+#' @import ggplot2

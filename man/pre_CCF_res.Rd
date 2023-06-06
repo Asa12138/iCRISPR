@@ -7,7 +7,8 @@
 pre_CCF_res(
   input_folder,
   output_folder = "./pre_CCF_res_out",
-  genome_name = NULL
+  genome_name = NULL,
+  verbose = T
 )
 }
 \arguments{
@@ -16,10 +17,15 @@ pre_CCF_res(
 \item{output_folder}{output, default: ./}
 
 \item{genome_name}{the genome_name}
+
+\item{verbose}{verbose, default: T}
 }
 \description{
 Prepare the result files from CRISPRCasFinder
 }
 \examples{
-crispr=pre_CCF_res(system.file("extdata/AAB-S01R1_122",package = "iCRISPR"))
+crispr=pre_CCF_res(system.file("extdata/MAG_test",package = "iCRISPR"))
+}
+\references{
+https://crisprcas.i2bc.paris-saclay.fr/CrisprCasFinder/Index
 }

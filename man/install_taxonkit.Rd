@@ -13,5 +13,7 @@ install_taxonkit(taxonkit_tar_gz = NULL)
 Install taxonkit
 }
 \examples{
+\dontrun{
 install_taxonkit()
+}
 }

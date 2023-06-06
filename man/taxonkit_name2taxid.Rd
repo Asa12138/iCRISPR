@@ -30,6 +30,8 @@ A character vector containing the output of the "taxonkit_name2taxid" command.
 This function uses the "taxonkit taxonkit_name2taxid" command to convert taxonomic names to corresponding taxonomic IDs (TaxIDs).
 }
 \examples{
+\dontrun{
 taxonkit_name2taxid("extdata/name.txt", name_field = 1, sci_name = FALSE, show_rank = FALSE)
 "Homo sapiens"\%>\%taxonkit_name2taxid(text=T)
+}
 }

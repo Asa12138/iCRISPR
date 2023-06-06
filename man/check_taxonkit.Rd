@@ -6,6 +6,9 @@
 \usage{
 check_taxonkit(print = T)
 }
+\arguments{
+\item{print}{print}
+}
 \description{
 Check taxonkit
 }

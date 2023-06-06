@@ -36,6 +36,7 @@ A character vector containing the computed LCAs.
 This function uses the "taxonkit lca" command to compute the Lowest Common Ancestor (LCA) of TaxIDs.
 }
 \examples{
+\dontrun{
 taxonkit_lca("239934, 239935, 349741",text=T,separator=", ")
-
+}
 }

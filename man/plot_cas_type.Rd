@@ -16,5 +16,6 @@ ggplot
 Plot the Cas system type and subtype
 }
 \examples{
+data(crispr)
 plot_cas_type(crispr)
 }

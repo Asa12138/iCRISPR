@@ -2,23 +2,33 @@ Package: iCRISPR
 Type: Package
 Title: CRISPR analysis
 Version: 0.1.0
-Author: Peng Chen, Liu Zhen
-Maintainer: The package maintainer <pengchen2001@zju.edu.cn>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Authors@R: c(
+    person("Peng", "Chen",email ="pengchen2001@zju.edu.cn", role = c("aut", "cre")),
+    person("Liu", "Zhen",email ="lz19@zju.edu.cn", role = c("aut"))
+    )
+Description: 
+    CRISPR analysis including CRISPR identification, prepare, summary and visualization.
 License: GPL-3
 Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+Depends: 
+    R (>= 3.5.0)
 Imports: 
+    dplyr,
     magrittr,
     ggplot2,
-    dplyr
+    stats,
+    utils,
+    grDevices,
+    pcutils
 Suggests:
-  prettydoc,
-  knitr,
-  rmarkdown
+    prettydoc,
+    knitr,
+    rmarkdown,
+    ggnewscale,
+    gggenes
 Remotes:
-  Asa12138/pcutils
+    Asa12138/pcutils
+LazyData: true
 VignetteBuilder: knitr
-Roxygen: list(markdown = TRUE)
-VignetteIndexEntry: iCRISPR

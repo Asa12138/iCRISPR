@@ -13,5 +13,7 @@ download_taxonkit_dataset(taxdump_tar_gz = NULL)
 Download taxonkit dataset
 }
 \examples{
+\dontrun{
 download_taxonkit_dataset()
+}
 }

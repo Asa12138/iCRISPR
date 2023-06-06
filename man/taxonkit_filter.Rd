@@ -51,5 +51,7 @@ A character vector containing the output of the "taxonkit filter" command.
 This function uses the "taxonkit filter" command to filter TaxIDs based on taxonomic ranks.
 }
 \examples{
+\dontrun{
 taxonkit_filter("extdata/taxids2.txt", lower_than = "genus")
+}
 }

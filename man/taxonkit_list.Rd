@@ -2,7 +2,7 @@
 % Please edit documentation in R/Rtaxonkit.R
 \name{taxonkit_list}
 \alias{taxonkit_list}
-\title{Taxonkit List}
+\title{Taxonkit list}
 \usage{
 taxonkit_list(
   ids,
@@ -31,6 +31,7 @@ This function uses Taxonkit to perform the "list" operation, which retrieves
 information about taxa based on their TaxIDs.
 }
 \examples{
+\dontrun{
 taxonkit_list(ids = c(9605), indent = "-", show_name = TRUE, show_rank = TRUE)
-
+}
 }

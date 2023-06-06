@@ -45,7 +45,8 @@ A character vector containing the taxonomic lineage information.
 Retrieve Taxonomic Lineage using taxonkit
 }
 \examples{
+\dontrun{
 lineage <- taxonkit_lineage("extdata/taxid.txt",show_name = TRUE, show_rank = TRUE)
 lineage
-
+}
 }

@@ -6,17 +6,23 @@
 #' @return NULL
 #' @export
 #' @examples
+#' \dontrun{
 #' install_taxonkit()
+#' }
 install_taxonkit <- function(taxonkit_tar_gz=NULL) {
   # Detect the operating system
   os <- tolower(Sys.info()[["sysname"]])
+  machine<- ifelse(grepl("arm",tolower(Sys.info()[["machine"]])),"arm",
+                   ifelse(grepl("amd",tolower(Sys.info()[["machine"]])),"amd","others"))
 
   # Set the installation URL and command based on the operating system
   if (os == "linux") {
     url <- "https://github.com/shenwei356/taxonkit/releases/latest/download/taxonkit_linux_amd64.tar.gz"
+    if(machine=="arm")  url <- "https://github.com/shenwei356/taxonkit/releases/latest/download/taxonkit_linux_arm64.tar.gz"
     install_cmd <- "tar -xf taxonkit_linux_*.tar.gz"
   } else if (os == "darwin") {
     url <- "https://github.com/shenwei356/taxonkit/releases/latest/download/taxonkit_darwin_amd64.tar.gz"
+    if(machine=="arm")  url <- "https://github.com/shenwei356/taxonkit/releases/latest/download/taxonkit_darwin_arm64.tar.gz"
     install_cmd <- "tar -xf taxonkit_darwin_*.tar.gz"
   } else if (os == "windows") {
     url <- "https://github.com/shenwei356/taxonkit/releases/latest/download/taxonkit_windows_amd64.exe.tar.gz"
@@ -70,7 +76,9 @@ install_taxonkit <- function(taxonkit_tar_gz=NULL) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' download_taxonkit_dataset()
+#' }
 download_taxonkit_dataset <- function(taxdump_tar_gz=NULL) {
   url <- "ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz"
   home_dir <- Sys.getenv("HOME")
@@ -82,7 +90,7 @@ download_taxonkit_dataset <- function(taxdump_tar_gz=NULL) {
     ori_time=getOption("timeout")
     options(timeout = 60)
     tryCatch(expr = {
-      download.file(url, destfile = taxdump, mode = "wb")
+      utils::download.file(url, destfile = taxdump, mode = "wb")
     },error=function(e){
       options(timeout = ori_time);stop("Try download yourself from ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz")
     })
@@ -95,7 +103,7 @@ download_taxonkit_dataset <- function(taxdump_tar_gz=NULL) {
   }
 
   # Uncompress the tar.gz file
-  untar(taxdump,exdir = dest_dir)
+  utils::untar(taxdump,exdir = dest_dir)
 
   # Copy the required files to the destination directory
   # files_to_copy <- c("names.dmp", "nodes.dmp", "delnodes.dmp", "merged.dmp")
@@ -113,22 +121,25 @@ download_taxonkit_dataset <- function(taxdump_tar_gz=NULL) {
 }
 
 #' Check taxonkit
+#'
+#' @param print print
+#'
 #' @export
 check_taxonkit=function(print=T){
   taxonkit=file.path(system.file(package = "iCRISPR"), "software","taxonkit")
   flag=system(paste(taxonkit,"-h"),ignore.stdout = !print,ignore.stderr = T)
   if(flag!=0)stop("Taxonkit not found, please try `install_taxonkit()`")
-  if(print)dabiao("Taxonkit is available if there is help message above")
+  if(print)pcutils::dabiao("Taxonkit is available if there is help message above")
 
   home_dir <- Sys.getenv("HOME")
   dest_dir <- file.path(home_dir,".taxonkit")
   if(dir.exists(dest_dir)&all(c("names.dmp", "nodes.dmp", "delnodes.dmp", "merged.dmp")%in%list.files(dest_dir))){
-    if(print)dabiao("Taxonkit dataset is available!")
+    if(print)pcutils::dabiao("Taxonkit dataset is available!")
   }
   else stop("Taxonkit dataset (",dest_dir,") not found, please try `download_taxonkit_dataset()`")
 }
 
-#' Taxonkit List
+#' Taxonkit list
 #'
 #' This function uses Taxonkit to perform the "list" operation, which retrieves
 #' information about taxa based on their TaxIDs.
@@ -143,8 +154,9 @@ check_taxonkit=function(print=T){
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' taxonkit_list(ids = c(9605), indent = "-", show_name = TRUE, show_rank = TRUE)
-#'
+#' }
 taxonkit_list <- function(ids, indent = "  ", json = FALSE, show_name = FALSE, show_rank = FALSE) {
   check_taxonkit(print = F)
 
@@ -183,9 +195,10 @@ taxonkit_list <- function(ids, indent = "  ", json = FALSE, show_name = FALSE, s
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' lineage <- taxonkit_lineage("extdata/taxid.txt",show_name = TRUE, show_rank = TRUE)
 #' lineage
-#'
+#' }
 taxonkit_lineage <- function(file_path, delimiter = ";", no_lineage = FALSE, show_lineage_ranks = FALSE,
                              show_lineage_taxids = FALSE, show_name = FALSE, show_rank = FALSE,
                              show_status_code = FALSE, taxid_field = 1,text=F) {
@@ -264,6 +277,7 @@ taxonkit_lineage <- function(file_path, delimiter = ";", no_lineage = FALSE, sho
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' #Use taxid
 #' reformatted_lineages <- taxonkit_reformat("extdata/taxids2.txt", add_prefix = TRUE,taxid_field=1,fill_miss_rank=T)
 #' reformatted_lineages
@@ -271,7 +285,8 @@ taxonkit_lineage <- function(file_path, delimiter = ";", no_lineage = FALSE, sho
 #' taxonomy=strsplit2(taxonomy$V2,";")
 #' #Use lineage result
 #' taxonkit_lineage("extdata/taxid.txt",show_name = TRUE, show_rank = TRUE)%>%
-#'  taxonkit_reformat(text=T)
+#' taxonkit_reformat(text=T)
+#' }
 taxonkit_reformat <- function(file_path,
                               delimiter = NULL,
                               add_prefix = FALSE,
@@ -369,8 +384,10 @@ taxonkit_reformat <- function(file_path,
 #' @return A character vector containing the output of the "taxonkit_name2taxid" command.
 #' @export
 #' @examples
+#' \dontrun{
 #' taxonkit_name2taxid("extdata/name.txt", name_field = 1, sci_name = FALSE, show_rank = FALSE)
 #' "Homo sapiens"%>%taxonkit_name2taxid(text=T)
+#' }
 taxonkit_name2taxid <- function(file_path, name_field = NULL, sci_name = FALSE, show_rank = FALSE,text=F) {
   check_taxonkit(print = F)
 
@@ -420,7 +437,9 @@ taxonkit_name2taxid <- function(file_path, name_field = NULL, sci_name = FALSE, 
 #' @return A character vector containing the output of the "taxonkit filter" command.
 #' @export
 #' @examples
+#' \dontrun{
 #' taxonkit_filter("extdata/taxids2.txt", lower_than = "genus")
+#' }
 taxonkit_filter <- function(file_path, black_list = NULL, discard_noranks = FALSE, discard_root = FALSE,
                           equal_to = NULL, higher_than = NULL, lower_than = NULL, rank_file = NULL,
                           root_taxid = NULL, save_predictable_norank = FALSE, taxid_field = NULL,text=F) {
@@ -489,8 +508,9 @@ taxonkit_filter <- function(file_path, black_list = NULL, discard_noranks = FALS
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' taxonkit_lca("239934, 239935, 349741",text=T,separator=", ")
-#'
+#' }
 taxonkit_lca <- function(file_path, buffer_size = "1M", separator = " ",
                          skip_deleted = FALSE, skip_unfound = FALSE, taxids_field = NULL,text=F) {
   check_taxonkit(print = F)
@@ -527,17 +547,19 @@ taxonkit_lca <- function(file_path, buffer_size = "1M", separator = " ",
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' name_or_id2df(c("Homo sapiens","Akkermansia muciniphila ATCC BAA-835"))
+#' }
 name_or_id2df=function(name_or_id,mode="name"){
   if(mode=="name"){
     df=name_or_id%>%taxonkit_name2taxid(text=T)%>%
-      read.table(text = .,sep = "\t",col.names = c("name","taxid"))
+      utils::read.table(text = .,sep = "\t",col.names = c("name","taxid"))
   }
   else if (mode=="id") df=data.frame(taxid=name_or_id)
   reformatted_lineages <- taxonkit_reformat(df$taxid, add_prefix = TRUE,text = T,
                                             taxid_field=1,fill_miss_rank=T)
-  taxonomy=strsplit2(reformatted_lineages,"\t")
-  taxonomy=strsplit2(taxonomy$V2,";",colnames = c("Kingdom", "Phylum", "Class", "Order", "Family",
+  taxonomy=pcutils::strsplit2(reformatted_lineages,"\t")
+  taxonomy=pcutils::strsplit2(taxonomy$V2,";",colnames = c("Kingdom", "Phylum", "Class", "Order", "Family",
                                                   "Genus", "Species"))
   taxonomy
 }

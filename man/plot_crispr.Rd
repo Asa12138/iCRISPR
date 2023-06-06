@@ -20,5 +20,6 @@ ggplot
 Plot a crispr-cas system
 }
 \examples{
-plot_crispr(crispr,genome="AAB-S01R1_122",contig="AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518")
+data(crispr)
+plot_crispr(crispr,genome="MAG_test",contig="AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518")
 }

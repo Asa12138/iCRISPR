@@ -18,5 +18,7 @@ dataframe
 Transfer taxon name or taxid to the lineage dataframe
 }
 \examples{
+\dontrun{
 name_or_id2df(c("Homo sapiens","Akkermansia muciniphila ATCC BAA-835"))
+}
 }
