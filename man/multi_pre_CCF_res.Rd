@@ -15,7 +15,7 @@ multi_pre_CCF_res(
 
 \item{output_folder}{output, default: ./}
 
-\item{threads}{threads, default:4}
+\item{threads}{threads, default: 1}
 }
 \description{
 Prepare many genome result files from CRISPRCasFinder

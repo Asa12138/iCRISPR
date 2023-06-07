@@ -116,7 +116,7 @@ summary_levels=function(crispr,each_genome=T){
     #旧版本不包含spacer_number，需要统计
     n_spacer=dplyr::count(crispr$Spacer,genome,CRISPR_id)
     n_spacer2=dplyr::select(crispr$CRISPR,genome,CRISPR_id,evidence_level)%>%
-      dplyr::left_join(.,n_spacer,by = dplyr::join_by(genome,CRISPR_id))%>%
+      dplyr::left_join(.,n_spacer,by =c("genome"="genome","CRISPR_id"="CRISPR_id"))%>%
       dplyr::group_by(genome,evidence_level)%>%dplyr::summarise(crispr_num=dplyr::n(),spacer_num=sum(n))%>%as.data.frame()
   }
   n_spacer2$Cas=ifelse(is.null(crispr$Cas),"Non-Cas","With-Cas")

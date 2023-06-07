@@ -80,7 +80,7 @@ pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=
     spacer_res=dplyr::filter(array_res,feature=="CRISPRspacer")
     tmp=crispr_res%>%dplyr::mutate(long_id=paste0(genome,"@",CRISPR_id,"@",start,"-",end))%>%
       dplyr::select(CRISPR_id,long_id)
-    tmp1=dplyr::left_join(spacer_res,tmp,by = dplyr::join_by(CRISPR_id))%>%dplyr::group_by(CRISPR_id)%>%
+    tmp1=dplyr::left_join(spacer_res,tmp,by = c("CRISPR_id"="CRISPR_id"))%>%dplyr::group_by(CRISPR_id)%>%
       dplyr::mutate(sid = 1:n())%>%dplyr::ungroup()
     spacer_res=dplyr::mutate(tmp1,Spacer_id=paste0(long_id,"@spacer_",start,"_",abs(start-end)+1,"_",sid))
     spacer_res=dplyr::select(spacer_res,-long_id,-sid)%>%as.data.frame()

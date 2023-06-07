@@ -3,7 +3,7 @@
 \name{summary_levels}
 \alias{summary_levels}
 \alias{plot.evidence_level}
-\title{Summary crispr and spacer number of different evidence levels}
+\title{Summary crispr and spacer number at different evidence levels}
 \usage{
 summary_levels(crispr, each_genome = T)
 
@@ -24,7 +24,7 @@ summary_levels(crispr, each_genome = T)
 ggplot
 }
 \description{
-Summary crispr and spacer number of different evidence levels
+Summary crispr and spacer number at different evidence levels
 
 Plot the distribution of array and spacer number at different evidence levels.
 }
