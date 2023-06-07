@@ -15,3 +15,5 @@ NULL
 
 #' @import dplyr
 #' @import ggplot2
+#' @importFrom pcutils read_fasta
+#' @importFrom pcutils write_fasta

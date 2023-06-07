@@ -218,6 +218,43 @@ get_array=function(crispr_gff,genome_name){
   return(data.frame(genome=genome_name,array_res))
 }
 
+#' Get spacer fasta
+#'
+#' @param crispr crispr
+#' @param evidence_level filter the evidence_level (1~4), if NULL, then no filter
+#' @param cas filter with cas system or not (T or F), if NULL, then no filter
+#'
+#' @export
+#'
+#' @examples
+#' get_spacer_fa(crispr,evidence_level=4,cas=T)
+get_spacer_fa=function(crispr,evidence_level=NULL,cas=NULL){
+  if(inherits(crispr,"multi_crispr")){
+    aaa=lapply(crispr, get_spacer_fa,evidence_level=evidence_level,cas=cas)
+    bbb=do.call(rbind,aaa)
+    rownames(bbb)=NULL
+    return(bbb)
+  }
+  if(!inherits(crispr,"crispr"))return(NULL)
+  if(is.null(crispr$CRISPR))return(NULL)
+
+  if(!is.null(cas)){
+    if(cas&is.null(crispr$Cas))return(NULL)
+    if(!cas&!is.null(crispr$Cas))return(NULL)
+  }
+
+  if(!is.null(evidence_level)){
+    #旧版本生成名称为evidence_Level，已改为evidence_Level
+    if("evidence_Level"%in%colnames(crispr$CRISPR))crispr$CRISPR=dplyr::rename(crispr$CRISPR,evidence_level="evidence_Level")
+    filter_crispr=dplyr::filter(crispr$CRISPR,evidence_level==!!evidence_level)%>%dplyr::pull(CRISPR_id)
+    filter_spacer=crispr$Spacer%>%dplyr::filter(CRISPR_id%in%filter_crispr)%>%dplyr::select(Spacer_id,sequence)
+  }
+  else{
+    filter_spacer=crispr$Spacer%>%dplyr::select(Spacer_id,sequence)
+  }
+  if(nrow(filter_spacer)==0)return(NULL)
+  return(filter_spacer)
+}
 
 # deprecated，不从这里提取
 # get_cas=function(rawCas_file, Cas_report_file,genome_name){
@@ -330,8 +367,7 @@ plot_crispr=function(crispr,genome=NULL,contig){
   #尝试画一下，类似基因图
   pcutils::lib_ps("ggnewscale","gggenes",library = F)
 
-  cas_res=crispr$Cas%>%dplyr::filter(seqid==contig)
-  cas_res=dplyr::mutate(cas_res,protein=gsub("_.*","",protein))
+
 # crispr_res=crispr$CRISPR%>%dplyr::filter(seqid==contig)
   array_res=crispr$Array%>%dplyr::filter(seqid==contig)
   array_res$feature=factor(array_res$feature,levels = c("LeftFLANK","CRISPRdr","CRISPRspacer","RightFLANK"))%>%droplevels()
@@ -346,6 +382,8 @@ plot_crispr=function(crispr,genome=NULL,contig){
   p=ggplot2::ggplot()
 
   if(nrow(cas_res)>0){
+    cas_res=crispr$Cas%>%dplyr::filter(seqid==contig)
+    cas_res=dplyr::mutate(cas_res,protein=gsub("_.*","",protein))
     cas_n=dplyr::distinct(cas_res,Cas_id,subtype)
     sub_title=paste0(sub_title,"Cas-system number: ",nrow(cas_n),"; Subtype: ",paste0(cas_n$subtype,collapse = "/"))
 
@@ -446,12 +484,14 @@ summary_levels=function(crispr){
   }
   if(!inherits(crispr,"crispr"))return(NULL)
   if(is.null(crispr$Spacer))return(NULL)
+
   if("spacer_number"%in%colnames(crispr$CRISPR)){
     n_spacer2=dplyr::select(crispr$CRISPR,genome,evidence_level,spacer_number)%>%
       dplyr::group_by(genome,evidence_level)%>%dplyr::summarise(crispr_num=dplyr::n(),spacer_num=sum(spacer_number))%>%
       as.data.frame()
   }
   else{
+    #旧版本不包含spacer_number，需要统计
     n_spacer=dplyr::count(crispr$Spacer,genome,CRISPR_id)
     n_spacer2=dplyr::select(crispr$CRISPR,genome,CRISPR_id,evidence_level)%>%
       dplyr::left_join(.,n_spacer,by = dplyr::join_by(genome,CRISPR_id))%>%

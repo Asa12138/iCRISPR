@@ -29,10 +29,13 @@ remotes::install_github("Asa12138/iCRISPR")
 ```
 
 # Usage
+This package can summary the result from CrisprCasFinder gracefully.
+
 ## CCF_result
 ```{r}
-library(iCRISPR)
 library(pcutils)
+library(iCRISPR)
 library(dplyr)
+
 
 ```
