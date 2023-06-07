@@ -4,14 +4,18 @@
 \alias{plot_crispr}
 \title{Plot a crispr-cas system}
 \usage{
-plot_crispr(crispr, genome = NULL, contig)
+plot_crispr(crispr, contig = NULL, genome = NULL, array = T, cas = T)
 }
 \arguments{
 \item{crispr}{crispr result from \code{pre_CCF_res()}}
 
+\item{contig}{the contig name}
+
 \item{genome}{the genome name}
 
-\item{contig}{the contig name}
+\item{array}{plot the array?}
+
+\item{cas}{plot the cas?}
 }
 \value{
 ggplot

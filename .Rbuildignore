@@ -7,6 +7,7 @@ Rtaxonkit.tmp
 ^.*\.DS_Store
 ^doc$
 ^Meta$
+pre_CCF_res_out/*
 pre_CCF_res_out
 analysis*
 

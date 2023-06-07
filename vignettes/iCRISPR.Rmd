@@ -4,7 +4,7 @@ author: "Peng Chen, Liu Zhen"
 date: "`r Sys.Date()`"
 output:
   prettydoc::html_pretty:
-    toc: false
+    toc: true
     theme: cayman
     highlight: github
   pdf_document:
@@ -17,7 +17,7 @@ vignette: >
 
 ```{r style, echo=FALSE, results="asis", message=FALSE}
 knitr::opts_chunk$set(tidy = FALSE,
-		   message = FALSE,eval = F)
+		   message = FALSE,eval = T)
 ```
 
 # Install
@@ -29,13 +29,98 @@ remotes::install_github("Asa12138/iCRISPR")
 ```
 
 # Usage
-This package can summary the result from CrisprCasFinder gracefully.
+This package can summary the result from [CrisprCasFinder](https://crisprcas.i2bc.paris-saclay.fr/CrisprCasFinder/Index) gracefully. 
 
 ## CCF_result
+MAG_test is a test result folder from CrisprCasFinder (contains "TSV","GFF","result.json",...), we can use `pre_CCF_res` to get a crispr object.
+
 ```{r}
 library(pcutils)
 library(iCRISPR)
 library(dplyr)
 
+MAG_test=system.file("extdata/MAG_test",package = "iCRISPR")
+crispr=pre_CCF_res(MAG_test,output_folder="./pre_CCF_res_out")
 
+crispr
+
+class(crispr)
 ```
+crispr object contains CRISPR, Cas, Array and Spacer:
+
+- CRISPR found in the whole genome (with multi-contigs), CRISPR_id is the key
+- Cas system found in the whole genome, Cas_id is the key, one Cas_id contains multi cas protein
+- Array: the array structure of each CRISPR, "LeftFLANK","CRISPRdr","CRISPRspacer","RightFLANK"
+- Spacer: all spacer come from each CRISPR, Spacer_id is the key
+
+If you have more than one result from CrisprCasFinder (maybe you perform this analysis on lots of genomes or MAGs), 
+you can use `multi_pre_CCF_res` to get all crispr information.
+```{r}
+#multi_crispr=multi_pre_CCF_res(input_folder="/path/your/folder",output_folder="./pre_CCF_res_out",threads=1)
+data("multi_crispr",package = "iCRISPR")
+multi_crispr
+
+class(multi_crispr)
+```
+
+multi_crispr is a list contains lots of crispr object.
+
+## Statistics
+
+First, you can have a look at distribution of Cas-system type.
+```{r}
+cas_type_res=summary_cas_type(multi_crispr)
+plot(cas_type_res)
+```
+
+As we all know, Cas-system can be classified into 2 classes and at least six type, each have own feature and signature cas protein.
+
+Use `show_cas_type` get an overview. (refer to [Makarova, K. S. et al. Nat Rev Microbiol 2020.](https://www.nature.com/articles/s41579-019-0299-x))
+
+```{r fig.width=13}
+show_cas_type()
+```
+
+Secondly, summary the crispr and spacer number at different evidence levels:
+```{r fig.width=10,fig.height=4}
+level_res=summary_levels(multi_crispr,each_genome=FALSE)
+plot(level_res)
+```
+
+The evidence levels comes from CrisprCasFinder ([Couvin, D. et al. Nucleic Acids Research 2018.](https://academic.oup.com/nar/article/46/W1/W246/5001162)):
+
+Short candidate arrays made of one to three spacers often do not correspond to CRISPRs and are therefore given the lowest evidence level (rated 1). Evidence levels 2–4 are attributed based on combined degrees of similarity of repeats and spacers.
+
+Putative CRISPR arrays with at least four spacers are assigned to levels 2–4 as follows: 
+- repeats EBcons < 70 (level 2)
+- repeats EBcons ≥ 70 and spacers overall percentage identity > 8% (level 3)
+- repeats EBcons ≥ 70 and spacers overall percentage identity ≤ 8% (level 4). 
+
+CRISPR arrays having evidence-levels 3 and 4 may be considered as highly likely candidates, whereas evidence-levels 1 and 2 indicate potentially invalid CRISPR arrays. 
+
+And we can use `get_spacer_fa` to get spacer fasta sequence easily, 
+use `evidence_level` or `cas` to filter spacer in crispr array at evidence_level 4 and with cas.
+```{r}
+get_spacer_fa(crispr,evidence_level = 4,cas = T)
+
+# then use write_fasta to save the fasta file
+# pcutils::write_fasta()
+```
+
+The Spacer_id includes these information splited by `@`: 
+
+- which genome the spacer comes from
+- which sequence (contig) the spacer comes from
+- which crispr array is on the sequence
+- the start and end sites of the crispr array
+- the start position of a spacer,the spacer's length,and the number id of spacers in the array combined with `_`.
+
+
+## Visualization
+We can use `plot_crispr` to visualize a CRISPR-Cas system in one sequence easily.
+
+Choose the crispr with evidence_level = 4 will be better.
+```{r fig.width=10}
+plot_crispr(crispr,genome="MAG_test",contig="AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518")
+```
+

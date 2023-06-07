@@ -4,10 +4,10 @@
 \alias{print.crispr}
 \title{Print crispr object}
 \usage{
-\method{print}{crispr}(crispr, ...)
+\method{print}{crispr}(x, ...)
 }
 \arguments{
-\item{crispr}{crispr object}
+\item{x}{crispr object}
 
 \item{...}{add}
 }

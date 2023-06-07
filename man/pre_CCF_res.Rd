@@ -24,7 +24,8 @@ pre_CCF_res(
 Prepare the result files from CRISPRCasFinder
 }
 \examples{
-crispr=pre_CCF_res(system.file("extdata/MAG_test",package = "iCRISPR"))
+MAG_test=system.file("extdata/MAG_test",package = "iCRISPR")
+crispr=pre_CCF_res(MAG_test,output_folder="./pre_CCF_res_out")
 }
 \references{
 https://crisprcas.i2bc.paris-saclay.fr/CrisprCasFinder/Index

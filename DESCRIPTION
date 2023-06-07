@@ -12,15 +12,14 @@ License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+LazyData: true
 Depends: 
     R (>= 3.5.0)
 Imports: 
     dplyr,
     magrittr,
     ggplot2,
-    stats,
     utils,
-    grDevices,
     pcutils
 Suggests:
     prettydoc,
@@ -30,7 +29,13 @@ Suggests:
     gggenes,
     foreach,
     doSNOW,
-    snow
+    snow,
+    grDevices,
+    stats,
+    ggtree,
+    aplot,
+    reshape2,
+    scales
 Remotes:
     Asa12138/pcutils
 VignetteBuilder: knitr

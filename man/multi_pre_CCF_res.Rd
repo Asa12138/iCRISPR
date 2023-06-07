@@ -20,6 +20,3 @@ multi_pre_CCF_res(
 \description{
 Prepare many genome result files from CRISPRCasFinder
 }
-\examples{
-multi_res=multi_pre_CCF_res("extdata",threads=1)
-}

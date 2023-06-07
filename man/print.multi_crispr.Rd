@@ -4,10 +4,10 @@
 \alias{print.multi_crispr}
 \title{Print multi_crispr object}
 \usage{
-\method{print}{multi_crispr}(multi_crispr, ...)
+\method{print}{multi_crispr}(x, ...)
 }
 \arguments{
-\item{multi_crispr}{multi_crispr object}
+\item{x}{multi_crispr object}
 
 \item{...}{add}
 }

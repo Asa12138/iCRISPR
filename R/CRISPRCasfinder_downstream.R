@@ -1,19 +1,19 @@
 
 #' Print crispr object
 #'
-#' @param ... add
-#' @param crispr crispr object
-#'
 #' @method print crispr
+#' @param ... add
+#' @param x crispr object
+#'
 #' @exportS3Method
 #'
 #' @examples
 #' data(crispr)
 #' print(crispr)
-print.crispr=function(crispr,...){
-  info=attributes(crispr)$basic_info
+print.crispr=function(x,...){
+  info=attributes(x)$basic_info
   pcutils::dabiao("Genome name: ",info$genome_name)
-  cat("With",info$n_crispr,"CRISPR systems(",sum(crispr$CRISPR$evidence_Level==4),"evidence level=4)\n")
+  cat("With",info$n_crispr,"CRISPR systems(",sum(x$CRISPR$evidence_level==4),"evidence level=4)\n")
   cat("With",info$n_cas,"CAS systems\n")
   cat("With",info$n_spacer,"spacers\n")
 }
@@ -21,14 +21,14 @@ print.crispr=function(crispr,...){
 
 #' Print multi_crispr object
 #'
-#' @param ... add
-#' @param multi_crispr multi_crispr object
-#'
 #' @method print multi_crispr
+#' @param ... add
+#' @param x multi_crispr object
+#'
 #' @exportS3Method
 #'
-print.multi_crispr=function(multi_crispr,...){
-  pcutils::dabiao("a list with total ",length(multi_crispr)," genomes")
+print.multi_crispr=function(x,...){
+  pcutils::dabiao("a list with total ",length(x)," genomes")
 }
 
 #' Prepare the result files from CRISPRCasFinder
@@ -42,7 +42,8 @@ print.multi_crispr=function(multi_crispr,...){
 #' @export
 #'
 #' @examples
-#' crispr=pre_CCF_res(system.file("extdata/MAG_test",package = "iCRISPR"))
+#' MAG_test=system.file("extdata/MAG_test",package = "iCRISPR")
+#' crispr=pre_CCF_res(MAG_test,output_folder="./pre_CCF_res_out")
 #' @references https://crisprcas.i2bc.paris-saclay.fr/CrisprCasFinder/Index
 pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=NULL,verbose=T){
   if(!dir.exists(input_folder))stop("Can not find ",input_folder)
@@ -123,12 +124,10 @@ pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=
 #'
 #' @param input_folder the folder of CRISPRCasFinder result, contains GFF/,TSV/,result.json,...
 #' @param output_folder output, default: ./
-#' @param threads threads, default:4
+#' @param threads threads, default: 1
 #'
 #' @export
 #'
-#' @examples
-#' multi_res=multi_pre_CCF_res("extdata",threads=1)
 multi_pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",threads=1){
   all_genome=list.dirs(input_folder,recursive = F)
   if(length(all_genome)==0)return(NULL)
@@ -216,44 +215,6 @@ get_array=function(crispr_gff,genome_name){
   array_res$sequence=sub(".*sequence=([^;]+).*","\\1",gff$attributes)
   array_res$strand=ifelse(array_res$strand=="+","Forward",ifelse(array_res$strand=="-","Reverse","Unknown"))
   return(data.frame(genome=genome_name,array_res))
-}
-
-#' Get spacer fasta
-#'
-#' @param crispr crispr
-#' @param evidence_level filter the evidence_level (1~4), if NULL, then no filter
-#' @param cas filter with cas system or not (T or F), if NULL, then no filter
-#'
-#' @export
-#'
-#' @examples
-#' get_spacer_fa(crispr,evidence_level=4,cas=T)
-get_spacer_fa=function(crispr,evidence_level=NULL,cas=NULL){
-  if(inherits(crispr,"multi_crispr")){
-    aaa=lapply(crispr, get_spacer_fa,evidence_level=evidence_level,cas=cas)
-    bbb=do.call(rbind,aaa)
-    rownames(bbb)=NULL
-    return(bbb)
-  }
-  if(!inherits(crispr,"crispr"))return(NULL)
-  if(is.null(crispr$CRISPR))return(NULL)
-
-  if(!is.null(cas)){
-    if(cas&is.null(crispr$Cas))return(NULL)
-    if(!cas&!is.null(crispr$Cas))return(NULL)
-  }
-
-  if(!is.null(evidence_level)){
-    #旧版本生成名称为evidence_Level，已改为evidence_Level
-    if("evidence_Level"%in%colnames(crispr$CRISPR))crispr$CRISPR=dplyr::rename(crispr$CRISPR,evidence_level="evidence_Level")
-    filter_crispr=dplyr::filter(crispr$CRISPR,evidence_level==!!evidence_level)%>%dplyr::pull(CRISPR_id)
-    filter_spacer=crispr$Spacer%>%dplyr::filter(CRISPR_id%in%filter_crispr)%>%dplyr::select(Spacer_id,sequence)
-  }
-  else{
-    filter_spacer=crispr$Spacer%>%dplyr::select(Spacer_id,sequence)
-  }
-  if(nrow(filter_spacer)==0)return(NULL)
-  return(filter_spacer)
 }
 
 # deprecated，不从这里提取
@@ -355,6 +316,8 @@ get_crispr=function(Crisprs_REPORT,genome_name = genome_name){
 #' @param crispr crispr result from `pre_CCF_res()`
 #' @param genome the genome name
 #' @param contig the contig name
+#' @param array plot the array?
+#' @param cas plot the cas?
 #'
 #' @import ggplot2
 #' @return ggplot
@@ -363,43 +326,51 @@ get_crispr=function(Crisprs_REPORT,genome_name = genome_name){
 #' @examples
 #' data(crispr)
 #' plot_crispr(crispr,genome="MAG_test",contig="AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518")
-plot_crispr=function(crispr,genome=NULL,contig){
+plot_crispr=function(crispr,contig=NULL,genome=NULL,array=T,cas=T){
+  if(!inherits(crispr,"crispr"))return(NULL)
+  with_cas=!is.null(crispr$Cas)
+  with_array=!is.null(crispr$CRISPR)
+  if(!(with_cas|with_array))return(NULL)
+  if(is.null(contig)){
+    message("Please set the contig as one seqid in crispr!")
+    if(with_array)contig=crispr$CRISPR$seqid[1]
+    if(with_cas)contig=crispr$Cas$seqid[1]
+    message("Use ",contig," as contig")
+  }
+
   #尝试画一下，类似基因图
   pcutils::lib_ps("ggnewscale","gggenes",library = F)
-
-
-# crispr_res=crispr$CRISPR%>%dplyr::filter(seqid==contig)
-  array_res=crispr$Array%>%dplyr::filter(seqid==contig)
-  array_res$feature=factor(array_res$feature,levels = c("LeftFLANK","CRISPRdr","CRISPRspacer","RightFLANK"))%>%droplevels()
-  sub_title=""
-
-  # ggplot()+
-  #   geom_point(data = cas_res,aes(x=start,y=end),col="red")+
-  #   geom_point(data = filter(crispr_res,seqid%in%cas_res$seqid),aes(x=start,y=end),col="blue")+
-  #   scale_x_continuous(breaks = scales::pretty_breaks(n = 10))+
-  #   facet_wrap(.~seqid,scales = "free",ncol = 1)
-
-  p=ggplot2::ggplot()
-
-  if(nrow(cas_res)>0){
+  cas_res=data.frame()
+  array_res=data.frame()
+  if(with_cas&cas){
     cas_res=crispr$Cas%>%dplyr::filter(seqid==contig)
     cas_res=dplyr::mutate(cas_res,protein=gsub("_.*","",protein))
-    cas_n=dplyr::distinct(cas_res,Cas_id,subtype)
-    sub_title=paste0(sub_title,"Cas-system number: ",nrow(cas_n),"; Subtype: ",paste0(cas_n$subtype,collapse = "/"))
+  }
+# crispr_res=crispr$CRISPR%>%dplyr::filter(seqid==contig)
+  if(with_array&array){
+    array_res=crispr$Array%>%dplyr::filter(seqid==contig)
+    array_res$feature=factor(array_res$feature,levels = c("LeftFLANK","CRISPRdr","CRISPRspacer","RightFLANK"))%>%droplevels()
+  }
+  if(is.null(genome))genome=attributes(crispr)$basic_info$genome_name
+  sub_title=""
 
-    if(is.null(genome))genome=cas_res$genome[1]
+  p=ggplot2::ggplot()
+  if(nrow(cas_res)>0){
+    cas_n=dplyr::distinct(cas_res,Cas_id,subtype)
+    sub_title=paste0(sub_title,"Cas-system number: ",nrow(cas_n),"; Subtype: ",paste0(cas_n$subtype,collapse = "/"),"; ")
+
     p=p+
       #cas基因
       gggenes::geom_gene_arrow(data = cas_res, aes(xmin = start, xmax = end,y = seqid, fill = protein,forward=(strand!="Reverse")),
                       arrowhead_width=grid::unit(5,"mm"),arrowhead_height = grid::unit(5,"mm"),arrow_body_height= grid::unit(4,"mm")) +
       gggenes::geom_gene_label(data = cas_res, aes(xmin = start, xmax = end,y = seqid, fill = protein,label=protein),min.size=0)+
+      scale_fill_manual(values =pcutils::get_cols(length(unique(cas_res$protein))))+
       ggnewscale::new_scale_fill()
   }
   if(nrow(array_res)>0){
     spacer_n=array_res%>%dplyr::filter(feature=="CRISPRspacer")%>%nrow()
-    sub_title=paste0(sub_title,"; Spacer number: ",spacer_n)
+    sub_title=paste0(sub_title,"Spacer number: ",spacer_n)
 
-    if(is.null(genome))genome=array_res$genome[1]
     p=p+
       #crispr系统
       gggenes::geom_gene_arrow(data = array_res, aes(xmin = start, xmax = end,y = seqid,fill=feature,forward=(strand!="Reverse")),
@@ -421,85 +392,6 @@ plot_crispr=function(crispr,genome=NULL,contig){
   p
 }
 
-#' Summary Cas-system type
-#'
-#' @param crispr crispr object
-#'
-#' @export
-#'
-#' @examples
-#' cas_type_res=summary_cas_type(crispr)
-#' plot.cas_type(cas_type_res)
-summary_cas_type=function(crispr){
-  if(inherits(crispr,"multi_crispr")){
-    aaa=lapply(crispr, summary_cas_type)
-    bbb=do.call(rbind,aaa)
-    if(is.null(bbb))return(NULL)
-    rownames(bbb)=NULL
-    class(bbb)=c("cas_type",class(bbb))
-    return(bbb)
-  }
-  if(!inherits(crispr,"crispr"))return(NULL)
-  cas_info=crispr$Cas
-  if(is.null(cas_info))return(NULL)
-  cas_type=cas_info[,c("genome","Cas_id","type","subtype")]%>%dplyr::distinct()%>%
-    dplyr::count(genome,type,subtype)%>%as.data.frame()
-  class(cas_type)=c("cas_type",class(cas_type))
-  return(cas_type)
-}
-
-#' Plot the Cas system type and subtype
-#'
-#' @param cas_type cas_type object
-#' @param mode 1~3
-#' @param ... additional
-#'
-#' @return ggplot
-#' @exportS3Method
-#' @method plot cas_type
-#' @rdname summary_cas_type
-plot.cas_type=function(cas_type,mode=1,...){
-  cas_plotdat=dplyr::group_by(cas_type[,c("type","subtype","n")],type,subtype)%>%dplyr::summarise(n=sum(n))%>%as.data.frame()
-  if(mode==1)p=pcutils::gghuan2(cas_plotdat,...)
-  if(mode==2)p=pcutils::gghuan2(cas_plotdat[,c("subtype","type","n")],...)
-  if(mode==3)p=pcutils::my_sankey(cas_plotdat,mode = "gg",num=T,...)
-  #if(mode==4)p=pcutils::my_circo(cas_plotdat,...)
-  return(p)
-}
-
-#' Summary crispr and spacer number of different evidence levels
-#'
-#' @param crispr crispr object
-#'
-#' @export
-#'
-#' @examples
-#' summary_levels(crispr)
-summary_levels=function(crispr){
-  if(inherits(crispr,"multi_crispr")){
-    aaa=lapply(crispr, summary_levels)
-    bbb=do.call(rbind,aaa)
-    rownames(bbb)=NULL
-    return(bbb)
-  }
-  if(!inherits(crispr,"crispr"))return(NULL)
-  if(is.null(crispr$Spacer))return(NULL)
-
-  if("spacer_number"%in%colnames(crispr$CRISPR)){
-    n_spacer2=dplyr::select(crispr$CRISPR,genome,evidence_level,spacer_number)%>%
-      dplyr::group_by(genome,evidence_level)%>%dplyr::summarise(crispr_num=dplyr::n(),spacer_num=sum(spacer_number))%>%
-      as.data.frame()
-  }
-  else{
-    #旧版本不包含spacer_number，需要统计
-    n_spacer=dplyr::count(crispr$Spacer,genome,CRISPR_id)
-    n_spacer2=dplyr::select(crispr$CRISPR,genome,CRISPR_id,evidence_level)%>%
-      dplyr::left_join(.,n_spacer,by = dplyr::join_by(genome,CRISPR_id))%>%
-      dplyr::group_by(genome,evidence_level)%>%dplyr::summarise(crispr_num=dplyr::n(),spacer_num=sum(n))%>%as.data.frame()
-  }
-  n_spacer2$Cas=ifelse(is.null(crispr$Cas),"Non-Cas","With-Cas")
-  return(n_spacer2)
-}
 
 #' Combine some crispr or multi_crispr object
 #'
@@ -523,4 +415,41 @@ combine_crispr=function(...){
   return(res)
 }
 
-cas_type_df=data.frame()
+#' Get spacer fasta
+#'
+#' @param crispr crispr
+#' @param evidence_level filter the evidence_level (1~4), if NULL, then no filter
+#' @param cas filter with cas system or not (T or F), if NULL, then no filter
+#'
+#' @export
+#'
+#' @examples
+#' data(crispr)
+#' get_spacer_fa(crispr,evidence_level=4,cas=TRUE)
+get_spacer_fa=function(crispr,evidence_level=NULL,cas=NULL){
+  if(inherits(crispr,"multi_crispr")){
+    aaa=lapply(crispr, get_spacer_fa,evidence_level=evidence_level,cas=cas)
+    bbb=do.call(rbind,aaa)
+    rownames(bbb)=NULL
+    return(bbb)
+  }
+  if(!inherits(crispr,"crispr"))return(NULL)
+  if(is.null(crispr$CRISPR))return(NULL)
+
+  if(!is.null(cas)){
+    if(cas&is.null(crispr$Cas))return(NULL)
+    if(!cas&!is.null(crispr$Cas))return(NULL)
+  }
+
+  if(!is.null(evidence_level)){
+    #旧版本生成名称为evidence_Level，已改为evidence_Level
+    if("evidence_Level"%in%colnames(crispr$CRISPR))crispr$CRISPR=dplyr::rename(crispr$CRISPR,evidence_level="evidence_Level")
+    filter_crispr=dplyr::filter(crispr$CRISPR,evidence_level==!!evidence_level)%>%dplyr::pull(CRISPR_id)
+    filter_spacer=crispr$Spacer%>%dplyr::filter(CRISPR_id%in%filter_crispr)%>%dplyr::select(Spacer_id,sequence)
+  }
+  else{
+    filter_spacer=crispr$Spacer%>%dplyr::select(Spacer_id,sequence)
+  }
+  if(nrow(filter_spacer)==0)return(NULL)
+  return(filter_spacer)
+}
