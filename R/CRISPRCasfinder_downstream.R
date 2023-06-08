@@ -74,22 +74,27 @@ pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=
     }
     #pcutils::write_fasta(res,out_file1)
 
-    #导出Array信息
-    utils::write.csv(array_res,file = paste0(output_folder,"/",genome_name,"_Array_info.csv"),row.names = F)
-    #导出Spacer信息
-    spacer_res=dplyr::filter(array_res,feature=="CRISPRspacer")
-    tmp=crispr_res%>%dplyr::mutate(long_id=paste0(genome,"@",CRISPR_id,"@",start,"-",end))%>%
-      dplyr::select(CRISPR_id,long_id)
-    tmp1=dplyr::left_join(spacer_res,tmp,by = c("CRISPR_id"="CRISPR_id"))%>%dplyr::group_by(CRISPR_id)%>%
-      dplyr::mutate(sid = 1:n())%>%dplyr::ungroup()
-    spacer_res=dplyr::mutate(tmp1,Spacer_id=paste0(long_id,"@spacer_",start,"_",abs(start-end)+1,"_",sid))
-    spacer_res=dplyr::select(spacer_res,-long_id,-sid)%>%as.data.frame()
-    pcutils::write_fasta(dplyr::select(spacer_res,Spacer_id,sequence)%>%as.data.frame(),file_path = out_file1)
-    utils::write.csv(spacer_res,file = paste0(output_folder,"/",genome_name,"_Spacer_info.csv"),row.names = F)
+    if(nrow(array_res)<2){
+      array_res=spacer_res=NULL
+      if(verbose)pcutils::dabiao("No array found!")
+    } else{
+      #导出Array信息
+      utils::write.csv(array_res,file = paste0(output_folder,"/",genome_name,"_Array_info.csv"),row.names = F)
+      #导出Spacer信息
+      spacer_res=dplyr::filter(array_res,feature=="CRISPRspacer")
+      tmp=crispr_res%>%dplyr::mutate(long_id=paste0(genome,"@",CRISPR_id,"@",start,"-",end))%>%
+        dplyr::select(CRISPR_id,long_id)
+      tmp1=dplyr::left_join(spacer_res,tmp,by = c("CRISPR_id"="CRISPR_id"))%>%dplyr::group_by(CRISPR_id)%>%
+        dplyr::mutate(sid = 1:n())%>%dplyr::ungroup()
+      spacer_res=dplyr::mutate(tmp1,Spacer_id=paste0(long_id,"@spacer_",start,"_",abs(start-end)+1,"_",sid))
+      spacer_res=dplyr::select(spacer_res,-long_id,-sid)%>%as.data.frame()
+      pcutils::write_fasta(dplyr::select(spacer_res,Spacer_id,sequence)%>%as.data.frame(),file_path = out_file1)
+      utils::write.csv(spacer_res,file = paste0(output_folder,"/",genome_name,"_Spacer_info.csv"),row.names = F)
+    }
 
   } else {
     array_res=spacer_res=crispr_res=NULL
-    if(verbose)pcutils::dabiao("No array found!")
+    if(verbose)pcutils::dabiao("No Crispr, Array found!")
   }
 
   #导出Cas信息
@@ -201,6 +206,8 @@ multi_pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",thread
 
 get_array=function(crispr_gff,genome_name){
   gff=pcutils::read.file(crispr_gff)
+  #部分结果有注释到crispr但是gff为空
+  if(nrow(gff)<2)return(NULL)
   left=which(gff$feature=="LeftFLANK")
   right=which(gff$feature=="RightFLANK")
   if(length(left)!=length(right))stop("Something wrong with this gff file: ",crispr_gff)
