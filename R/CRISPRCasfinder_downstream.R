@@ -34,7 +34,7 @@ print.multi_crispr=function(x,...){
 #' Prepare the result files from CRISPRCasFinder
 #'
 #' @param input_folder the folder of CRISPRCasFinder result, contains GFF/,TSV/,result.json,...
-#' @param output_folder output, default: ./
+#' @param output_folder output folder, default: NULL, don not output to file.
 #' @param genome_name the genome_name
 #' @param verbose verbose, default: T
 #'
@@ -45,15 +45,11 @@ print.multi_crispr=function(x,...){
 #' MAG_test=system.file("extdata/MAG_test",package = "iCRISPR")
 #' crispr=pre_CCF_res(MAG_test,output_folder="./pre_CCF_res_out")
 #' @references https://crisprcas.i2bc.paris-saclay.fr/CrisprCasFinder/Index
-pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=NULL,verbose=T){
+pre_CCF_res=function(input_folder,output_folder=NULL,genome_name=NULL,verbose=T){
   if(!dir.exists(input_folder))stop("Can not find ",input_folder)
   if(!all(c("TSV","GFF","result.json")%in%list.files(input_folder)))stop("Maybe not a CRISPRCasFinder result.")
 
   if(is.null(genome_name))genome_name=basename(input_folder)
-  output_folder=paste0(output_folder,"/",genome_name)
-  if(!dir.exists(output_folder))dir.create(output_folder,recursive =T)
-
-  out_file1=paste0(output_folder,"/",genome_name,"_spacer.fa")
 
   #有annotation前缀的gff文件是有crispr array的contigs
   crispr_gff_ls=list.files(paste0(input_folder,"/GFF"),pattern = "annotation*")%>%
@@ -61,8 +57,6 @@ pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=
 
   if(length(crispr_gff_ls)>0){
     crispr_res=get_crispr(paste0(input_folder,"/TSV/Crisprs_REPORT.tsv"),genome_name = genome_name)
-    #导出CRISPR信息
-    utils::write.csv(crispr_res,file = paste0(output_folder,"/",genome_name,"_CRISPR_info.csv"),row.names = F)
 
     array_res=res=data.frame()
     for (i in crispr_gff_ls) {
@@ -72,15 +66,12 @@ pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=
       tmp=get_array(crispr_gff,genome_name=genome_name)
       array_res=rbind(array_res,tmp)
     }
-    #pcutils::write_fasta(res,out_file1)
 
     if(nrow(array_res)<2){
       array_res=spacer_res=NULL
       if(verbose)pcutils::dabiao("No array found!")
     } else{
-      #导出Array信息
-      utils::write.csv(array_res,file = paste0(output_folder,"/",genome_name,"_Array_info.csv"),row.names = F)
-      #导出Spacer信息
+
       spacer_res=dplyr::filter(array_res,feature=="CRISPRspacer")
       tmp=crispr_res%>%dplyr::mutate(long_id=paste0(genome,"@",CRISPR_id,"@",start,"-",end))%>%
         dplyr::select(CRISPR_id,long_id)
@@ -88,8 +79,7 @@ pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=
         dplyr::mutate(sid = 1:n())%>%dplyr::ungroup()
       spacer_res=dplyr::mutate(tmp1,Spacer_id=paste0(long_id,"@spacer_",start,"_",abs(start-end)+1,"_",sid))
       spacer_res=dplyr::select(spacer_res,-long_id,-sid)%>%as.data.frame()
-      pcutils::write_fasta(dplyr::select(spacer_res,Spacer_id,sequence)%>%as.data.frame(),file_path = out_file1)
-      utils::write.csv(spacer_res,file = paste0(output_folder,"/",genome_name,"_Spacer_info.csv"),row.names = F)
+
     }
 
   } else {
@@ -97,12 +87,10 @@ pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=
     if(verbose)pcutils::dabiao("No Crispr, Array found!")
   }
 
-  #导出Cas信息
   rawCas_file=paste0(input_folder,"/rawCas.fna")
   Cas_report_file=paste0(input_folder,"/TSV/Cas_REPORT.tsv")
   if(file.exists(rawCas_file)){
     cas_res=get_cas(rawCas_file,Cas_report_file,genome_name = genome_name)
-    utils::write.csv(cas_res,file = paste0(output_folder,"/",genome_name,"_Cas_info.csv"),row.names = F)
   }else {
     cas_res=NULL
     if(verbose)pcutils::dabiao("No Cas found!")
@@ -120,15 +108,29 @@ pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",genome_name=
     n_cas=length(unique(crispr$Cas$Cas_id)),
     n_spacer=ifelse(is.null(nrow(crispr$Spacer)),0,nrow(crispr$Spacer))
   )
-
-  if(verbose)pcutils::dabiao("All done! see ",output_folder,"/")
+  if(!is.null(output_folder)){if(!output_folder==""){
+    output_folder=paste0(output_folder,"/",genome_name)
+    if(!dir.exists(output_folder))dir.create(output_folder,recursive =T)
+    out_file1=paste0(output_folder,"/",genome_name,"_spacer.fa")
+    #导出CRISPR信息
+    if(!is.null(crispr_res))utils::write.csv(crispr_res,file = paste0(output_folder,"/",genome_name,"_CRISPR_info.csv"),row.names = F)
+    #导出Array信息
+    if(!is.null(array_res))utils::write.csv(array_res,file = paste0(output_folder,"/",genome_name,"_Array_info.csv"),row.names = F)
+    #导出Spacer信息
+    if(!is.null(spacer_res))pcutils::write_fasta(dplyr::select(spacer_res,Spacer_id,sequence)%>%as.data.frame(),file_path = out_file1)
+    if(!is.null(spacer_res))utils::write.csv(spacer_res,file = paste0(output_folder,"/",genome_name,"_Spacer_info.csv"),row.names = F)
+    #导出Cas信息
+    if(!is.null(cas_res))utils::write.csv(cas_res,file = paste0(output_folder,"/",genome_name,"_Cas_info.csv"),row.names = F)
+    if(verbose)pcutils::dabiao("All done! see ",output_folder,"/")
+  }}
+  if(verbose)pcutils::dabiao("All done!")
   return(crispr)
 }
 
 #' Prepare many genome result files from CRISPRCasFinder
 #'
 #' @param input_folder the folder of CRISPRCasFinder result, contains GFF/,TSV/,result.json,...
-#' @param output_folder output, default: ./
+#' @param output_folder output folder, default: NULL, don not output to file.
 #' @param threads threads, default: 1
 #'
 #' @export
@@ -166,7 +168,7 @@ multi_pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",thread
       res <-lapply(seq_along(all_genome), loop)
     }}
   #simplify method
-  names(res)=all_genome
+  names(res)=basename(all_genome)
   pcutils::dabiao("End: ",date())
   class(res)="multi_crispr"
   res
@@ -208,6 +210,8 @@ get_array=function(crispr_gff,genome_name){
   gff=pcutils::read.file(crispr_gff)
   #部分结果有注释到crispr但是gff为空
   if(nrow(gff)<2)return(NULL)
+  #必须做这个排序才能对应
+  gff=dplyr::arrange(gff,start)
   left=which(gff$feature=="LeftFLANK")
   right=which(gff$feature=="RightFLANK")
   if(length(left)!=length(right))stop("Something wrong with this gff file: ",crispr_gff)
@@ -441,7 +445,7 @@ get_spacer_fa=function(crispr,evidence_level=NULL,cas=NULL){
     return(bbb)
   }
   if(!inherits(crispr,"crispr"))return(NULL)
-  if(is.null(crispr$CRISPR))return(NULL)
+  if(is.null(crispr$Spacer))return(NULL)
 
   if(!is.null(cas)){
     if(cas&is.null(crispr$Cas))return(NULL)
