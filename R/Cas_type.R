@@ -98,6 +98,9 @@ summary_levels=function(crispr,each_genome=T){
         as.data.frame()
       ccc=dplyr::mutate(ccc,spacer_num_per_array=spacer_num/crispr_num)
       attributes(ccc)$each_genome=F
+    } else {
+      ccc=bbb
+      attributes(ccc)$each_genome=T
     }
     class(ccc)=c("evidence_level",class(ccc))
     return(ccc)
