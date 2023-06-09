@@ -35,12 +35,14 @@ This package can summary the result from [CrisprCasFinder](https://crisprcas.i2b
 MAG_test is a test result folder from CrisprCasFinder (contains "TSV","GFF","result.json",...), we can use `pre_CCF_res` to get a crispr object.
 
 ```{r}
-library(pcutils)
 library(iCRISPR)
+#help analysis
+library(pcutils)
 library(dplyr)
+library(ggplot2)
 
 MAG_test=system.file("extdata/MAG_test",package = "iCRISPR")
-crispr=pre_CCF_res(MAG_test,output_folder="./pre_CCF_res_out")
+crispr=pre_CCF_res(MAG_test)
 
 crispr
 
@@ -70,7 +72,7 @@ multi_crispr is a list contains lots of crispr object.
 First, you can have a look at distribution of Cas-system type.
 ```{r}
 cas_type_res=summary_cas_type(multi_crispr)
-plot(cas_type_res)
+plot(cas_type_res)+scale_fill_manual(values = pcutils::get_cols(15))
 ```
 
 As we all know, Cas-system can be classified into 2 classes and at least six type, each have own feature and signature cas protein.
@@ -122,5 +124,8 @@ We can use `plot_crispr` to visualize a CRISPR-Cas system in one sequence easily
 Choose the crispr with evidence_level = 4 will be better.
 ```{r fig.width=10}
 plot_crispr(crispr,genome="MAG_test",contig="AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518")
+
+
+plot_crispr(multi_crispr$GCA_002396005.1_ASM239600v1,"DGVW01000088.1",array = F)
 ```
 

@@ -13,7 +13,7 @@ multi_pre_CCF_res(
 \arguments{
 \item{input_folder}{the folder of CRISPRCasFinder result, contains GFF/,TSV/,result.json,...}
 
-\item{output_folder}{output, default: ./}
+\item{output_folder}{output folder, default: NULL, don not output to file.}
 
 \item{threads}{threads, default: 1}
 }

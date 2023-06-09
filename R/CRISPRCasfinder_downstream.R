@@ -57,6 +57,7 @@ pre_CCF_res=function(input_folder,output_folder=NULL,genome_name=NULL,verbose=T)
 
   if(length(crispr_gff_ls)>0){
     crispr_res=get_crispr(paste0(input_folder,"/TSV/Crisprs_REPORT.tsv"),genome_name = genome_name)
+    check_crispr=F
 
     array_res=res=data.frame()
     for (i in crispr_gff_ls) {
@@ -64,14 +65,16 @@ pre_CCF_res=function(input_folder,output_folder=NULL,genome_name=NULL,verbose=T)
       # tmp=get_spacer_fa(crispr_gff,genome_name=genome_name)
       # res=rbind(res,tmp)
       tmp=get_array(crispr_gff,genome_name=genome_name)
+      if(is.null(tmp))check_crispr=T
       array_res=rbind(array_res,tmp)
     }
-
+    if(check_crispr){
+      crispr_res=dplyr::filter(crispr_res,seqid%in%array_res$seqid)
+    }
     if(nrow(array_res)<2){
       array_res=spacer_res=NULL
       if(verbose)pcutils::dabiao("No array found!")
     } else{
-
       spacer_res=dplyr::filter(array_res,feature=="CRISPRspacer")
       tmp=crispr_res%>%dplyr::mutate(long_id=paste0(genome,"@",CRISPR_id,"@",start,"-",end))%>%
         dplyr::select(CRISPR_id,long_id)
@@ -81,7 +84,6 @@ pre_CCF_res=function(input_folder,output_folder=NULL,genome_name=NULL,verbose=T)
       spacer_res=dplyr::select(spacer_res,-long_id,-sid)%>%as.data.frame()
 
     }
-
   } else {
     array_res=spacer_res=crispr_res=NULL
     if(verbose)pcutils::dabiao("No Crispr, Array found!")
@@ -205,21 +207,46 @@ multi_pre_CCF_res=function(input_folder,output_folder="./pre_CCF_res_out",thread
 #   return(res)
 # }
 
+#检查array有效性
+check_array=function(array){
+  crispr_pos1=dplyr::filter(array,feature=="LeftFLANK")%>%dplyr::pull(start)
+  crispr_pos2=dplyr::filter(array,feature=="RightFLANK")%>%dplyr::pull(end)
+  all(dplyr::between(range(c(array$start,array$end)),crispr_pos1,crispr_pos2))
+}
 
 get_array=function(crispr_gff,genome_name){
   gff=pcutils::read.file(crispr_gff)
   #部分结果有注释到crispr但是gff为空
   if(nrow(gff)<2)return(NULL)
+
   #必须做这个排序才能对应
-  gff=dplyr::arrange(gff,start)
+  #gff=dplyr::arrange(gff,start)
+  #排序发现了bug，有的RightFLANK会跑到LeftFLANK前面，导致错位,因为有些spacer在array的外面？
+  #具体看output/dir_173/GCF_001390335.1_8939_3_24_genomic.fna/GFF/NZ_CPDV01000060.gff
+
   left=which(gff$feature=="LeftFLANK")
   right=which(gff$feature=="RightFLANK")
-  if(length(left)!=length(right))stop("Something wrong with this gff file: ",crispr_gff)
-  crispr_id=c()
-  for (i in seq_along(left)) {
-    crispr_id[left[i]:right[i]]=paste0("CRISPR:",i)
+  if((length(left)!=length(right))){
+    warning("Something wrong with this gff file: ",crispr_gff)
+    return(NULL)
   }
-  gff$CRISPR_id=crispr_id
+  #新策略，先分开，再给id
+  crispr_ls=list()
+  for (i in seq_along(left)) {
+    crispr_ls[[i]]=gff[left[i]:right[i],]
+  }
+
+  if(!all(sapply(crispr_ls, check_array))){
+    warning("Something wrong with this gff file: ",crispr_gff,call. = F)
+    return(NULL)
+  }
+
+  ord=order(sapply(crispr_ls, \(i)i[1,"start"]))
+  for (i in seq_along(left)) {
+    crispr_ls[[i]]$CRISPR_id=paste0("CRISPR:",ord[i])
+  }
+  gff=do.call(rbind,crispr_ls)
+
   gff$CRISPR_id=paste0(gff$seqid,"@",gff$CRISPR_id)
   gff=dplyr::filter(gff,feature!="CRISPR")
   array_res=gff[,c(1,10,3:5,7)]

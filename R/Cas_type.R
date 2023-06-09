@@ -56,7 +56,7 @@ plot.cas_type=function(x,mode=1,...){
 show_cas_type=function(){
   pcutils::lib_ps("ggtree","gggenes","aplot",library = F)
   #load("cas_info.rda",envir = environment())
-  data("cas_info.rda",package = "iCRISPR",envir = environment())
+  data("cas_info",package = "iCRISPR",envir = environment())
   #cas_type_df$cas1=strsplit(cas_type_df$cas,"[,-]")%>%sapply(.,\(i)i[1])
 
   cas_tree=ggtree::fortify(cas_tree)

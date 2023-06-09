@@ -6,7 +6,7 @@
 \usage{
 pre_CCF_res(
   input_folder,
-  output_folder = "./pre_CCF_res_out",
+  output_folder = NULL,
   genome_name = NULL,
   verbose = T
 )
@@ -14,7 +14,7 @@ pre_CCF_res(
 \arguments{
 \item{input_folder}{the folder of CRISPRCasFinder result, contains GFF/,TSV/,result.json,...}
 
-\item{output_folder}{output, default: ./}
+\item{output_folder}{output folder, default: NULL, don not output to file.}
 
 \item{genome_name}{the genome_name}
 
