@@ -241,7 +241,7 @@ get_array=function(crispr_gff,genome_name){
     return(NULL)
   }
 
-  ord=order(sapply(crispr_ls, \(i)i[1,"start"]))
+  ord=rank(sapply(crispr_ls, \(i)i[1,"start"]))
   for (i in seq_along(left)) {
     crispr_ls[[i]]$CRISPR_id=paste0("CRISPR:",ord[i])
   }
@@ -339,7 +339,7 @@ get_cas=function(rawCas_file, Cas_report_file,genome_name){
 }
 
 get_crispr=function(Crisprs_REPORT,genome_name = genome_name){
-  #Crisprs_REPORT="inst/extdata/MAG_test/TSV/Crisprs_REPORT.tsv"
+  #Crisprs_REPORT="pre_CCF_res_out/GCA_005025685.1_PDT000277779.2_genomic.fna/TSV/Crisprs_REPORT.tsv"
   crisprs=utils::read.table(Crisprs_REPORT,sep="\t",header = T,check.names = F,comment.char = "", stringsAsFactors = FALSE,quote = "")
   crisprs=crisprs[,c("Sequence","CRISPR_Id","Strain","CRISPR_Start","CRISPR_End",
                      "Potential_Orientation (AT%)","Consensus_Repeat","Spacers_Nb","Evidence_Level")]

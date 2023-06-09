@@ -5,7 +5,7 @@
 \alias{plot.evidence_level}
 \title{Summary crispr and spacer number at different evidence levels}
 \usage{
-summary_levels(crispr, each_genome = T)
+summary_levels(crispr, each_genome = T, use_CCF = T)
 
 \method{plot}{evidence_level}(x, mode = 1, ...)
 }
@@ -13,6 +13,8 @@ summary_levels(crispr, each_genome = T)
 \item{crispr}{crispr object}
 
 \item{each_genome}{summary each genome information in multi_crispr?}
+
+\item{use_CCF}{use_CCF=T means use the spacer number count by CCF, but sometimes do'not match spacer.}
 
 \item{x}{evidence_level object}
 

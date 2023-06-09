@@ -81,13 +81,14 @@ show_cas_type=function(){
 #'
 #' @param crispr crispr object
 #' @param each_genome summary each genome information in multi_crispr?
+#' @param use_CCF use_CCF=T means use the spacer number count by CCF, but sometimes do'not match spacer.
 #'
 #' @export
 #'
 #' @examples
 #' level_res=summary_levels(multi_crispr,each_genome=FALSE)
 #' plot(level_res)
-summary_levels=function(crispr,each_genome=T){
+summary_levels=function(crispr,each_genome=T,use_CCF=T){
   if(inherits(crispr,"multi_crispr")){
     aaa=lapply(crispr, summary_levels)
     bbb=do.call(rbind,aaa)
@@ -109,14 +110,18 @@ summary_levels=function(crispr,each_genome=T){
   if(is.null(crispr$Spacer))return(NULL)
 
   if("evidence_Level"%in%colnames(crispr$CRISPR))crispr$CRISPR=dplyr::rename(crispr$CRISPR,evidence_level="evidence_Level")
-
-  if("spacer_number"%in%colnames(crispr$CRISPR)){
+  #有一个bug是CCF结果的spacer_number和真正的GFF给出的spacer数量不一致（罕见错误）
+  #见crisprfinder/output/dir_296/GCA_005025685.1_PDT000277779.2_genomic.fna
+  #见crisprfinder//output/dir_345/GCA_021349275.1_PDT001215381.1_genomic.fna
+  if("spacer_number"%in%colnames(crispr$CRISPR)&use_CCF){
     n_spacer2=dplyr::select(crispr$CRISPR,genome,evidence_level,spacer_number)%>%
       dplyr::group_by(genome,evidence_level)%>%dplyr::summarise(crispr_num=dplyr::n(),spacer_num=sum(spacer_number))%>%
       as.data.frame()
   }
   else{
     #旧版本不包含spacer_number，需要统计
+    #发现spacer数量不一致，应该以gff为准，因为我们能做的就是提出来的这部分
+    #所以当use_CCF=F,会慢一些，但是是准确的
     n_spacer=dplyr::count(crispr$Spacer,genome,CRISPR_id)
     n_spacer2=dplyr::select(crispr$CRISPR,genome,CRISPR_id,evidence_level)%>%
       dplyr::left_join(.,n_spacer,by =c("genome"="genome","CRISPR_id"="CRISPR_id"))%>%
@@ -141,6 +146,7 @@ summary_levels=function(crispr,each_genome=T){
 plot.evidence_level=function(x,mode=1,...){
   pcutils::lib_ps("reshape2","scales",library = F)
   ccc=x
+  if(is.null(attributes(x)$each_genome))attributes(x)$each_genome=T
   if(attributes(x)$each_genome){
     ccc=dplyr::group_by(x,evidence_level,Cas)%>%
       dplyr::summarise(crispr_num=sum(crispr_num),spacer_num=sum(spacer_num))%>%
