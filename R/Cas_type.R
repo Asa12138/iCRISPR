@@ -1,19 +1,25 @@
 #' Summary Cas-system type
 #'
 #' @param crispr crispr object
-#'
+#' @param each_genome summary each genome information in multi_crispr?
 #' @export
 #'
 #' @examples
 #' data(multi_crispr)
 #' cas_type_res=summary_cas_type(multi_crispr)
 #' plot(cas_type_res)
-summary_cas_type=function(crispr){
+summary_cas_type=function(crispr,each_genome=T){
   if(inherits(crispr,"multi_crispr")){
     aaa=lapply(crispr, summary_cas_type)
     bbb=do.call(rbind,aaa)
     if(is.null(bbb))return(NULL)
     rownames(bbb)=NULL
+
+    if(!each_genome){
+      bbb=dplyr::group_by(bbb[,c("type","subtype","n")],type,subtype)%>%
+        dplyr::summarise(n=sum(n))%>%as.data.frame()
+    }
+
     class(bbb)=c("cas_type",class(bbb))
     return(bbb)
   }
@@ -28,19 +34,41 @@ summary_cas_type=function(crispr){
 
 #' Plot the Cas system type and subtype
 #' @method plot cas_type
+#'
 #' @param x cas_type object
 #' @param mode 1~3
-#' @param ... additional
+#' @param ... additional cas_type object
+#' @param plot_param plot parameters
 #'
 #' @return ggplot
 #' @exportS3Method
 #' @rdname summary_cas_type
-plot.cas_type=function(x,mode=1,...){
-  cas_plotdat=dplyr::group_by(x[,c("type","subtype","n")],type,subtype)%>%dplyr::summarise(n=sum(n))%>%as.data.frame()
-  if(mode==1)p=pcutils::gghuan2(cas_plotdat,...)
-  if(mode==2)p=pcutils::gghuan2(cas_plotdat[,c("subtype","type","n")],...)
-  if(mode==3)p=pcutils::my_sankey(cas_plotdat,mode = "gg",num=T,...)
+plot.cas_type=function(x,...,mode=1,plot_param=list()){
+  cas_type2=list(...)
+  if(length(cas_type2)>0){
+    type=ifelse(mode==1,"subtype","type")
+    cas_type=lapply(append(list(x),cas_type2),
+                    \(x)(dplyr::group_by(x[,c(type,"n")],get(type))%>%
+                           dplyr::summarise(n=sum(n))%>%as.data.frame()))
+
+    cas_type=lapply(seq_along(cas_type),\(i)cas_type[[i]]%>%
+                      dplyr::rename(setNames("n",paste0("multi_",i))))
+    cas_plotdat=Reduce(dplyr::full_join,cas_type)
+    cas_plotdat=data.frame(cas_plotdat[,-1],row.names = cas_plotdat[,1])
+    cas_plotdat[is.na(cas_plotdat)]=0
+    #p=pcutils::stackplot(cas_plotdat)
+    p=do.call(\(...)pcutils::stackplot(cas_plotdat,...),plot_param)
+    return(p)
+  }
+  cas_plotdat=dplyr::group_by(x[,c("type","subtype","n")],type,subtype)%>%
+    dplyr::summarise(n=sum(n))%>%as.data.frame()
+
+  if(mode==1)p=do.call(\(...)pcutils::gghuan2(cas_plotdat,...),plot_param)
+  if(mode==2)p=do.call(\(...)pcutils::gghuan2(cas_plotdat[,c("subtype","type","n")],...),plot_param)
+  if(mode==3)p=do.call(\(...)pcutils::my_sankey(cas_plotdat[,c("subtype","type","n")],...),
+                       pcutils::update_param(list(mode = "gg",num=T),plot_param))
   #if(mode==4)p=pcutils::my_circo(cas_plotdat,...)
+
   return(p)
 }
 
@@ -98,10 +126,8 @@ summary_levels=function(crispr,each_genome=T,use_CCF=T){
         dplyr::summarise(crispr_num=sum(crispr_num),spacer_num=sum(spacer_num))%>%
         as.data.frame()
       ccc=dplyr::mutate(ccc,spacer_num_per_array=spacer_num/crispr_num)
-      attributes(ccc)$each_genome=F
     } else {
       ccc=bbb
-      attributes(ccc)$each_genome=T
     }
     class(ccc)=c("evidence_level",class(ccc))
     return(ccc)
@@ -136,18 +162,19 @@ summary_levels=function(crispr,each_genome=T,use_CCF=T){
 
 #' Plot the distribution of array and spacer number at different evidence levels.
 #' @method plot evidence_level
+#'
 #' @param x evidence_level object
 #' @param mode 1~2
 #' @param ... additional
+#' @param num_size number font size
 #'
 #' @return ggplot
 #' @exportS3Method
 #' @rdname summary_levels
-plot.evidence_level=function(x,mode=1,...){
+plot.evidence_level=function(x,mode=1,num_size=4,...){
   pcutils::lib_ps("reshape2","scales",library = F)
   ccc=x
-  if(is.null(attributes(x)$each_genome))attributes(x)$each_genome=T
-  if(attributes(x)$each_genome){
+  if(T){
     ccc=dplyr::group_by(x,evidence_level,Cas)%>%
       dplyr::summarise(crispr_num=sum(crispr_num),spacer_num=sum(spacer_num))%>%
       as.data.frame()
@@ -158,7 +185,7 @@ plot.evidence_level=function(x,mode=1,...){
   if(mode==1){
     p=ggplot(data = plotdat,aes(x=evidence_level,y=value,fill=Cas))+
       geom_col(position = position_dodge(width = 1))+
-      geom_text(aes(label=value),position = position_dodge(width = 1),vjust=0)+
+      geom_text(aes(label=value),position = position_dodge(width = 1),vjust=0,size=num_size)+
       scale_fill_manual(values = c( "#a6cee3","#78c679"))+labs(y="Number")+
       facet_wrap(.~variable,nrow = 1,scales = "free_y")
   }
@@ -166,7 +193,7 @@ plot.evidence_level=function(x,mode=1,...){
     p=ggplot(data = plotdat,aes(x=evidence_level,y=value,fill=Cas))+
       geom_bar(stat="identity",position = position_fill())+
       scale_y_continuous(labels = scales::percent)+
-      geom_text(aes(label=value),position = position_fill())+labs(y="Percentage")+
+      geom_text(aes(label=value),position = position_fill(),size=num_size)+labs(y="Percentage")+
       scale_fill_manual(values = c( "#a6cee3","#78c679"))+
       facet_wrap(.~variable,nrow = 1)
   }

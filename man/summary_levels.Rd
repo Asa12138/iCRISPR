@@ -7,7 +7,7 @@
 \usage{
 summary_levels(crispr, each_genome = T, use_CCF = T)
 
-\method{plot}{evidence_level}(x, mode = 1, ...)
+\method{plot}{evidence_level}(x, mode = 1, num_size = 4, ...)
 }
 \arguments{
 \item{crispr}{crispr object}
@@ -19,6 +19,8 @@ summary_levels(crispr, each_genome = T, use_CCF = T)
 \item{x}{evidence_level object}
 
 \item{mode}{1~2}
+
+\item{num_size}{number font size}
 
 \item{...}{additional}
 }

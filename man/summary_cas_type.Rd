@@ -5,18 +5,22 @@
 \alias{plot.cas_type}
 \title{Summary Cas-system type}
 \usage{
-summary_cas_type(crispr)
+summary_cas_type(crispr, each_genome = T)
 
-\method{plot}{cas_type}(x, mode = 1, ...)
+\method{plot}{cas_type}(x, ..., mode = 1, plot_param = list())
 }
 \arguments{
 \item{crispr}{crispr object}
 
+\item{each_genome}{summary each genome information in multi_crispr?}
+
 \item{x}{cas_type object}
+
+\item{...}{additional cas_type object}
 
 \item{mode}{1~3}
 
-\item{...}{additional}
+\item{plot_param}{plot parameters}
 }
 \value{
 ggplot

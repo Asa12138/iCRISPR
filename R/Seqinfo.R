@@ -88,7 +88,7 @@ random_seq=function(num_seqs=100, mean_length=32, sd_length=3,element=c("A", "T"
     seq_length <- round(rnorm(1, mean = mean_length, sd = sd_length))
     seq <- paste(sample(element, seq_length, replace = TRUE), collapse = "")
 
-    sequences <- rbind(sequences, data.frame(seq_name = seq_name, seq = seq, stringsAsFactors = FALSE))
+    sequences <- rbind(sequences, data.frame(Sequence_ID = seq_name, Sequence = seq, stringsAsFactors = FALSE))
   }
 
   return(sequences)
@@ -160,13 +160,24 @@ cal_shannon=function(sequence,base=NULL){
 #' Summarize sequence information
 #'
 #' @param sequence The input DNA sequence.
+#' @param seq_col the column name of sequence if your input is a dataframe.
 #' @param max_k The maximum k value for kmers.
+#'
 #' @export
 #' @examples
 #' summary_seq("CCTGAACCTATGCCGTCCACCTTGCGTTGCCTT")
-#' apply(random_seq(10),1,\(i)summary_seq(i[2]))
-#'
-summary_seq <- function(sequence, max_k = 7) {
+#' summary_seq(random_seq(10))
+summary_seq <- function(sequence, max_k = 7,seq_col=2) {
+  if(is.data.frame(sequence)){
+    res=apply(sequence[seq_col], 1,summary_seq)%>%do.call(rbind,.)
+    rownames(res)=NULL
+    return(cbind(sequence,res))
+  }
+  if(length(sequence)>1){
+    res=lapply(sequence,summary_seq)%>%do.call(rbind,.)
+    rownames(res)=NULL
+    return(cbind(sequence=sequence,res))
+  }
   counts=count_kmers(sequence,1)%>%as.list()
   for (i in c("A","T","C","G")) {
     if(is.null(counts[[i]]))counts[[i]]=0
@@ -175,7 +186,7 @@ summary_seq <- function(sequence, max_k = 7) {
   counts$complexity <-round(cal_sc(sequence, max_k), 4)
   res=data.frame("A"=counts$A,"T"=counts$`T`,"C"=counts$C,"G"=counts$G,"shannon"=counts$shannon,"complexity"=counts$complexity)
   res[is.na(res)]=0
-  res=dplyr::mutate(res,length=nchar(sequence),CG_content=round((G+C)/length,4))
+  res=dplyr::mutate(res,length=nchar(sequence),GC_content=round((G+C)/length,4))
   return(res)
 }
 

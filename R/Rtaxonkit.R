@@ -2,6 +2,7 @@
 #' Install taxonkit
 #'
 #' @param taxonkit_tar_gz your download taxonkit_tar_gz file from https://github.com/shenwei356/taxonkit/releases/
+#' @param install_dir install dir, default: tools::R_user_dir("iCRISPR")
 #'
 #' @return NULL
 #' @export
@@ -9,7 +10,7 @@
 #' \dontrun{
 #' install_taxonkit()
 #' }
-install_taxonkit <- function(taxonkit_tar_gz=NULL) {
+install_taxonkit <- function(taxonkit_tar_gz=NULL,install_dir=tools::R_user_dir("iCRISPR")) {
   # Detect the operating system
   os <- tolower(Sys.info()[["sysname"]])
   machine<- ifelse(grepl("arm",tolower(Sys.info()[["machine"]])),"arm",
@@ -33,7 +34,7 @@ install_taxonkit <- function(taxonkit_tar_gz=NULL) {
   # Set the file name and installation directory
   filename <- basename(url)
 
-  install_dir <- file.path(system.file(package = "iCRISPR"), "software")
+  install_dir=normalizePath(install_dir)
   # Create the installation directory if it does not exist
   dir.create(install_dir, recursive = TRUE, showWarnings = FALSE)
 
@@ -43,11 +44,13 @@ install_taxonkit <- function(taxonkit_tar_gz=NULL) {
   if(is.null(taxonkit_tar_gz)){
     # Download the file
     ori_time=getOption("timeout")
+    on.exit(options(timeout = ori_time))
+
     options(timeout = 60)
     tryCatch(expr = {
       download.file(url, destfile = install_path)
     },error=function(e){
-      options(timeout = ori_time);stop("Try download yourself from https://github.com/shenwei356/taxonkit/releases/")
+      stop("Try download yourself from https://github.com/shenwei356/taxonkit/releases/")
     })
   }
   else {
@@ -60,12 +63,16 @@ install_taxonkit <- function(taxonkit_tar_gz=NULL) {
   }
 
   # Extract the downloaded file
+  ori_dir=getwd()
+  on.exit(setwd(ori_dir))
+
   setwd(install_dir)  # Change to the installation directory
   system(install_cmd)
 
   # Remove the downloaded file
   file.remove(install_path)
 
+  set_config("taxonkit",paste0(install_dir,"/taxonkit"))
   cat("taxonkit has been successfully installed!\n")
 }
 
@@ -88,11 +95,13 @@ download_taxonkit_dataset <- function(taxdump_tar_gz=NULL) {
   # Download the taxdump.tar.gz file
   if(is.null(taxdump_tar_gz)){
     ori_time=getOption("timeout")
-    options(timeout = 60)
+    on.exit(options(timeout = ori_time))
+
+    options(timeout = 300)
     tryCatch(expr = {
       utils::download.file(url, destfile = taxdump, mode = "wb")
     },error=function(e){
-      options(timeout = ori_time);stop("Try download yourself from ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz")
+      stop("Try download yourself from ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz")
     })
   }
   else {
@@ -126,8 +135,10 @@ download_taxonkit_dataset <- function(taxdump_tar_gz=NULL) {
 #'
 #' @export
 check_taxonkit=function(print=T){
-  taxonkit=file.path(system.file(package = "iCRISPR"), "software","taxonkit")
-  flag=system(paste(taxonkit,"-h"),ignore.stdout = !print,ignore.stderr = T)
+  config=refresh_config()
+  taxonkit=config["taxonkit"]
+  if(!file.exists(taxonkit))stop("Taxonkit not found, please try `install_taxonkit()`")
+  flag=system(paste(shQuote(taxonkit),"-h"),ignore.stdout = !print,ignore.stderr = T)
   if(flag!=0)stop("Taxonkit not found, please try `install_taxonkit()`")
   if(print)pcutils::dabiao("Taxonkit is available if there is help message above")
 
@@ -137,6 +148,7 @@ check_taxonkit=function(print=T){
     if(print)pcutils::dabiao("Taxonkit dataset is available!")
   }
   else stop("Taxonkit dataset (",dest_dir,") not found, please try `download_taxonkit_dataset()`")
+  if(!print)return(taxonkit)
 }
 
 #' Taxonkit list
@@ -158,14 +170,12 @@ check_taxonkit=function(print=T){
 #' taxonkit_list(ids = c(9605), indent = "-", show_name = TRUE, show_rank = TRUE)
 #' }
 taxonkit_list <- function(ids, indent = "  ", json = FALSE, show_name = FALSE, show_rank = FALSE) {
-  check_taxonkit(print = F)
-
-  taxonkit=file.path(system.file(package = "iCRISPR"), "software","taxonkit")
+  taxonkit=check_taxonkit(print = F)
   # Convert the ids to a comma-separated string
   ids_str <- paste(ids, collapse = ",")
 
   # Build the taxonkit command
-  cmd <- paste(taxonkit,"list")
+  cmd <- paste(shQuote(taxonkit),"list")
   if (json) cmd <- paste(cmd, "-J")
   if (show_name) cmd <- paste(cmd, "-n")
   if (show_rank) cmd <- paste(cmd, "-r")
@@ -196,17 +206,16 @@ taxonkit_list <- function(ids, indent = "  ", json = FALSE, show_name = FALSE, s
 #'
 #' @examples
 #' \dontrun{
-#' lineage <- taxonkit_lineage("extdata/taxid.txt",show_name = TRUE, show_rank = TRUE)
+#' lineage <- taxonkit_lineage("9606\n63221",show_name = TRUE, show_rank = TRUE,text=T)
 #' lineage
 #' }
 taxonkit_lineage <- function(file_path, delimiter = ";", no_lineage = FALSE, show_lineage_ranks = FALSE,
                              show_lineage_taxids = FALSE, show_name = FALSE, show_rank = FALSE,
                              show_status_code = FALSE, taxid_field = 1,text=F) {
-  check_taxonkit(print = F)
+  taxonkit=check_taxonkit(print = F)
 
-  taxonkit=file.path(system.file(package = "iCRISPR"), "software","taxonkit")
   # Prepare taxonkit command
-  taxonkit_cmd <- paste(taxonkit,"lineage")
+  taxonkit_cmd <- paste(shQuote(taxonkit),"lineage")
 
   if(text){
     cat(file_path,sep = "\n",file = "Rtaxonkit.tmp")
@@ -310,11 +319,9 @@ taxonkit_reformat <- function(file_path,
                               taxid_field = NULL,
                               pseudo_strain = FALSE,
                               trim = FALSE,text=F) {
-  check_taxonkit(print = F)
-
-  taxonkit=file.path(system.file(package = "iCRISPR"), "software","taxonkit")
+  taxonkit=check_taxonkit(print = F)
   # Prepare taxonkit command
-  cmd <- paste(taxonkit,"reformat")
+  cmd <- paste(shQuote(taxonkit),"reformat")
 
   if(text){
     cat(file_path,sep = "\n",file = "Rtaxonkit.tmp")
@@ -390,11 +397,10 @@ taxonkit_reformat <- function(file_path,
 #' "Homo sapiens"%>%taxonkit_name2taxid(text=T)
 #' }
 taxonkit_name2taxid <- function(file_path, name_field = NULL, sci_name = FALSE, show_rank = FALSE,text=F) {
-  check_taxonkit(print = F)
+  taxonkit=check_taxonkit(print = F)
 
-  taxonkit=file.path(system.file(package = "iCRISPR"), "software","taxonkit")
   # Prepare taxonkit command
-  cmd <- paste(taxonkit,"name2taxid")
+  cmd <- paste(shQuote(taxonkit),"name2taxid")
 
   if(text){
     cat(file_path,sep = "\n",file = "Rtaxonkit.tmp")
@@ -444,11 +450,9 @@ taxonkit_name2taxid <- function(file_path, name_field = NULL, sci_name = FALSE, 
 taxonkit_filter <- function(file_path, black_list = NULL, discard_noranks = FALSE, discard_root = FALSE,
                           equal_to = NULL, higher_than = NULL, lower_than = NULL, rank_file = NULL,
                           root_taxid = NULL, save_predictable_norank = FALSE, taxid_field = NULL,text=F) {
-  check_taxonkit(print = F)
-
-  taxonkit=file.path(system.file(package = "iCRISPR"), "software","taxonkit")
+  taxonkit=check_taxonkit(print = F)
   # Prepare taxonkit command
-  cmd <- paste(taxonkit,"filter")
+  cmd <- paste(shQuote(taxonkit),"filter")
 
   if(text){
     cat(file_path,sep = "\n",file = "Rtaxonkit.tmp")
@@ -514,11 +518,10 @@ taxonkit_filter <- function(file_path, black_list = NULL, discard_noranks = FALS
 #' }
 taxonkit_lca <- function(file_path, buffer_size = "1M", separator = " ",
                          skip_deleted = FALSE, skip_unfound = FALSE, taxids_field = NULL,text=F) {
-  check_taxonkit(print = F)
+  taxonkit=check_taxonkit(print = F)
 
-  taxonkit=file.path(system.file(package = "iCRISPR"), "software","taxonkit")
   # Prepare taxonkit command
-  cmd <- paste(taxonkit,"lca")
+  cmd <- paste(shQuote(taxonkit),"lca")
 
   if(text){
     cat(file_path,sep = "\n",file = "Rtaxonkit.tmp")

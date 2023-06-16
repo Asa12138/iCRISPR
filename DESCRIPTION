@@ -20,7 +20,9 @@ Imports:
     magrittr,
     ggplot2,
     utils,
-    pcutils
+    pcutils,
+    Biostrings,
+    igraph
 Suggests:
     prettydoc,
     knitr,

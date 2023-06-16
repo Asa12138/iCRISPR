@@ -4,18 +4,19 @@
 \alias{summary_seq}
 \title{Summarize sequence information}
 \usage{
-summary_seq(sequence, max_k = 7)
+summary_seq(sequence, max_k = 7, seq_col = 2)
 }
 \arguments{
 \item{sequence}{The input DNA sequence.}
 
 \item{max_k}{The maximum k value for kmers.}
+
+\item{seq_col}{the column name of sequence if your input is a dataframe.}
 }
 \description{
 Summarize sequence information
 }
 \examples{
 summary_seq("CCTGAACCTATGCCGTCCACCTTGCGTTGCCTT")
-apply(random_seq(10),1,\(i)summary_seq(i[2]))
-
+summary_seq(random_seq(10))
 }

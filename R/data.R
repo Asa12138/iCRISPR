@@ -23,6 +23,15 @@ NULL
 #'
 NULL
 
+#'@title One multi_crispr object contains lots of crispr object.
+#'@description a list contains lots of crispr object (50 genomes).
+#'
+#'@docType data
+#'@name multi_crispr2
+#'@usage multi_crispr
+#'
+NULL
+
 #'@title CRISPR-Cas system type information.
 #'
 #'@docType data

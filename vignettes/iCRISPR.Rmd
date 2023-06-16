@@ -7,8 +7,6 @@ output:
     toc: true
     theme: cayman
     highlight: github
-  pdf_document:
-    toc: true
 vignette: >
   %\VignetteIndexEntry{iCRISPR}
   %\VignetteEngine{knitr::rmarkdown}
@@ -33,7 +31,26 @@ remotes::install_github("Asa12138/iCRISPR")
 
 This package can summary the result from [CrisprCasFinder](https://crisprcas.i2bc.paris-saclay.fr/CrisprCasFinder/Index) gracefully.
 
-Actually, 
+Actually, it is found that CrisprCasFinder often fail to install using conda and mamba, so we use singularity to run:
+```{bash eval=FALSE}
+#download singularity image
+wget -c https://crisprcas.i2bc.paris-saclay.fr/Home/DownloadFile?filename=CrisprCasFinder.simg
+
+#usage
+sample="MAG_test"
+echo $sample
+
+indir=dereplicated_genomes/
+outdir=res
+singularity exec -B $PWD CrisprCasFinder.simg \
+    perl /usr/local/CRISPRCasFinder/CRISPRCasFinder.pl \
+    -so /usr/local/CRISPRCasFinder/sel392v2.so \
+    -cf /usr/local/CRISPRCasFinder/CasFinder-2.0.3 \
+    -drpt /usr/local/CRISPRCasFinder/supplementary_files/repeatDirection.tsv \
+    -rpts /usr/local/CRISPRCasFinder/supplementary_files/Repeat_List.csv \
+    -cas -def G -rcfowce -gscf -cpuM 2 -out $outdir/${sample} -in $indir/${sample}.fa 
+```
+
 
 ## CCF_result
 
@@ -43,6 +60,7 @@ MAG_test is a test result folder from CrisprCasFinder (contains "TSV","GFF","res
 
 ```{r}
 library(iCRISPR)
+devtools::load_all("~/Documents/R/iCRISPR/")
 #help analysis
 library(pcutils)
 library(dplyr)
@@ -94,8 +112,14 @@ plot_crispr(multi_crispr$GCA_002396005.1_ASM239600v1,"DGVW01000088.1",array = F)
 First, you can have a look at distribution of Cas-system type.
 
 ```{r}
-cas_type_res=summary_cas_type(multi_crispr)
+cas_type_res=summary_cas_type(multi_crispr,each_genome = F)
 plot(cas_type_res)+scale_fill_manual(values = pcutils::get_cols(15))
+
+data(multi_crispr2)
+cas_type_res2=summary_cas_type(multi_crispr2,each_genome = F)
+
+#compare two multi_crispr, maybe from two group.
+plot(cas_type_res,cas_type_res2)+scale_fill_manual(values = pcutils::get_cols(15))
 ```
 
 As we all know, Cas-system can be classified into 2 classes and at least six type, each have own feature and signature cas protein.
@@ -106,12 +130,12 @@ Use `show_cas_type` get an overview. (refer to [Makarova, K. S. et al. Nat Rev M
 show_cas_type()
 ```
 
-### evidence levels
+### Evidence levels
 
 Secondly, summary the crispr and spacer number at different evidence levels:
 
 ```{r fig.width=10,fig.height=4}
-level_res=summary_levels(multi_crispr,each_genome=FALSE)
+level_res=summary_levels(multi_crispr,each_genome=F)
 plot(level_res)
 ```
 
@@ -145,10 +169,108 @@ The Spacer_id includes these information splited by `@`:
 The sequence features of spacer is very important. 
 You can use `summary_seq` to get basic information and sequence complexity (Shannon complexity and Sequence complexity):
 ```{r}
-level4_fa$sequence[1]
+level4_fa$sequence[1:5]
 
-summary_seq(level4_fa$sequence[1])
+summary_seq(level4_fa$sequence[1:5])
 ```
 
 The Shannon Complexity value refers to [(Konopka, A. K.  Wiley, 2005.)](https://onlinelibrary.wiley.com/doi/10.1038/npg.els.0005260) and Sequence complexity refers to [(https://resources.qiagenbioinformatics.com)](https://resources.qiagenbioinformatics.com/manuals/clccancerresearchworkbench/200/index.php?manual=How_sequence_complexity_is_calculated.html).
+
+Then we can compare the sequence features between spacer with other type sequence like random sequence, tandem repeat, and consensus repeat in CRISPR.
+
+```{r}
+#spacer
+level4_fa=get_spacer_fa(multi_crispr,evidence_level = 4,cas = T)
+#random sequence
+random_fa=random_seq(500,mean_length = 35,sd_length = 3)
+#tandem repeat
+tandem_rep_fa=pcutils::read_fasta("../analysis/seq_feature/bac_tandem_repeat_f.fa")
+#consensus repeat
+consensus_rep_fa=get_consensus_rep_fa(multi_crispr)
+```
+ps: tandem repeat here come from `trf` software result performed on 1,000 random bacteria genome.
+
+
+```{r}
+seq_stat=lapply(list(level4_fa,random_fa,tandem_rep_fa,consensus_rep_fa), \(i)summary_seq(i)[,c(-1,-2)])
+
+seq_stat2=do.call(rbind,lapply(1:4,\(i)cbind(type=c("spacer","random","tandem_rep","consensus_rep")[i],seq_stat[[i]])))
+
+seq_stat2$type=factor(seq_stat2$type,levels = c("random","spacer","consensus_rep","tandem_rep"))
+RColorBrewer::brewer.pal(4,"Set1")->cols
+pcutils::add_theme()
+
+pcutils::group_box(seq_stat2[c("shannon","complexity","GC_content")],"type",seq_stat2,alpha = T,mode = 3)+mytheme+
+  theme(axis.text.x = element_text(angle = 30,vjust = .5),legend.position = "none")+
+  scale_color_manual(values = cols)+scale_fill_manual(values = cols)
+
+```
+
+## CRISPR-target
+
+The important question for CRISPR research is what these CRISPR do and how to do?
+Although it has been proved that most CRISPR play a role in targeting intruder as immune system, beyond this, 
+many people also guess it can do something special like regulating gene expression.
+
+So we need to figure out what these spacer target. Using [Blast](https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html) to find where these spacer come from is a good idea (which taxa, gene or inter-gene region). 
+
+We recommend to build a big [database](https://ftp.ncbi.nlm.nih.gov/blast/db/) and running blast in Linux server, then come back to iCRISPR for next analysis.
+
+```{bash eval=FALSE}
+#
+
+blastn -task blastn-short -query $sample -db $bac23 -out blastn_output_big/bac/$sample.out -qcov_hsp_perc 95 -perc_identity 95 -max_hsps 3 -num_threads 12 -outfmt 6
+
+
+```
+
+
+
+## Rtaxonkit
+
+[Taxonkit](https://github.com/shenwei356/taxonkit) is a Practical and Efficient NCBI Taxonomy Toolkit.[(Shen, W. et al.  Journal of Genetics and Genomics 2021.)](https://www.sciencedirect.com/science/article/abs/pii/S1673852721000837)
+
+We recommend you download this excellent software to help next analysis. Or you can use Taxonkit in R by iCRISPR interface as followed:
+
+```{r eval=FALSE}
+#1. This function help you install suitable version taxonkit
+install_taxonkit()
+#taxonkit has been successfully installed!
+
+#2. Then download the NCBI taxonomy database.
+download_taxonkit_dataset()
+#Taxonkit files downloaded and copied successfully.
+
+#3. Check whether taxonkit is ready
+check_taxonkit()
+#==============Taxonkit is available if there is help message above============== 
+#=========================Taxonkit dataset is available!========================= 
+```
+
+Then you can use taxonkit in R just like in terminal.
+```{r}
+?taxonkit_lineage
+
+#taxonkit_list
+#taxonkit_reformat
+#taxonkit_name2taxid
+#taxonkit_filter
+#taxonkit_lca
+```
+
+## Compare array
+
+We try to compare the structure variation of two arrays.
+First, try to alignment all spacers, if there are identity between two spacers bigger than 90%, we think that is same spacer.
+Then, try to alignment whole array, as followed:
+
+```{r}
+array_test=random_seq(5)[,2]
+res=compare_array(array1=array_test,array2=array_test[c(5,1:3)])
+plot(res)
+
+#try to alignment whole array
+align_array(res)->align_res
+plot(align_res)
+```
 

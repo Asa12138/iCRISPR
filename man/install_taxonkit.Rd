@@ -4,10 +4,15 @@
 \alias{install_taxonkit}
 \title{Install taxonkit}
 \usage{
-install_taxonkit(taxonkit_tar_gz = NULL)
+install_taxonkit(
+  taxonkit_tar_gz = NULL,
+  install_dir = tools::R_user_dir("iCRISPR")
+)
 }
 \arguments{
 \item{taxonkit_tar_gz}{your download taxonkit_tar_gz file from https://github.com/shenwei356/taxonkit/releases/}
+
+\item{install_dir}{install dir, default: tools::R_user_dir("iCRISPR")}
 }
 \description{
 Install taxonkit
