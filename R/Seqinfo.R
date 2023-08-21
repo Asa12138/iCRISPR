@@ -98,6 +98,7 @@ random_seq=function(num_seqs=100, mean_length=32, sd_length=3,element=c("A", "T"
 #'
 #' @param sequence The input DNA sequence.
 #' @param k_size The length of the kmers.
+#' @export
 #' @return A named vector with kmer counts.
 count_kmers <- function(sequence, k_size) {
   data <- numeric()
@@ -120,6 +121,7 @@ count_kmers <- function(sequence, k_size) {
 #' @param sequence The input DNA sequence.
 #' @param max_k The maximum k value for kmers.
 #' @return The Sequence Complexity value.
+#' @export
 #' @references https://resources.qiagenbioinformatics.com/manuals/clccancerresearchworkbench/200/index.php?manual=How_sequence_complexity_is_calculated.html
 cal_sc <- function(sequence, max_k = NULL) {
   fenmu <- function(i, lens) {
@@ -147,7 +149,7 @@ cal_sc <- function(sequence, max_k = NULL) {
 #'
 #' @param sequence The input DNA sequence.
 #' @param base default the number of elements type in sequence.
-#'
+#' @export
 #' @return The Shannon Complexity value.
 #' @references 1. Konopka, A. K. Sequence Complexity and Composition. in eLS (ed. John Wiley & Sons, Ltd) (Wiley, 2005). doi:10.1038/npg.els.0005260.
 cal_shannon=function(sequence,base=NULL){
@@ -162,31 +164,62 @@ cal_shannon=function(sequence,base=NULL){
 #' @param sequence The input DNA sequence.
 #' @param seq_col the column name of sequence if your input is a dataframe.
 #' @param max_k The maximum k value for kmers.
+#' @param threads threads
 #'
 #' @export
 #' @examples
 #' summary_seq("CCTGAACCTATGCCGTCCACCTTGCGTTGCCTT")
 #' summary_seq(random_seq(10))
-summary_seq <- function(sequence, max_k = 7,seq_col=2) {
+summary_seq <- function(sequence, max_k = 7,seq_col=2,threads=1) {
+  summary_seq_in=function(sequence, max_k = 7){
+    #devtools::load_all("~/Documents/R/iCRISPR/")
+    counts=count_kmers(sequence,1)%>%as.list()
+    for (i in c("A","T","C","G")) {
+      if(is.null(counts[[i]]))counts[[i]]=0
+    }
+    counts$shannon <-  round(cal_shannon(sequence), 4)
+    counts$complexity <-round(cal_sc(sequence, max_k), 4)
+    res=data.frame("A"=counts$A,"T"=counts$`T`,"C"=counts$C,"G"=counts$G,"shannon"=counts$shannon,"complexity"=counts$complexity)
+    res[is.na(res)]=0
+    res=dplyr::mutate(res,length=nchar(sequence),GC_content=round((G+C)/length,4))
+    return(res)
+  }
   if(is.data.frame(sequence)){
-    res=apply(sequence[seq_col], 1,summary_seq)%>%do.call(rbind,.)
-    rownames(res)=NULL
-    return(cbind(sequence,res))
+    df=sequence
+    sequence=sequence[,seq_col,drop=T]
   }
-  if(length(sequence)>1){
-    res=lapply(sequence,summary_seq)%>%do.call(rbind,.)
-    rownames(res)=NULL
-    return(cbind(sequence=sequence,res))
-  }
-  counts=count_kmers(sequence,1)%>%as.list()
-  for (i in c("A","T","C","G")) {
-    if(is.null(counts[[i]]))counts[[i]]=0
-  }
-  counts$shannon <-  round(cal_shannon(sequence), 4)
-  counts$complexity <-round(cal_sc(sequence, max_k), 4)
-  res=data.frame("A"=counts$A,"T"=counts$`T`,"C"=counts$C,"G"=counts$G,"shannon"=counts$shannon,"complexity"=counts$complexity)
-  res[is.na(res)]=0
-  res=dplyr::mutate(res,length=nchar(sequence),GC_content=round((G+C)/length,4))
-  return(res)
-}
 
+  #parallel
+  reps=length(sequence)
+  #main function
+  loop=function (i)
+  {
+    summary_seq_in(sequence[i],max_k=max_k)
+  }
+  {
+    if(threads>1){
+      pcutils::lib_ps("foreach","doSNOW","snow")
+      pb <- utils::txtProgressBar(max =reps, style = 3)
+      opts <- list(progress = function(n) utils::setTxtProgressBar(pb, n))
+      cl <- snow::makeCluster(threads)
+      doSNOW::registerDoSNOW(cl)
+      res <- foreach::foreach(i = 1:reps,.options.snow = opts,
+                              .packages = "iCRISPR") %dopar% {
+                                loop(i)
+                              }
+      snow::stopCluster(cl)
+      gc()
+      pcutils::del_ps("doSNOW","snow","foreach")
+    }
+    else {
+      res <-lapply(1:reps, loop)
+    }}
+  #simplify method
+  res=do.call(rbind,res)
+
+  if(is.data.frame(sequence)){
+    rownames(res)=NULL
+    return(cbind(df,res))
+  }
+  else return(cbind(sequence=sequence,res))
+}

@@ -8,7 +8,7 @@
 #' data(multi_crispr)
 #' cas_type_res=summary_cas_type(multi_crispr)
 #' plot(cas_type_res)
-summary_cas_type=function(crispr,each_genome=T){
+summary_cas_type=function(crispr,each_genome=FALSE){
   if(inherits(crispr,"multi_crispr")){
     aaa=lapply(crispr, summary_cas_type)
     bbb=do.call(rbind,aaa)
@@ -17,7 +17,7 @@ summary_cas_type=function(crispr,each_genome=T){
 
     if(!each_genome){
       bbb=dplyr::group_by(bbb[,c("type","subtype","n")],type,subtype)%>%
-        dplyr::summarise(n=sum(n))%>%as.data.frame()
+        dplyr::summarise(genome_num= dplyr::n(),n=sum(n))%>%as.data.frame()
     }
 
     class(bbb)=c("cas_type",class(bbb))
@@ -31,6 +31,35 @@ summary_cas_type=function(crispr,each_genome=T){
   class(cas_type)=c("cas_type",class(cas_type))
   return(cas_type)
 }
+
+#' Combine some cas_type object
+#'
+#' @param ... cas_type object
+#'
+#' @return cas_type object
+#' @exportS3Method
+#' @method combine cas_type
+#'
+combine.cas_type=function(...,each_genome=T){
+  all_c=list(...)
+  if(!all(sapply(all_c, inherits,what="cas_type")))stop("all input should be cas_type object")
+  res=lapply(all_c,\(i){
+    if("genome"%in%colnames(i)){
+      bbb=dplyr::group_by(i[,c("type","subtype","n")],type,subtype)%>%
+        dplyr::summarise(genome_num=dplyr::n(),n=sum(n))%>%as.data.frame()
+      return(bbb)
+    }
+    else {
+      return(i)
+    }
+    })
+  all_res=do.call(rbind,res)
+  ccc=dplyr::group_by(all_res,type,subtype)%>%
+    dplyr::summarise(genome_num=sum(genome_num),n=sum(n))%>%as.data.frame()
+  class(ccc)=c("cas_type","data.frame")
+  ccc
+}
+
 
 #' Plot the Cas system type and subtype
 #' @method plot cas_type
@@ -116,14 +145,14 @@ show_cas_type=function(){
 #' @examples
 #' level_res=summary_levels(multi_crispr,each_genome=FALSE)
 #' plot(level_res)
-summary_levels=function(crispr,each_genome=T,use_CCF=T){
+summary_levels=function(crispr,each_genome=FALSE,use_CCF=TRUE){
   if(inherits(crispr,"multi_crispr")){
     aaa=lapply(crispr, summary_levels)
     bbb=do.call(rbind,aaa)
     rownames(bbb)=NULL
     if(!each_genome){
       ccc=dplyr::group_by(bbb,evidence_level,Cas)%>%
-        dplyr::summarise(crispr_num=sum(crispr_num),spacer_num=sum(spacer_num))%>%
+        dplyr::summarise(genome_num=dplyr::n(),crispr_num=sum(crispr_num),spacer_num=sum(spacer_num))%>%
         as.data.frame()
       ccc=dplyr::mutate(ccc,spacer_num_per_array=spacer_num/crispr_num)
     } else {
@@ -159,6 +188,36 @@ summary_levels=function(crispr,each_genome=T,use_CCF=T){
   return(n_spacer2)
 }
 
+#' Combine some evidence_level object
+#'
+#' @param ... evidence_level object
+#'
+#' @return evidence_level object
+#' @exportS3Method
+#' @method combine evidence_level
+#'
+combine.evidence_level=function(...){
+  all_c=list(...)
+  if(!all(sapply(all_c, inherits,what="evidence_level")))stop("all input should be evidence_level object")
+  res=lapply(all_c,\(i){
+    if("genome"%in%colnames(i)){
+      ccc=dplyr::group_by(i,evidence_level,Cas)%>%
+        dplyr::summarise(genome_num=dplyr::n(),crispr_num=sum(crispr_num),spacer_num=sum(spacer_num))%>%
+        as.data.frame()
+      return(ccc)
+    }
+    else {
+      return(i)
+    }
+  })
+  all_res=do.call(rbind,res)
+  ccc=dplyr::group_by(all_res,evidence_level,Cas)%>%
+    dplyr::summarise(genome_num=sum(genome_num),crispr_num=sum(crispr_num),spacer_num=sum(spacer_num))%>%
+    as.data.frame()
+  ccc=dplyr::mutate(ccc,spacer_num_per_array=spacer_num/crispr_num)
+  class(ccc)=c("evidence_level","data.frame")
+  ccc
+}
 
 #' Plot the distribution of array and spacer number at different evidence levels.
 #' @method plot evidence_level

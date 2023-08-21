@@ -17,7 +17,6 @@ Depends:
     R (>= 3.5.0)
 Imports: 
     dplyr,
-    magrittr,
     ggplot2,
     utils,
     pcutils,
@@ -35,9 +34,16 @@ Suggests:
     grDevices,
     stats,
     ggtree,
+    ggtreeExtra,
     aplot,
     reshape2,
-    scales
+    scales,
+    MetaNet,
+    ggpmisc,
+    ggpubr,
+    ggsci,
+    pctax,
+    ggtern
 Remotes:
     Asa12138/pcutils
 VignetteBuilder: knitr

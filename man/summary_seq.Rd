@@ -4,7 +4,7 @@
 \alias{summary_seq}
 \title{Summarize sequence information}
 \usage{
-summary_seq(sequence, max_k = 7, seq_col = 2)
+summary_seq(sequence, max_k = 7, seq_col = 2, threads = 1)
 }
 \arguments{
 \item{sequence}{The input DNA sequence.}
@@ -12,6 +12,8 @@ summary_seq(sequence, max_k = 7, seq_col = 2)
 \item{max_k}{The maximum k value for kmers.}
 
 \item{seq_col}{the column name of sequence if your input is a dataframe.}
+
+\item{threads}{threads}
 }
 \description{
 Summarize sequence information

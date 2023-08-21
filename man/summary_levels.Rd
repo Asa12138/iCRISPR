@@ -5,7 +5,7 @@
 \alias{plot.evidence_level}
 \title{Summary crispr and spacer number at different evidence levels}
 \usage{
-summary_levels(crispr, each_genome = T, use_CCF = T)
+summary_levels(crispr, each_genome = FALSE, use_CCF = TRUE)
 
 \method{plot}{evidence_level}(x, mode = 1, num_size = 4, ...)
 }

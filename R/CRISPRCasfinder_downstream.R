@@ -431,6 +431,23 @@ plot_crispr=function(crispr,contig=NULL,genome=NULL,array=T,cas=T){
   p
 }
 
+# plot_crispr=function(crispr,CRISPR_id=NULL,genome=NULL,array=T,cas=T){
+#   if(!inherits(crispr,"crispr"))return(NULL)
+#   if(is.null(crispr$CRISPR))return(NULL)
+#   if(is.null(CRISPR_id)){
+#     message("Please set the CRISPR_id as one CRISPR_id in crispr!")
+#     contig=crispr$CRISPR$CRISPR_id[1]
+#     message("Use ",contig," as CRISPR_id")
+#   }
+#   #尝试画一下，类似基因图
+#   array_res=data.frame()
+#   array_res=crispr$Array%>%dplyr::filter(seqid==contig)
+#   array_res$feature=factor(array_res$feature,levels = c("LeftFLANK","CRISPRdr","CRISPRspacer","RightFLANK"))%>%droplevels()
+#   if(is.null(genome))genome=attributes(crispr)$basic_info$genome_name
+#   sub_title=""
+#
+# }
+
 #' xlim for plot_crispr
 #'
 #' @param ... numeric
@@ -537,13 +554,41 @@ update_crispr=function(crispr){
   return(crispr)
 }
 
+#' Combine some kinds of objects in `iCRISPR`
+#'
+#' @param ... additional
+#'
+#' @return same object
+#' @export
+#'
+combine <- function(...) {
+  UseMethod("combine")
+}
+
 #' Combine some crispr or multi_crispr object
 #'
 #' @param ... crispr or multi_crispr object
 #'
 #' @return multi_crispr object
-#' @export
+#' @exportS3Method
+#' @method combine crispr
 #'
+combine.crispr=function(...){
+  combine_crispr(...)
+}
+
+#' Combine some crispr or multi_crispr object
+#'
+#' @param ... crispr or multi_crispr object
+#'
+#' @return multi_crispr object
+#' @exportS3Method
+#' @method combine multi_crispr
+#'
+combine.multi_crispr=function(...){
+  combine_crispr(...)
+}
+
 combine_crispr=function(...){
   res=list()
   all_c=list(...)

@@ -99,10 +99,42 @@ calculate_identity <- function(s1, s2,xmode=FALSE) {
   return(identity)
 }
 
+
+#' Judge two sequence are same or not
+#'
+#' @param s1 First sequence
+#' @param s2 Second sequence
+#' @param xmode consider the reverse string (all), complement and reverse complement string (DNA)
+#'
+#' @return Sequence identity as a decimal value between 0 and 1
+#' @export
+#' @examples
+#' is_same_seq("ATCGTACG","ATCGTACG")
+#' is_same_seq("ATCGTACG","ATCGTACG",xmode=TRUE)
+is_same_seq=function(s1,s2,xmode=FALSE){
+  pcutils::lib_ps("Biostrings",library = FALSE)
+  if(xmode){
+    s1s=c(s1,Biostrings::reverse(s1))
+    flag=tryCatch(expr = {dna_s1=Biostrings::DNAString(s1);TRUE},error=function(e){FALSE})
+    if(flag){
+      s1s=c(s1s,Biostrings::complement(Biostrings::DNAString(s1)))
+      s1s=c(s1s,Biostrings::reverseComplement(Biostrings::DNAString(s1)))
+    }
+    identity=sapply(s1s, \(i)is_same_seq(i,s2))
+    return(identity)
+  }
+  s1=as.character(s1)
+  s2=as.character(s2)
+
+  ifelse(s1==s2,1,0)
+}
+
+
 #' Compare two crispr arrays (whatever arrays indeed)
 #'
 #' @param array1 a vector contains spacers (with order) as reference.
 #' @param array2 a vector contains spacers (with order)
+#' @param identity TRUE: calculate identity /FALSE: just judge same or not
 #'
 #' @return array_comparison object
 #' @export
@@ -110,10 +142,10 @@ calculate_identity <- function(s1, s2,xmode=FALSE) {
 #' @examples
 #' array_test=random_seq(5)[,2]
 #' res=compare_array(array1=array_test,array2=array_test[c(5,1:3)])
-#' plot.array_comparison(res)
+#' plot(res)
 #' align_array(res)->align_res
-#' plot.array_comparison(align_res)
-compare_array=function(array1,array2){
+#' plot(align_res)
+compare_array=function(array1,array2,identity=TRUE){
   array1_id=names(array1)
   array2_id=names(array2)
   if(!(is.null(array1_id)|is.null(array2_id))){
@@ -132,7 +164,8 @@ compare_array=function(array1,array2){
   compare=left_join(compare,array_spacer,by=c(id2="id"),suffix = c("1", "2"))
 
   #compare$identity=apply(compare,1,\(i)calculate_identity(i[3],i[6]))
-  compare$identity=apply(compare,1,\(i)max(calculate_identity(i[3],i[6],xmode = TRUE)))
+  if(identity)compare$identity=apply(compare,1,\(i)max(calculate_identity(i[3],i[6],xmode = TRUE)))
+  else compare$identity=apply(compare,1,\(i)max(is_same_seq(i[3],i[6],xmode = TRUE)))
 
   compare=compare%>%mutate(Identity_level = cut(identity, breaks = c(-Inf, 0.8, 0.9, Inf),
                                     labels = c("< 0.8", "0.8 - 0.9", ">= 0.9")))

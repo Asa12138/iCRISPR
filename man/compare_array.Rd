@@ -6,7 +6,7 @@
 \alias{align_array}
 \title{Compare two crispr arrays (whatever arrays indeed)}
 \usage{
-compare_array(array1, array2)
+compare_array(array1, array2, identity = TRUE)
 
 \method{plot}{array_comparison}(x, linewidth = 2, ...)
 
@@ -17,7 +17,11 @@ align_array(array_comparison)
 
 \item{array2}{a vector contains spacers (with order)}
 
+\item{identity}{TRUE: calculate identity /FALSE: just judge same or not}
+
 \item{x}{array_comparison}
+
+\item{linewidth}{linewidth}
 
 \item{...}{add}
 
@@ -40,7 +44,7 @@ Align array_comparison
 \examples{
 array_test=random_seq(5)[,2]
 res=compare_array(array1=array_test,array2=array_test[c(5,1:3)])
-plot.array_comparison(res)
+plot(res)
 align_array(res)->align_res
-plot.array_comparison(align_res)
+plot(align_res)
 }

@@ -5,7 +5,7 @@
 \alias{plot.cas_type}
 \title{Summary Cas-system type}
 \usage{
-summary_cas_type(crispr, each_genome = T)
+summary_cas_type(crispr, each_genome = FALSE)
 
 \method{plot}{cas_type}(x, ..., mode = 1, plot_param = list())
 }
