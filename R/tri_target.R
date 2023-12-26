@@ -164,11 +164,21 @@ combine.s_t_gng=function(...){
   ccc
 }
 
-gene_pd_lm=function(arc_count2,mode=1,filter_spacer=5){
+#' Lm for gene_not_gene ~ phy_dis
+#'
+#' @param arc_count data.frame which columns: "source_name","target_name","spacer_n","phy_dis","gene_ratio".
+#' @param mode 1~2
+#' @param filter_spacer filter_spacer
+#' @param point_param point_param
+#'
+#' @return ggplot
+#' @export
+#'
+gene_pd_lm=function(arc_count,mode=1,filter_spacer=5,point_param=list()){
   arc_count2=dplyr::filter(arc_count,spacer_n>filter_spacer)
   if(mode==1){
     p<-ggplot(arc_count2,aes(phy_dis,gene_ratio))
-    p <-p+geom_jitter(size = 0.1,alpha=0.5) +
+    p <-p+do.call(geom_jitter,pcutils::update_param(list(size = 0.1,alpha=0.5),point_param)) +
       geom_smooth(method = "lm",
                   color = "red", se = F, formula = "y~x") +
       ggpmisc::stat_poly_eq(aes(label = paste(
@@ -176,16 +186,16 @@ gene_pd_lm=function(arc_count2,mode=1,filter_spacer=5){
         after_stat(adj.rr.label), after_stat(p.value.label),sep = "~~~~~")),
         formula = y ~ x, parse = TRUE, color = "blue", size = 3, label.x = 0.05, label.y = 1.2) + labs(x = NULL, y = NULL)+
       #stat_cor(method = "pearson",color='red')+
-      theme_classic() +
       scale_y_continuous(breaks = seq(0,1,0.2))+
-      labs(x='Phylogenetic distance',y='coding proportion') +
+      labs(x='Phylogenetic distance',y='coding proportion',title = paste0("Fitler spacer number >",filter_spacer)) +
+      scale_x_continuous(breaks=seq(0, 14, 2))+
       ggpubr::theme_pubr(base_size=20)+
       theme(axis.text = element_text(size=16))
   }
   if(mode==2){
     p <-ggplot(arc_count2,aes(phy_dis,gene_ratio))+
       geom_boxplot(aes(phy_dis,gene_ratio,group=phy_dis),outlier.shape = NA)+
-      geom_jitter(size = 0.3,alpha=0.8)+
+      do.call(geom_jitter,pcutils::update_param(list(size = 0.1,alpha=0.5),point_param))+
       #geom_hline(yintercept = mean_value, linetype = "dashed", color = "red")+
       geom_smooth(method = "lm",
                   color = "red", se = F, formula = "y~x") +
@@ -196,17 +206,111 @@ gene_pd_lm=function(arc_count2,mode=1,filter_spacer=5){
         label.y = 1.2) + labs(x = NULL, y = NULL)+
       scale_x_continuous(breaks=seq(0, 14, 2))+
       scale_y_continuous(breaks = seq(0,1,0.2))+
-      labs(x='Phylogenetic distance(Archaea)',y='coding proportion')+
+      labs(x='Phylogenetic distance',y='coding proportion',title = paste0("Fitler spacer number >",filter_spacer))+
+      scale_x_continuous(breaks=seq(0, 14, 2))+
       ggpubr::theme_pubr(base_size=20)+
       theme(axis.text = element_text(size=16))
   }
   p
 }
 
+#' Lm for spacer_n ~ phy_dis
+#'
+#' @param arc_count data.frame which columns: "source_name","target_name","spacer_n","phy_dis".
+#' @param mode 1~4
+#' @param filter_spacer filter_spacer
+#' @param target_tax NULL or target_tax
+#' @param remove_viruses TRUE for mode 3~4
+#'
+#' @return ggplot
+#' @export
+#'
+spacer_pd_lm=function(arc_count,mode=1,filter_spacer=5,target_tax=NULL,remove_viruses=TRUE){
+  arc_count2=dplyr::filter(arc_count,spacer_n>filter_spacer)
+  if(mode==1){
+    p<-ggplot(arc_count2,aes(phy_dis,log(spacer_n)))
+    p <-p+geom_jitter(size = 0.1,alpha=0.5) +
+      geom_smooth(method = "lm",
+                  color = "red", se = F, formula = "y~x") +
+      ggpmisc::stat_poly_eq(aes(label = paste(
+        #after_stat(eq.label),
+        after_stat(adj.rr.label), after_stat(p.value.label),sep = "~~~~~")),
+        formula = y ~ x, parse = TRUE, color = "blue", size = 3, label.x = 0.05, label.y = 1.2) + labs(x = NULL, y = NULL)+
+      #stat_cor(method = "pearson",color='red')+
+      scale_y_continuous(breaks = seq(0,1,0.2))+
+      scale_x_continuous(breaks=seq(0, 14, 2))+
+      labs(x='Phylogenetic distance',y='log(source-target pair counts)',title = paste0("Fitler spacer number >",filter_spacer)) +
+      ggpubr::theme_pubr()+
+      theme(axis.text = element_text(size=16))
+  }
+  if(mode==2){
+    if(is.null(target_tax))stop("need target_tax")
+    if(remove_viruses){
+      arc_count2=left_join(arc_count2,distinct_all(target_tax),by=c("target_name"="target_Species"),suffix = c("", ".y"))
+      arc_count2%>%filter(target_Kingdom != 'k__Viruses')%>%group_by(phy_dis)%>%summarise(sumn=sum(spacer_n))->arc_no_virus
+    }
+    else arc_count2%>%group_by(phy_dis)%>%summarise(sumn=sum(spacer_n))->arc_no_virus
+
+    p=ggplot(data = arc_no_virus,aes(phy_dis,sumn)) +
+      geom_point()+
+      geom_line()+
+      labs(x='Phylogenetic distance',y='source-target pair counts')+
+      scale_x_continuous(breaks=seq(0, 14, 2))+
+      ggpubr::theme_pubr(base_size=20)+
+      theme(axis.text = element_text(size=16))+
+      labs(title = ifelse(remove_viruses,paste0("No Viruses&Fitler spacer number >",filter_spacer),
+                          paste0("Fitler spacer number >",filter_spacer)))
+
+  }
+  if(mode%in%c(4,3)){
+    pcutils::lib_ps("broom",library = T)
+    if(is.null(target_tax))stop("need target_tax")
+
+    if(remove_viruses){
+      arc_count2=left_join(arc_count2,distinct_all(target_tax),by=c("target_name"="target_Species"),suffix = c("", ".y"))
+      arc_count2%>%filter(target_Kingdom != 'k__Viruses')%>%group_by(phy_dis)%>%summarise(sumn=sum(spacer_n))->arc_no_virus
+    }
+    else arc_count2%>%group_by(phy_dis)%>%summarise(sumn=sum(spacer_n))->arc_no_virus
+
+    fit <- nls(sumn ~ SSasymp(phy_dis, yf, y0, log_alpha), data = arc_no_virus)
+    tmp=augment(fit)
+    R2=sum((tmp$.fitted-mean(tmp$sumn))^2)/sum((tmp$sumn-mean(tmp$sumn))^2)
+
+    if(mode==3){
+      p=ggplot(data = tmp,aes(phy_dis,sumn)) +
+        geom_point()+
+        geom_line(aes(y = .fitted))+
+        labs(x='Phylogenetic distance',y='source-target pair counts')+
+        scale_x_continuous(breaks=seq(0, 14, 2))+
+        ggpubr::theme_pubr(base_size=20)+
+        theme(axis.text = element_text(size=16))+
+        labs(title = ifelse(remove_viruses,paste0("No Viruses&Fitler spacer number >",filter_spacer),
+                            paste0("Fitler spacer number >",filter_spacer)))
+    }
+    else if(mode==4){
+      aa=summary(fit)
+      p<-ggplot(tmp,aes(x=phy_dis,y=sumn))+geom_point()+
+        geom_smooth(method = "nls",formula =y~yf+(y0-yf)*exp(-exp(log_alpha)*x),
+                    method.args=list(start=list(yf=aa$parameters["yf","Estimate"],
+                                                y0=aa$parameters["y0","Estimate"],
+                                                log_alpha=aa$parameters["log_alpha","Estimate"])),se = F)+
+        # geom_text(data=data.frame(x=6,y=c(900,750),label=c("R2 = 0.99","Achieved convergence tolerance=1.648e-06")),
+        #           aes(x,y,label=label),size=5)+
+        labs(x='Phylogenetic distance',y='source-target pair counts',
+             subtitle = paste0("R2 = ",round(R2,3),"; finTol: ",signif(aa$convInfo$finTol,3)))+
+        scale_x_continuous(breaks=seq(0, 14, 2))+
+        ggpubr::theme_pubr(base_size=20)+
+        theme(axis.text = element_text(size=16))+
+        labs(title = ifelse(remove_viruses,paste0("No Viruses&Fitler spacer number >",filter_spacer),
+                            paste0("Fitler spacer number >",filter_spacer)))
+    }
+  }
+  p
+}
 
 #' Sankey plot for source-target
 #'
-#' @param source_target_info data.frame which columns: "source_lineage","target_lineage"
+#' @param arc_count data.frame which columns: "source_name","target_name","spacer_n".
 #' @param two_level manual which two levels in "Kingdom","Phylum","Class","Order","Family","Genus","Species". Sometimes "Genome"
 #' @param topN1 select topN for level1
 #' @param topN2 select topN for level2
@@ -217,28 +321,58 @@ gene_pd_lm=function(arc_count2,mode=1,filter_spacer=5){
 #'
 #' @examples
 #' sankey_overview(pro_net,two_level=c("Species","Genus"))
-sankey_overview=function(source_target_info,two_level=NULL,topN1=8,topN2=8,file=NULL){
-  if(!all(c("source_lineage","target_lineage")%in%colnames(source_target_info)))stop("check columns!")
-  arc_net=source_target_info
-  pcutils::strsplit2(arc_net$source_lineage,";")%>%as.data.frame()->source_tax
-  pcutils::strsplit2(arc_net$target_lineage,";")%>%as.data.frame()->target_tax
-  colnames(source_tax)=paste0("source_",le[2:8])
-  if("source_genome"%in%colnames(arc_net))source_tax$source_Genome=arc_net$source_genome
-  colnames(target_tax)=paste0("target_",le[2:8])
-  if("target_genome"%in%colnames(arc_net))source_tax$target_Genome=arc_net$target_genome
-  cbind(source_tax,target_tax)->source_target
+sankey_overview=function(arc_count,source_tax=NULL,target_tax=NULL,two_level=NULL,topN1=8,topN2=8,file=NULL){
+  flag=F
+  if(!"spacer_n"%in%colnames(arc_count))arc_count$spacer_n=1
 
   if(!is.null(two_level)){
     two_level=rep(two_level,len=2)
-    source_target%>%dplyr::select(paste0("source_",two_level[1]),paste0("target_",two_level[2]))%>%
-      MetaNet::summ_2col(direct = T)%>%dplyr::arrange(-count)->a
+    if(all(c(paste0("source_",two_level[1]),paste0("target_",two_level[2]))%in%colnames(arc_count))){
+      flag=T
+      source_target=arc_count
+    }
+  }
+
+  if(!flag){
+    if(is.null(source_tax)&is.null(target_tax)){
+      if(all(c(paste0("source_",le[2:8]),paste0("target_",le[2:8]))%in%colnames(arc_count))) {
+        source_target=arc_count
+      }
+      else {
+        if(!all(c("source_lineage","target_lineage")%in%colnames(arc_count)))stop("check columns!")
+        arc_net=arc_count
+        pcutils::strsplit2(arc_net$source_lineage,";")%>%as.data.frame()->source_tax
+        pcutils::strsplit2(arc_net$target_lineage,";")%>%as.data.frame()->target_tax
+        colnames(source_tax)=paste0("source_",le[2:8])
+        if("source_genome"%in%colnames(arc_net))source_tax$source_Genome=arc_net$source_genome
+        colnames(target_tax)=paste0("target_",le[2:8])
+        if("target_genome"%in%colnames(arc_net))source_tax$target_Genome=arc_net$target_genome
+        cbind(source_tax,target_tax)->source_target
+        source_target=data.frame(source_target,spacer_n=arc_count$spacer_n)
+      }
+    }
+    else if(!all(c("source_lineage","target_lineage")%in%colnames(arc_count))) {
+      source_target=dplyr::left_join(arc_count,distinct_all(target_tax),by=c("target_name"="target_Species"),suffix = c("", ".y"))
+      source_target$target_Species=source_target$target_name
+      source_target=dplyr::left_join(source_target,distinct_all(source_tax),by=c("source_name"="source_Species"),suffix = c("", ".y"))
+      source_target$source_Species=source_target$source_name
+    }
+  }
+
+  if(!is.null(two_level)){
+    source_target%>%dplyr::select(paste0("source_",two_level[1]),paste0("target_",two_level[2]),"spacer_n")%>%
+      MetaNet::summ_2col(direct = T)%>%dplyr::arrange(-spacer_n)->a
     p=pcutils::my_sankey(a,mode = "gg",topN = topN1,num=T)
     return(p)
   }
+
   #前10的link
   pls=list()
   for (levels in le[2:8]) {
-    source_target%>%dplyr::select(dplyr::ends_with(levels))%>%MetaNet::summ_2col(direct = T)%>%dplyr::arrange(-count)->a
+    two_level=rep(levels,len=2)
+    source_target%>%dplyr::select(paste0("source_",two_level[1]),paste0("target_",two_level[2]),"spacer_n")%>%
+      MetaNet::summ_2col(direct = T)%>%
+      dplyr::arrange(-spacer_n)->a
     pls[[levels]]=pcutils::my_sankey(a,mode = "gg",topN = topN1,num=T)
     #看一个source tax的所有target
     pls1=list()
@@ -251,6 +385,8 @@ sankey_overview=function(source_target_info,two_level=NULL,topN1=8,topN2=8,file=
   pcutils::plotpdf(pls,paste0(file,"each_level"),height = 10)
   message("All done.")
 }
+
+
 
 #' Summary spacers target which: Self? Virus? Others?
 #'
@@ -270,7 +406,7 @@ tri_target=function(source_target_info,two_level=NULL){
   colnames(source_tax)=paste0("source_",le[2:8])
   if("source_genome"%in%colnames(arc_net))source_tax$source_Genome=arc_net$source_genome
   colnames(target_tax)=paste0("target_",le[2:8])
-  if("target_genome"%in%colnames(arc_net))source_tax$target_Genome=arc_net$target_genome
+  if("target_genome"%in%colnames(arc_net))target_tax$target_Genome=arc_net$target_genome
   cbind(source_tax,target_tax)->source_target
 
   get_self_target=function(source_target,levels){
@@ -307,7 +443,11 @@ tri_target=function(source_target_info,two_level=NULL){
 
   if(!is.null(two_level)){
     two_level=rep(two_level,len=2)
-    return(get_self_target(source_target,two_level))
+    self_df=get_self_target(source_target,two_level)
+    #self_df$Level=pcutils::change_fac_lev(self_df$Level,le[2:8])
+    rownames(self_df)=self_df$Source
+    class(self_df)=c("self_df",class(self_df))
+    return(self_df)
   }
   res=lapply(le[2:8], \(i){
     levels=rep(i,len=2)
