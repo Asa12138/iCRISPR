@@ -3,8 +3,8 @@ Type: Package
 Title: CRISPR analysis
 Version: 0.1.0
 Authors@R: c(
-    person("Peng", "Chen",email ="pengchen2001@zju.edu.cn", role = c("aut", "cre")),
-    person("Liu", "Zhen",email ="lz19@zju.edu.cn", role = c("aut"))
+    person("Chen", "Peng",email ="pengchen2001@zju.edu.cn", role = c("aut", "cre")),
+    person("Zhen", "Liu",email ="lz19@zju.edu.cn", role = c("aut"))
     )
 Description: 
     CRISPR analysis including CRISPR identification, prepare, summary and visualization.

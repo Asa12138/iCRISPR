@@ -11,7 +11,10 @@ get_consensus_rep_fa(crispr, evidence_level = NULL, cas = NULL)
 
 \item{evidence_level}{filter the evidence_level (1~4), if NULL, then no filter}
 
-\item{cas}{filter with cas system or not (T or F), if NULL, then no filter}
+\item{cas}{filter with cas system or not (TRUE or FALSE), if NULL, then no filter}
+}
+\value{
+fasta
 }
 \description{
 Get consensus repeat fasta

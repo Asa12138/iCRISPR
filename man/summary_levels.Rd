@@ -14,7 +14,7 @@ summary_levels(crispr, each_genome = FALSE, use_CCF = TRUE)
 
 \item{each_genome}{summary each genome information in multi_crispr?}
 
-\item{use_CCF}{use_CCF=T means use the spacer number count by CCF, but sometimes do'not match spacer.}
+\item{use_CCF}{use_CCF=TRUE means use the spacer number count by CCF, but sometimes do'not match spacer.}
 
 \item{x}{evidence_level object}
 
@@ -25,6 +25,8 @@ summary_levels(crispr, each_genome = FALSE, use_CCF = TRUE)
 \item{...}{additional}
 }
 \value{
+evidence_level object
+
 ggplot
 }
 \description{
@@ -33,6 +35,6 @@ Summary crispr and spacer number at different evidence levels
 Plot the distribution of array and spacer number at different evidence levels.
 }
 \examples{
-level_res=summary_levels(multi_crispr,each_genome=FALSE)
+level_res <- summary_levels(multi_crispr, each_genome = FALSE)
 plot(level_res)
 }

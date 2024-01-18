@@ -13,9 +13,6 @@ contains CRISPR, Cas, Array and Spacer
 \item{Spacer}{all spacer come from each CRISPR, Spacer_id is the key}
 }
 }
-\usage{
-crispr
-}
 \description{
 a list contains four dataframe.
 }

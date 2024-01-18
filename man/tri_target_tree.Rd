@@ -22,7 +22,7 @@ tree
 Build tri_target_tree
 }
 \examples{
-self_df=tri_target(pro_net)
-tree=tri_target_tree(pro_net,self_df,filter_spacer=10)
-#plot(tree)
+self_df <- tri_target(pro_net)
+tree <- tri_target_tree(pro_net, self_df, filter_spacer = 10)
+# plot(tree)
 }

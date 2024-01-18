@@ -8,7 +8,7 @@ pre_CCF_res(
   input_folder,
   output_folder = NULL,
   genome_name = NULL,
-  verbose = T
+  verbose = TRUE
 )
 }
 \arguments{
@@ -18,14 +18,17 @@ pre_CCF_res(
 
 \item{genome_name}{the genome_name}
 
-\item{verbose}{verbose, default: T}
+\item{verbose}{verbose, default: TRUE}
+}
+\value{
+crispr
 }
 \description{
 Prepare the result files from CRISPRCasFinder
 }
 \examples{
-MAG_test=system.file("extdata/MAG_test",package = "iCRISPR")
-crispr=pre_CCF_res(MAG_test)
+MAG_test <- system.file("extdata/MAG_test", package = "iCRISPR")
+crispr <- pre_CCF_res(MAG_test)
 }
 \references{
 https://crisprcas.i2bc.paris-saclay.fr/CrisprCasFinder/Index

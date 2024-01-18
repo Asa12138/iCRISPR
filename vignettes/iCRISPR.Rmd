@@ -13,17 +13,20 @@ vignette: >
   %\usepackage[utf8]{inputenc}
 ---
 
-```{r style, echo=FALSE, results="asis", message=FALSE}
-knitr::opts_chunk$set(tidy = FALSE,
-		   message = FALSE,eval = T)
+```{r style, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(
+    tidy = FALSE,
+    message = FALSE, eval = T
+)
+# devtools::load_all("~/Documents/R/CRISPR/iCRISPR/")
 ```
 
 # Install
 
 ```{r eval=FALSE}
-#depends on `pcutils`
+# depends on `pcutils`
 remotes::install_github("Asa12138/pcutils")
-#after finishing `pcutils` install, then
+# after finishing `pcutils` install, then
 remotes::install_github("Asa12138/iCRISPR")
 ```
 
@@ -60,14 +63,13 @@ MAG_test is a test result folder from CrisprCasFinder (contains "TSV","GFF","res
 
 ```{r}
 library(iCRISPR)
-devtools::load_all("~/Documents/R/iCRISPR/")
-#help analysis
+# help analysis
 library(pcutils)
 library(dplyr)
 library(ggplot2)
 
-MAG_test=system.file("extdata/MAG_test",package = "iCRISPR")
-crispr=pre_CCF_res(MAG_test)
+MAG_test <- system.file("extdata/MAG_test", package = "iCRISPR")
+crispr <- pre_CCF_res(MAG_test)
 
 crispr
 
@@ -84,8 +86,8 @@ crispr object contains CRISPR, Cas, Array and Spacer:
 If you have more than one result from CrisprCasFinder (maybe you perform this analysis on lots of genomes or MAGs), you can use `multi_pre_CCF_res` to get all crispr information.
 
 ```{r}
-#multi_crispr=multi_pre_CCF_res(input_folder="/path/your/folder",output_folder="./pre_CCF_res_out",threads=1)
-data("multi_crispr",package = "iCRISPR")
+# multi_crispr=multi_pre_CCF_res(input_folder="/path/your/folder",output_folder="./pre_CCF_res_out",threads=1)
+data("multi_crispr", package = "iCRISPR")
 multi_crispr
 
 class(multi_crispr)
@@ -100,9 +102,9 @@ We can use `plot_crispr` to visualize a CRISPR-Cas system in one sequence easily
 Choose the crispr with [evidence_level](#evidence-levels) = 4 will be better.
 
 ```{r fig.width=10}
-plot_crispr(crispr,genome="MAG_test",contig="AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518")
+plot_crispr(crispr, genome = "MAG_test", contig = "AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518")
 
-plot_crispr(multi_crispr$GCA_002396005.1_ASM239600v1,"DGVW01000088.1",array = F)
+plot_crispr(multi_crispr$GCA_002396005.1_ASM239600v1, "DGVW01000088.1", array = F)
 ```
 
 ## Statistics
@@ -112,14 +114,14 @@ plot_crispr(multi_crispr$GCA_002396005.1_ASM239600v1,"DGVW01000088.1",array = F)
 First, you can have a look at distribution of Cas-system type.
 
 ```{r}
-cas_type_res=summary_cas_type(multi_crispr,each_genome = F)
-plot(cas_type_res)+scale_fill_manual(values = pcutils::get_cols(15))
+cas_type_res <- summary_cas_type(multi_crispr, each_genome = F)
+plot(cas_type_res) + scale_fill_manual(values = pcutils::get_cols(15))
 
 data(multi_crispr2)
-cas_type_res2=summary_cas_type(multi_crispr2,each_genome = F)
+cas_type_res2 <- summary_cas_type(multi_crispr2, each_genome = F)
 
-#compare two multi_crispr, maybe from two group.
-plot(cas_type_res,cas_type_res2)+scale_fill_manual(values = pcutils::get_cols(15))
+# compare two multi_crispr, maybe from two group.
+plot(cas_type_res, cas_type_res2) + scale_fill_manual(values = pcutils::get_cols(15))
 ```
 
 As we all know, Cas-system can be classified into 2 classes and at least six type, each have own feature and signature cas protein.
@@ -135,7 +137,7 @@ show_cas_type()
 Secondly, summary the crispr and spacer number at different evidence levels:
 
 ```{r fig.width=10,fig.height=4}
-level_res=summary_levels(multi_crispr,each_genome=F)
+level_res <- summary_levels(multi_crispr, each_genome = F)
 plot(level_res)
 ```
 
@@ -150,7 +152,7 @@ CRISPR arrays having evidence-levels 3 and 4 may be considered as highly likely 
 And we can use `get_spacer_fa` to get spacer fasta sequence easily, use `evidence_level` or `cas` to filter spacer in crispr array at evidence_level 4 and with cas.
 
 ```{r}
-level4_fa=get_spacer_fa(crispr,evidence_level = 4,cas = T)
+level4_fa <- get_spacer_fa(crispr, evidence_level = 4, cas = T)
 head(level4_fa)
 # then use write_fasta to save the fasta file
 # pcutils::write_fasta()
@@ -178,31 +180,31 @@ The Shannon Complexity value refers to [(Konopka, A. K.  Wiley, 2005.)](https://
 Then we can compare the sequence features between spacer with other type sequence like random sequence, tandem repeat, and consensus repeat in CRISPR.
 
 ```{r}
-#spacer
-level4_fa=get_spacer_fa(multi_crispr,evidence_level = 4,cas = T)
-#random sequence
-random_fa=random_seq(500,mean_length = 35,sd_length = 3)
-#tandem repeat
-tandem_rep_fa=pcutils::read_fasta("../analysis/seq_feature/bac_tandem_repeat_f.fa")
-#consensus repeat
-consensus_rep_fa=get_consensus_rep_fa(multi_crispr)
+# spacer
+level4_fa <- get_spacer_fa(multi_crispr, evidence_level = 4, cas = T)
+# random sequence
+random_fa <- random_seq(500, mean_length = 35, sd_length = 3)
+# tandem repeat
+tandem_rep_fa <- random_tandem_repeat(500)
+# consensus repeat
+consensus_rep_fa <- get_consensus_rep_fa(multi_crispr)
 ```
 ps: tandem repeat here come from `trf` software result performed on 1,000 random bacteria genome.
 
 
 ```{r}
-seq_stat=lapply(list(level4_fa,random_fa,tandem_rep_fa,consensus_rep_fa), \(i)summary_seq(i)[,c(-1,-2)])
+seq_stat <- lapply(list(level4_fa, random_fa, tandem_rep_fa[, 1:2], consensus_rep_fa), \(i)summary_seq(i)[, c(-1, -2)])
 
-seq_stat2=do.call(rbind,lapply(1:4,\(i)cbind(type=c("spacer","random","tandem_rep","consensus_rep")[i],seq_stat[[i]])))
+seq_stat2 <- do.call(rbind, lapply(1:4, \(i)cbind(type = c("spacer", "random", "tandem_rep", "consensus_rep")[i], seq_stat[[i]])))
 
-seq_stat2$type=factor(seq_stat2$type,levels = c("random","spacer","consensus_rep","tandem_rep"))
-RColorBrewer::brewer.pal(4,"Set1")->cols
+seq_stat2$type <- factor(seq_stat2$type, levels = c("random", "spacer", "consensus_rep", "tandem_rep"))
+
+pcutils::get_cols(4,pal = "col3") -> cols
 pcutils::add_theme()
 
-pcutils::group_box(seq_stat2[c("shannon","complexity","GC_content")],"type",seq_stat2,alpha = T,mode = 3)+mytheme+
-  theme(axis.text.x = element_text(angle = 30,vjust = .5),legend.position = "none")+
-  scale_color_manual(values = cols)+scale_fill_manual(values = cols)
-
+pcutils::group_box(seq_stat2[c("shannon", "complexity", "GC_content")], "type", seq_stat2, alpha = T, mode = 3) + mytheme +
+    theme(axis.text.x = element_text(angle = 30, vjust = .5), legend.position = "none") +
+    scale_color_manual(values = cols) + scale_fill_manual(values = cols)
 ```
 
 ## CRISPR-target
@@ -226,12 +228,12 @@ First, try to alignment all spacers, if there are identity between two spacers b
 Then, try to alignment whole array, as followed:
 
 ```{r}
-array_test=random_seq(5)[,2]
-res=compare_array(array1=array_test,array2=array_test[c(5,1:3)])
+array_test <- random_seq(5)[, 2]
+res <- compare_array(array1 = array_test, array2 = array_test[c(5, 1:3)])
 plot(res)
 
-#try to alignment whole array
-align_array(res)->align_res
+# try to alignment whole array
+align_array(res) -> align_res
 plot(align_res)
 ```
 

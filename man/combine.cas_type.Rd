@@ -4,10 +4,12 @@
 \alias{combine.cas_type}
 \title{Combine some cas_type object}
 \usage{
-\method{combine}{cas_type}(..., each_genome = T)
+\method{combine}{cas_type}(..., each_genome = TRUE)
 }
 \arguments{
 \item{...}{cas_type object}
+
+\item{each_genome}{each_genome?}
 }
 \value{
 cas_type object

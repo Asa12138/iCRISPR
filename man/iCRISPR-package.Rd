@@ -9,11 +9,11 @@
 CRISPR analysis including CRISPR identification, prepare, summary and visualization.
 }
 \author{
-\strong{Maintainer}: Peng Chen \email{pengchen2001@zju.edu.cn}
+\strong{Maintainer}: Chen Peng \email{pengchen2001@zju.edu.cn}
 
 Authors:
 \itemize{
-  \item Liu Zhen \email{lz19@zju.edu.cn}
+  \item Zhen Liu \email{lz19@zju.edu.cn}
 }
 
 }

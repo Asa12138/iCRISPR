@@ -4,9 +4,6 @@
 \name{multi_crispr}
 \alias{multi_crispr}
 \title{One multi_crispr object contains lots of crispr object.}
-\usage{
-multi_crispr
-}
 \description{
 a list contains lots of crispr object (50 genomes).
 }

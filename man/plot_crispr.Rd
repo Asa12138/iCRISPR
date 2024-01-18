@@ -5,7 +5,7 @@
 \alias{xlim_crispr}
 \title{Plot a crispr-cas system}
 \usage{
-plot_crispr(crispr, contig = NULL, genome = NULL, array = T, cas = T)
+plot_crispr(crispr, contig = NULL, genome = NULL, array = TRUE, cas = TRUE)
 
 xlim_crispr(...)
 }
@@ -34,6 +34,7 @@ xlim for plot_crispr
 }
 \examples{
 data(crispr)
-(p=plot_crispr(crispr,genome="MAG_test",contig="AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518"))
-p+xlim_crispr(24000,27000)
+(p <- plot_crispr(crispr, genome = "MAG_test",
+     contig = "AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518"))
+p + xlim_crispr(24000, 27000)
 }

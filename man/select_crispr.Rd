@@ -19,5 +19,5 @@ Select part of multi_crispr.
 }
 \examples{
 data(multi_crispr)
-select_crispr(multi_crispr,1:10)
+select_crispr(multi_crispr, 1:10)
 }

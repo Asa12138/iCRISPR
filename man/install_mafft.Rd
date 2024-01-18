@@ -12,7 +12,7 @@ install_mafft(mafft.zip = NULL, install_dir = tools::R_user_dir("iCRISPR"))
 \item{install_dir}{The directory to install MAFFT.}
 }
 \value{
-None
+No value
 }
 \description{
 This function downloads and installs MAFFT at the specified path.

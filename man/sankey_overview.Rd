@@ -5,7 +5,9 @@
 \title{Sankey plot for source-target}
 \usage{
 sankey_overview(
-  source_target_info,
+  arc_count,
+  source_tax = NULL,
+  target_tax = NULL,
   two_level = NULL,
   topN1 = 8,
   topN2 = 8,
@@ -13,7 +15,11 @@ sankey_overview(
 )
 }
 \arguments{
-\item{source_target_info}{data.frame which columns: "source_lineage","target_lineage"}
+\item{arc_count}{data.frame which columns: "source_name","target_name","spacer_n".}
+
+\item{source_tax}{source_tax table}
+
+\item{target_tax}{target_tax table}
 
 \item{two_level}{manual which two levels in "Kingdom","Phylum","Class","Order","Family","Genus","Species". Sometimes "Genome"}
 
@@ -30,5 +36,6 @@ ggplot
 Sankey plot for source-target
 }
 \examples{
-sankey_overview(pro_net,two_level=c("Species","Genus"))
+data(pro_net)
+sankey_overview(pro_net, two_level = c("Species", "Genus"))
 }

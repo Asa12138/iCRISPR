@@ -20,6 +20,6 @@ Sequence identity as a decimal value between 0 and 1
 This function calculates the sequence identity between two sequences.
 }
 \examples{
-calculate_identity("ATCGTACG","ATCGTAGC")
-calculate_identity("ATCGTACG","ATCGTAGC",xmode=TRUE)
+calculate_identity("ATCGTACG", "ATCGTAGC")
+calculate_identity("ATCGTACG", "ATCGTAGC", xmode = TRUE)
 }

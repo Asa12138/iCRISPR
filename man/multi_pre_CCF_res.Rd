@@ -7,7 +7,8 @@
 multi_pre_CCF_res(
   input_folder,
   output_folder = "./pre_CCF_res_out",
-  threads = 1
+  threads = 1,
+  verbose = TRUE
 )
 }
 \arguments{
@@ -16,6 +17,11 @@ multi_pre_CCF_res(
 \item{output_folder}{output folder, default: NULL, don not output to file.}
 
 \item{threads}{threads, default: 1}
+
+\item{verbose}{verbose}
+}
+\value{
+No value
 }
 \description{
 Prepare many genome result files from CRISPRCasFinder

@@ -42,9 +42,9 @@ Plot array_comparison
 Align array_comparison
 }
 \examples{
-array_test=random_seq(5)[,2]
-res=compare_array(array1=array_test,array2=array_test[c(5,1:3)])
+array_test <- random_seq(5)[, 2]
+res <- compare_array(array1 = array_test, array2 = array_test[c(5, 1:3)])
 plot(res)
-align_array(res)->align_res
+align_array(res) -> align_res
 plot(align_res)
 }

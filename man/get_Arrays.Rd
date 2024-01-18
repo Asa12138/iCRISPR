@@ -17,5 +17,5 @@ Get Arrays from crispr.
 }
 \examples{
 data(crispr)
-Arrays=get_Arrays(crispr)
+Arrays <- get_Arrays(crispr)
 }

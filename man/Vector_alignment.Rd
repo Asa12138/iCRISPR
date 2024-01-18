@@ -33,8 +33,8 @@ Dynamic programming, a little slow but can used for multi-characteristics.
 Summary SV of an alignment
 }
 \examples{
-align_res=Vector_alignment(c("1"="as","2"="bb","3"="cc"),c("bb","cc","as","as"))
+align_res <- Vector_alignment(c("1" = "as", "2" = "bb", "3" = "cc"), c("bb", "cc", "as", "as"))
 align_res
 summary_SV(align_res)
-Vector_alignment("ATCGTACG","ATCGTAGC",print_score_mat=TRUE)
+Vector_alignment("ATCGTACG", "ATCGTAGC", print_score_mat = TRUE)
 }

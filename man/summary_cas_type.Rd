@@ -23,6 +23,8 @@ summary_cas_type(crispr, each_genome = FALSE)
 \item{plot_param}{plot parameters}
 }
 \value{
+cas_type object
+
 ggplot
 }
 \description{
@@ -32,6 +34,6 @@ Plot the Cas system type and subtype
 }
 \examples{
 data(multi_crispr)
-cas_type_res=summary_cas_type(multi_crispr)
+cas_type_res <- summary_cas_type(multi_crispr)
 plot(cas_type_res)
 }

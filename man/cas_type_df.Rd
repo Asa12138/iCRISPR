@@ -7,6 +7,3 @@
 \description{
 CRISPR-Cas system type information.
 }
-\references{
-reference
-}

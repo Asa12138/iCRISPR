@@ -18,5 +18,5 @@ data.frame
 Summary spacers target which: Self? Virus? Others?
 }
 \examples{
-tri_target(pro_net,two_level=c("Species","Genus"))
+tri_target(pro_net, two_level = c("Species", "Genus"))
 }

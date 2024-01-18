@@ -20,6 +20,6 @@ Sequence identity as a decimal value between 0 and 1
 Judge two sequence are same or not
 }
 \examples{
-is_same_seq("ATCGTACG","ATCGTACG")
-is_same_seq("ATCGTACG","ATCGTACG",xmode=TRUE)
+is_same_seq("ATCGTACG", "ATCGTACG")
+is_same_seq("ATCGTACG", "ATCGTACG", xmode = TRUE)
 }
