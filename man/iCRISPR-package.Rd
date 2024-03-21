@@ -8,8 +8,16 @@
 \description{
 CRISPR analysis including CRISPR identification, prepare, summary and visualization.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/Asa12138/iCRISPR}
+  \item Report bugs at \url{https://github.com/Asa12138/iCRISPR/issues}
+}
+
+}
 \author{
-\strong{Maintainer}: Chen Peng \email{pengchen2001@zju.edu.cn}
+\strong{Maintainer}: Chen Peng \email{pengchen2001@zju.edu.cn} (\href{https://orcid.org/0000-0002-9449-7606}{ORCID})
 
 Authors:
 \itemize{

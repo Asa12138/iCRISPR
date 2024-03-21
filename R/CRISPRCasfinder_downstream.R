@@ -294,8 +294,10 @@ get_cas <- function(rawCas_file, Cas_report_file, genome_name) {
     # System结束部分
     else if (grepl("####Summary system", i)) {
       flag <- FALSE
+      #有些Sequence_ID内带#号，恶心坏了
+      cas_sys <- cas_sys[!grepl("^#", cas_sys)]
       a <- utils::read.table(
-        text = cas_sys, check.names = FALSE, comment.char = "", quote = "",
+        text = cas_sys, check.names = FALSE, comment.char = "", quote = "", sep = "\t",
         col.names = c("Sequence_ID", "Cas-type/subtype", "Gene status", "System", "Type", "Begin", "End", "Strand", "Other_information")
       )
       a <- a %>%
