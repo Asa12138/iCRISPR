@@ -6,7 +6,7 @@
 \usage{
 multi_pre_CCF_res(
   input_folder,
-  output_folder = "./pre_CCF_res_out",
+  output_folder = NULL,
   threads = 1,
   verbose = TRUE
 )

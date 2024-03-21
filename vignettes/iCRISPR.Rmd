@@ -15,8 +15,8 @@ vignette: >
 
 ```{r style, include=FALSE, message=FALSE}
 knitr::opts_chunk$set(
-    tidy = FALSE,
-    message = FALSE, eval = T
+  tidy = FALSE,
+  message = FALSE, eval = T
 )
 # devtools::load_all("~/Documents/R/CRISPR/iCRISPR/")
 ```
@@ -199,12 +199,12 @@ seq_stat2 <- do.call(rbind, lapply(1:4, \(i)cbind(type = c("spacer", "random", "
 
 seq_stat2$type <- factor(seq_stat2$type, levels = c("random", "spacer", "consensus_rep", "tandem_rep"))
 
-pcutils::get_cols(4,pal = "col3") -> cols
+pcutils::get_cols(4, pal = "col3") -> cols
 pcutils::add_theme()
 
 pcutils::group_box(seq_stat2[c("shannon", "complexity", "GC_content")], "type", seq_stat2, alpha = T, mode = 3) + mytheme +
-    theme(axis.text.x = element_text(angle = 30, vjust = .5), legend.position = "none") +
-    scale_color_manual(values = cols) + scale_fill_manual(values = cols)
+  theme(axis.text.x = element_text(angle = 30, vjust = .5), legend.position = "none") +
+  scale_color_manual(values = cols) + scale_fill_manual(values = cols)
 ```
 
 ## CRISPR-target

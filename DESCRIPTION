@@ -1,9 +1,9 @@
 Package: iCRISPR
 Type: Package
-Title: CRISPR analysis
-Version: 0.1.0
+Title: CRISPR Analysis
+Version: 0.1.1
 Authors@R: c(
-    person("Chen", "Peng",email ="pengchen2001@zju.edu.cn", role = c("aut", "cre")),
+    person("Chen", "Peng",email ="pengchen2001@zju.edu.cn", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-9449-7606")),
     person("Zhen", "Liu",email ="lz19@zju.edu.cn", role = c("aut"))
     )
 Description: 
@@ -14,18 +14,20 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 LazyData: true
 Depends: 
-    R (>= 3.5.0)
+    R (>= 4.1.0)
 Imports: 
     dplyr,
     ggplot2,
     utils,
-    pcutils,
-    igraph
+    pcutils (>= 0.2.5),
+    ggnewscale,
+    reshape2,
+    scales
 Suggests:
     prettydoc,
+    igraph,
     knitr,
     rmarkdown,
-    ggnewscale,
     gggenes,
     foreach,
     doSNOW,
@@ -36,14 +38,12 @@ Suggests:
     ggtree,
     ggtreeExtra,
     aplot,
-    reshape2,
-    scales,
     MetaNet,
     ggpmisc,
     ggpubr,
     ggsci,
     pctax,
     ggtern
-Remotes:
-    Asa12138/pcutils
 VignetteBuilder: knitr
+BugReports: https://github.com/Asa12138/iCRISPR/issues
+URL: https://github.com/Asa12138/iCRISPR

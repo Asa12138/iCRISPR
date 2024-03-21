@@ -4,7 +4,7 @@
 \name{iCRISPR-package}
 \alias{iCRISPR}
 \alias{iCRISPR-package}
-\title{iCRISPR: CRISPR analysis}
+\title{iCRISPR: CRISPR Analysis}
 \description{
 CRISPR analysis including CRISPR identification, prepare, summary and visualization.
 }
