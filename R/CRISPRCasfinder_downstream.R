@@ -130,16 +130,18 @@ multi_pre_CCF_res <- function(input_folder, output_folder = NULL, threads = 1, v
       pcutils::dabiao("Doing ", i, " genome")
     }
 
-    tryCatch({
-      pre_CCF_res(
-        input_folder = all_genome[i], output_folder = output_folder,
-        verbose = FALSE
-      )
-    }, error = function(e) {
-      message("Error: ", all_genome[i])
-      NULL
-    })
-
+    tryCatch(
+      {
+        pre_CCF_res(
+          input_folder = all_genome[i], output_folder = output_folder,
+          verbose = FALSE
+        )
+      },
+      error = function(e) {
+        message("Error: ", all_genome[i])
+        NULL
+      }
+    )
   }
   {
     if (threads > 1) {
@@ -294,7 +296,7 @@ get_cas <- function(rawCas_file, Cas_report_file, genome_name) {
     # System结束部分
     else if (grepl("####Summary system", i)) {
       flag <- FALSE
-      #有些Sequence_ID内带#号，恶心坏了
+      # 有些Sequence_ID内带#号，恶心坏了
       cas_sys <- cas_sys[!grepl("^#", cas_sys)]
       a <- utils::read.table(
         text = cas_sys, check.names = FALSE, comment.char = "", quote = "", sep = "\t",

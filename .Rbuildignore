@@ -8,3 +8,8 @@ pre_CCF_res_out/
 pre_CCF_res_out
 analysis*
 .*\.md
+^README\.Rmd$
+^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
