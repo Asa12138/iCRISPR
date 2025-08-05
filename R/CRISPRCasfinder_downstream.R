@@ -517,7 +517,7 @@ get_spacer_fa <- function(crispr, evidence_level = NULL, cas = NULL) {
   if (!is.null(evidence_level)) {
     # 旧版本生成名称为evidence_Level，已改为evidence_Level
     if ("evidence_Level" %in% colnames(crispr$CRISPR)) crispr$CRISPR <- dplyr::rename(crispr$CRISPR, evidence_level = "evidence_Level")
-    filter_crispr <- dplyr::filter(crispr$CRISPR, evidence_level == !!evidence_level) %>% dplyr::pull(CRISPR_id)
+    filter_crispr <- dplyr::filter(crispr$CRISPR, evidence_level %in% !!evidence_level) %>% dplyr::pull(CRISPR_id)
     filter_spacer <- crispr$Spacer %>%
       dplyr::filter(CRISPR_id %in% filter_crispr) %>%
       dplyr::select(Spacer_id, sequence)

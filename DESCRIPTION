@@ -1,14 +1,14 @@
 Package: iCRISPR
 Type: Package
 Title: CRISPR Analysis
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(
     person("Chen", "Peng",email ="pengchen2001@zju.edu.cn", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-9449-7606")),
     person("Zhen", "Liu",email ="lz19@zju.edu.cn", role = c("aut"))
     )
 Description: 
     CRISPR analysis including CRISPR identification, prepare, summary and visualization.
-License: GPL-3
+License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3

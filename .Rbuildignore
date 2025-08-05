@@ -13,3 +13,4 @@ analysis*
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^LICENSE\.md$

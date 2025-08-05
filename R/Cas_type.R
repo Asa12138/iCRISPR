@@ -1,3 +1,18 @@
+get_crispr_info=function(crispr){
+  if(is.null(crispr)) return(NULL)
+  if (inherits(crispr, "multi_crispr")) {
+    aaa <- lapply(crispr, get_crispr_info)
+    bbb <- do.call(rbind, aaa)
+    rownames(bbb) <- NULL
+    return(bbb)
+  }
+  data.frame(attributes(crispr)$basic_info,
+             n_cas_protein=ifelse(is.null(crispr$Cas),0,nrow(crispr$Cas)),
+             n_crispr_level4=sum(crispr$CRISPR$evidence_level==4)
+  )
+}
+
+
 #' Summary Cas-system type
 #'
 #' @param crispr crispr object
@@ -150,6 +165,7 @@ show_cas_type <- function() {
   p <- ggplot(cas_type_df, aes(y = sub_type, fill = cas1)) +
     gggenes::geom_gene_arrow(aes(xmin = position, xmax = position + 1, forward = (strand == "+"))) +
     gggenes::geom_gene_label(aes(xmin = position, xmax = position + 1, label = cas)) +
+    pcutils::scale_fill_pc(n = 31)+
     geom_hline(yintercept = 10.5, linetype = 2) +
     theme_void() +
     theme(legend.position = "none")

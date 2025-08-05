@@ -6,12 +6,12 @@ output:
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, include = FALSE}
+```{r include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%", eval = FALSE
 )
 devtools::load_all("~/Documents/R/CRISPR/iCRISPR/")
 library(badger)
@@ -27,6 +27,26 @@ sticker("~/Documents/R/test/icons/crispr.png",
   h_fill = "grey90", h_color = "#002fa7",
   filename = "man/figures/iCRISPR.png", dpi = 300
 )
+
+'flowchart LR
+
+    A["genome(s)"] -- CrisprCasFinder --> B[output_dir]
+    B -- iCRISPR --> C
+
+    subgraph crispr[crispr object]
+    direction LR
+    C([crispr]):::object --- C1[CRISPR]
+    C --- C2[Cas]
+    C --- C3[Array]
+    C --- C4[Spacer]
+    end
+
+    C1--> Statistics
+    C2--> Statistics
+    C3--> Structure
+    C4--> Source-\nTarget
+
+classDef object fill:#6EC3E0,stroke:#333,stroke-width:3px'
 ```
 
 
@@ -37,10 +57,9 @@ sticker("~/Documents/R/test/icons/crispr.png",
 `r badge_cran_download("iCRISPR", type = "grand-total")`
 `r badge_cran_download("iCRISPR", type = "last-month")`
 `r badge_cran_release("iCRISPR","green")`
-`r badge_devel("Asa12138/iCRISPR", color = "green")`
 <!-- badges: end -->
 
-The goal of iCRISPR is to ...
+iCRISPR can summary the result from [CrisprCasFinder](https://crisprcas.i2bc.paris-saclay.fr/CrisprCasFinder/Index) gracefully, and further CRISPR analysis including CRISPR identification, prepare, summary and visualization.
 
 ## Installation
 
@@ -49,4 +68,198 @@ You can install the development version of iCRISPR from [GitHub](https://github.
 ``` r
 # install.packages("devtools")
 devtools::install_github("Asa12138/iCRISPR")
+```
+
+Imports: 
+    dplyr,
+    ggplot2,
+    utils,
+    pcutils (>= 0.2.5),
+    ggnewscale,
+    reshape2,
+    scales
+    
+    
+## Usage
+
+### CCF_result
+
+You need to use CrisprCasFinder to identify crispr in your genomes first.
+
+MAG_test is a test result folder from CrisprCasFinder (contains "TSV","GFF","result.json",...), we can use `pre_CCF_res` to get a crispr object.
+
+```{r}
+library(iCRISPR)
+# help analysis
+library(pcutils)
+library(dplyr)
+library(ggplot2)
+
+MAG_test <- system.file("extdata/MAG_test", package = "iCRISPR")
+crispr <- pre_CCF_res(MAG_test)
+
+crispr
+
+class(crispr)
+```
+
+crispr object contains CRISPR, Cas, Array and Spacer:
+
+-   CRISPR found in the whole genome (with multi-contigs), CRISPR_id is the key
+-   Cas system found in the whole genome, Cas_id is the key, one Cas_id contains multi cas protein
+-   Array: the array structure of each CRISPR, "LeftFLANK","CRISPRdr","CRISPRspacer","RightFLANK"
+-   Spacer: all spacer come from each CRISPR, Spacer_id is the key
+
+If you have more than one result from CrisprCasFinder (maybe you perform this analysis on lots of genomes or MAGs), you can use `multi_pre_CCF_res` to get all crispr information.
+
+```{r}
+# multi_crispr=multi_pre_CCF_res(input_folder="/path/your/folder",output_folder="./pre_CCF_res_out",threads=1)
+data("multi_crispr", package = "iCRISPR")
+multi_crispr
+
+class(multi_crispr)
+```
+
+multi_crispr is a list contains lots of crispr object.
+
+### Visualization
+
+We can use `plot_crispr` to visualize a CRISPR-Cas system in one sequence easily.
+
+Choose the crispr with [evidence_level](#evidence-levels) = 4 will be better.
+
+```{r fig.width=10}
+plot_crispr(crispr, genome = "MAG_test", contig = "AAB-S01R1_k55_9399631_flag=0_multi=9.8751_len=26518")
+
+plot_crispr(multi_crispr$GCA_002396005.1_ASM239600v1, "DGVW01000088.1", array = F)
+```
+
+### Statistics
+
+#### Cas type
+
+First, you can have a look at distribution of Cas-system type.
+
+```{r}
+cas_type_res <- summary_cas_type(multi_crispr, each_genome = F)
+plot(cas_type_res) + scale_fill_manual(values = pcutils::get_cols(15))
+
+data(multi_crispr2)
+cas_type_res2 <- summary_cas_type(multi_crispr2, each_genome = F)
+
+# compare two multi_crispr, maybe from two group.
+plot(cas_type_res, cas_type_res2) + scale_fill_manual(values = pcutils::get_cols(15))
+```
+
+As we all know, Cas-system can be classified into 2 classes and at least six type, each have own feature and signature cas protein.
+
+Use `show_cas_type` get an overview. (refer to [Makarova, K. S. et al. Nat Rev Microbiol 2020.](https://www.nature.com/articles/s41579-019-0299-x))
+
+```{r fig.width=13}
+show_cas_type()
+```
+
+#### Evidence levels
+
+Secondly, summary the crispr and spacer number at different evidence levels:
+
+```{r fig.width=10,fig.height=4}
+level_res <- summary_levels(multi_crispr, each_genome = F)
+plot(level_res)
+```
+
+The evidence levels comes from CrisprCasFinder ([Couvin, D. et al. Nucleic Acids Research 2018.](https://academic.oup.com/nar/article/46/W1/W246/5001162)):
+
+Short candidate arrays made of one to three spacers often do not correspond to CRISPRs and are therefore given the lowest evidence level (rated 1). Evidence levels 2--4 are attributed based on combined degrees of similarity of repeats and spacers.
+
+Putative CRISPR arrays with at least four spacers are assigned to levels 2--4 as follows: - repeats EBcons \< 70 (level 2) - repeats EBcons ≥ 70 and spacers overall percentage identity \> 8% (level 3) - repeats EBcons ≥ 70 and spacers overall percentage identity ≤ 8% (level 4).
+
+CRISPR arrays having evidence-levels 3 and 4 may be considered as highly likely candidates, whereas evidence-levels 1 and 2 indicate potentially invalid CRISPR arrays.
+
+And we can use `get_spacer_fa` to get spacer fasta sequence easily, use `evidence_level` or `cas` to filter spacer in crispr array at evidence_level 4 and with cas.
+
+```{r}
+level4_fa <- get_spacer_fa(crispr, evidence_level = 4, cas = T)
+head(level4_fa)
+# then use write_fasta to save the fasta file
+# pcutils::write_fasta()
+```
+
+The Spacer_id includes these information splited by `@`:
+
+-   which genome the spacer comes from
+-   which sequence (contig) the spacer comes from
+-   which crispr array is on the sequence
+-   the start and end sites of the crispr array
+-   the start position of a spacer,the spacer's length,and the number id of spacers in the array combined with `_`.
+
+#### Sequence complexity
+
+The sequence features of spacer is very important. 
+You can use `summary_seq` to get basic information and sequence complexity (Shannon complexity and Sequence complexity):
+```{r}
+level4_fa$sequence[1:5]
+summary_seq(level4_fa$sequence[1:5])
+```
+
+The Shannon Complexity value refers to [(Konopka, A. K.  Wiley, 2005.)](https://onlinelibrary.wiley.com/doi/10.1038/npg.els.0005260) and Sequence complexity refers to [(https://resources.qiagenbioinformatics.com)](https://resources.qiagenbioinformatics.com/manuals/clccancerresearchworkbench/200/index.php?manual=How_sequence_complexity_is_calculated.html).
+
+Then we can compare the sequence features between spacer with other type sequence like random sequence, tandem repeat, and consensus repeat in CRISPR.
+
+```{r}
+# spacer
+level4_fa <- get_spacer_fa(multi_crispr, evidence_level = 4, cas = T)
+# random sequence
+random_fa <- random_seq(500, mean_length = 35, sd_length = 3)
+# tandem repeat
+tandem_rep_fa <- random_tandem_repeat(500)
+# consensus repeat
+consensus_rep_fa <- get_consensus_rep_fa(multi_crispr)
+```
+ps: tandem repeat here come from `trf` software result performed on 1,000 random bacteria genome.
+
+
+```{r}
+seq_stat <- lapply(list(level4_fa, random_fa, tandem_rep_fa[, 1:2], consensus_rep_fa), \(i)summary_seq(i)[, c(-1, -2)])
+
+seq_stat2 <- do.call(rbind, lapply(1:4, \(i)cbind(type = c("spacer", "random", "tandem_rep", "consensus_rep")[i], seq_stat[[i]])))
+
+seq_stat2$type <- factor(seq_stat2$type, levels = c("random", "spacer", "consensus_rep", "tandem_rep"))
+
+pcutils::get_cols(4, pal = "col3") -> cols
+pcutils::add_theme()
+
+pcutils::group_box(seq_stat2[c("shannon", "complexity", "GC_content")], "type", seq_stat2, alpha = T, mode = 3) + mytheme +
+  theme(axis.text.x = element_text(angle = 30, vjust = .5), legend.position = "none") +
+  scale_color_manual(values = cols) + scale_fill_manual(values = cols)
+```
+
+### CRISPR-target
+
+The important question for CRISPR research is what these CRISPR do and how to do?
+Although it has been proved that most CRISPR play a role in targeting intruder as immune system, beyond this, 
+many people also guess it can do something special like regulating gene expression.
+
+So we need to figure out what these spacer target. Using [Blast](https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html) to find where these spacer come from is a good idea (which taxa, gene or inter-gene region). 
+
+We recommend to build a big [database](https://ftp.ncbi.nlm.nih.gov/blast/db/) and running blast in Linux server, then come back to iCRISPR for next analysis.
+
+```{bash eval=FALSE}
+blastn -task blastn-short -query $sample -db $bac23 -out blastn_output_big/bac/$sample.out -qcov_hsp_perc 95 -perc_identity 95 -max_hsps 3 -num_threads 12 -outfmt 6
+```
+
+### Compare array
+
+We try to compare the structure variation of two arrays.
+First, try to alignment all spacers, if there are identity between two spacers bigger than 90%, we think that is same spacer.
+Then, try to alignment whole array, as followed:
+
+```{r}
+array_test <- random_seq(5)[, 2]
+res <- compare_array(array1 = array_test, array2 = array_test[c(5, 1:3)])
+plot(res)
+
+# try to alignment whole array
+align_array(res) -> align_res
+plot(align_res)
 ```
